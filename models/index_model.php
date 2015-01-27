@@ -47,6 +47,11 @@ class Index_model extends Model {
         return $res; 
     }
     
-    
+    public function compnys_list(){
+        $all = $this->db->prepare("SELECT _name_ FROM _companies_");
+        $all->execute();
+        $res = $all->fetchAll(PDO::FETCH_ASSOC);
+        return $res; 
+    }
 
 }

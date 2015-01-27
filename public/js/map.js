@@ -11,7 +11,7 @@ $(document).ready(function () {
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
-    $(function () {
+
 
         $('#popver').popover({
             html: true,
@@ -34,9 +34,9 @@ $(document).ready(function () {
                     $('.lst-tab').html('<tr><th>Company Name</th><th>Type</th>' +
                             '<th>City</th></tr>')
                     for (i = 0; i < lng; i++) {
-                        $('.lst-tab').append('<tr><td align="center"><a id="0" href="#" class="modal_trigger6 hr-lev prsnl-levs-list">' + data[i]._name_ + '</a></td>' +
-                                '<td align="center">' + data[i]._type_ + '</td>'+
-                                '<td align="center"><a id="0" href="#payslip-popup" class="modal_trigger6 hr-lev prsnl-levs-list"><i class="icon-eye-open"></i>' +
+                        $('.lst-tab').append('<tr><td align="center"><a id="0" href="#">' + data[i]._name_ + '</a></td>' +
+                                '<td align="center">' + data[i]._type_ + '</td>' +
+                                '<td align="center"><a id="0" href="#"><i class="icon-eye-open"></i>' +
                                 '' + data[i]._city_ + '</a></td></tr>');
                     }
                 }
@@ -64,7 +64,7 @@ $(document).ready(function () {
                 success: function (d) {
                     $('#newentry .p-cls').trigger('click');
                     alert(d);
-                    
+
                 }
             })
         });
@@ -77,8 +77,7 @@ $(document).ready(function () {
                 data: {
                     'tp': 'all'
                 },
-                success: function (d) { 
-//                    console.log(d);return;
+                success: function (d) {
                     var data = JSON.parse(d);
                     var i;
                     var lng = data.length;
@@ -86,9 +85,9 @@ $(document).ready(function () {
                     $('.lst-tab').html('<tr><th>Company Name</th><th>Type</th>' +
                             '<th>city</th></tr>')
                     for (i = 0; i < lng; i++) {
-                        $('.lst-tab').append('<tr><td align="center"><a id="0" href="#" class="modal_trigger6 hr-lev prsnl-levs-list">' + data[i]._name_ + '</a></td>' +
+                        $('.lst-tab').append('<tr><td align="center"><a id="0" href="#">' + data[i]._name_ + '</a></td>' +
                                 '<td align="center">' + data[i]._type_ + '</td>' +
-                                '<td align="center"><a id="0" href="#payslip-popup" class="modal_trigger6 hr-lev prsnl-levs-list"><i class="icon-eye-open"></i>' +
+                                '<td align="center"><a id="0" href="#"><i class="icon-eye-open"></i>' +
                                 '' + data[i]._city_ + '</a></td></tr>');
                     }
                 }
@@ -111,19 +110,28 @@ $(document).ready(function () {
                     $('.lst-tab').html('<tr><th>Company Name</th><th>Type</th>' +
                             '<th>City</th></tr>')
                     for (i = 0; i < lng; i++) {
-                        $('.lst-tab').append('<tr><td align="center"><a id="0" href="#" class="modal_trigger6 hr-lev prsnl-levs-list">' + data[i]._name_ + '</a></td>' +
+                        $('.lst-tab').append('<tr><td align="center"><a id="0" href="#">' + data[i]._name_ + '</a></td>' +
                                 '<td align="center">' + data[i]._type_ + '</td>' +
-                                '<td align="center"><a id="0" href="#payslip-popup" class="modal_trigger6 hr-lev prsnl-levs-list"><i class="icon-eye-open"></i>' +
+                                '<td align="center"><a id="0" href="#"><i class="icon-eye-open"></i>' +
                                 '' + data[i]._city_ + '</a></td></tr>');
                     }
                 }
             });
         });
-
+        
+        $.ajax({
+            url: 'index/clst',
+            method: 'post',
+            success:function(d){
+                var data = JSON.parse(d);
+                var i;
+                var lngt = data.length;
+                for(i=0; i<lngt; i++){
+                    $('#comny_name').append('<option value="'+i+'" >'+data[i]._name_+'</option>')
+                }
+            }
+        })
 
 
     });
 
-
-
-});

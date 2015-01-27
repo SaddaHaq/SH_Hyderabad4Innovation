@@ -17,4 +17,8 @@ class Index extends Controller {
     public function all_entries() {
         echo json_encode($this->model->all());
     }
+    
+    public function clst(){
+        echo json_encode($this->model->compnys_list());
+    }
 }

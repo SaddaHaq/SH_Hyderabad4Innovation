@@ -28,19 +28,9 @@
             <div class="mp-frm">
                 
                 <a id="popver" href="#" class="mps-inpt btn btn-info btn-small btn-login-indx" rel="popover">H</a>
-                <select id="slct-month">
-                    <option value="1" selected="">Dummy</option>
-                    <option value="2">Dummy</option>
-                    <option value="3">Dummy</option>
-                    <option value="4">Dummy</option>
-                    <option value="5">Dummy</option>
-                    <option value="6">Dummy</option>
-                    <option value="7">Dummy</option>
-                    <option value="8">Dummy</option>
-                    <option value="9">Dummy</option>
-                    <option value="10">Dummy</option>
-                    <option value="11">Dummy</option>
-                    <option value="12">Dummy</option>
+                <select id="comny_name">
+                    <option value="1" selected="">Select Company</option>
+                    
                 </select>
                 <buttun id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></buttun>
             </div>
