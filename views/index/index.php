@@ -29,7 +29,7 @@
 
                     <a id="popver" href="#" class="mps-inpt btn btn-info btn-small" rel="popover">H</a>
                     <select id="comny_name">
-                        <option value="1" selected="">Select Company</option>
+                        <option value="1" selected="">Select Category </option>
 
                     </select>
                     <buttun id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></buttun>
@@ -48,16 +48,16 @@
                         <p class="er">nothing</p>
                         <form id="cpmy-frm">  
                             <div class="lft-flds">
-                                Name:<input type="text" class="nw-ip" id="name">
-                                Website:<input type="text" class="nw-ip" id="website">
-                                Type:<input type="text" class="nw-ip" id="tp">
-                                About:<textarea  class="nw-ip" id="abt" style="height: 60px;"></textarea>
-                                City:<input type="text" class="nw-ip" id="cty">
+                                Name:<input type="text" class="nw-ip" id="name" placeholder="Name of the company*">
+                                Website:<input type="text" class="nw-ip" id="website" placeholder="Company Website*">
+                                Type:<input type="text" class="nw-ip" id="tp" placeholder="Company type*">
+                                About:<textarea  class="nw-ip" id="abt" style="height: 60px;" placeholder="Description of the company*"></textarea>
+                                City:<input type="text" class="nw-ip" id="cty" placeholder="Location of the company*">
                             </div>
                             <div class="lft-flds">
-                                Address:<textarea class="nw-ip" id="adrss" style="height: 60px;"></textarea>
-                                Contact:<input type="text" class="nw-ip" id="cntat">
-                                Rating:<input type="text" class="nw-ip" id="rtng">
+                                Address:<textarea class="nw-ip" id="adrss" style="height: 60px;" placeholder="Company Adress"></textarea>
+                                Contact:<input type="text" class="nw-ip" id="cntat" placeholder="Company contact details">
+                                Rating:<input type="text" class="nw-ip" id="rtng" placeholder="Company rating">
                                 Longitude:<input type="text" class="nw-ip" id="lng">
                                 Latitude:<input type="text" class="nw-ip" id="ltd">
                             </div>
