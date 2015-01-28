@@ -21,4 +21,11 @@ class Index extends Controller {
     public function clst(){
         echo json_encode($this->model->compnys_list());
     }
+    public function langlat(){
+        echo json_encode($this->model->get_lnglat());
+    }
+     
+  public function aprv(){
+      echo $this->model->aprv_etry();
+  } 
 }

@@ -21,6 +21,13 @@ class Index_model extends Model {
                                   ":langitude"=>$_POST['langitude'],
                                   ":latitude"=>$_POST['latitude']));
         if($entry == true){
+            $cmpny = $_POST['name'];
+            $to = "mukkojusatish@gmail.com";
+            $subject = "New entry of $cmpny";
+            $mail = 'New Company Inserted';
+            $headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            mail($to, $subject, $mail, $headers);
+            
             $sts = 'Added Sucessfully!!';
             return $sts;
         }
@@ -32,7 +39,7 @@ class Index_model extends Model {
     }
     
     public function new_etries(){
-        $all = $this->db->prepare("SELECT * FROM _companies_ WHERE sts = 2");
+        $all = $this->db->prepare("SELECT * FROM _companies_ WHERE sts = 1");
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
         //var_dump($res);
@@ -40,18 +47,65 @@ class Index_model extends Model {
     }
     
     public function all(){
-        $all = $this->db->prepare("SELECT * FROM _companies_ WHERE sts = 1");
+        $all = $this->db->prepare("SELECT id, _name_, _website_, _type_, _city_ FROM _companies_ WHERE sts = 2");
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
 //        var_dump($res);
         return $res; 
     }
+  public function unique_multidim_array($array, $key){
     
+}
+
+
     public function compnys_list(){
-        $all = $this->db->prepare("SELECT _name_ FROM _companies_");
+        $all = $this->db->prepare("SELECT _type_ FROM _companies_");
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
-        return $res; 
+//        $res = array_keys(array_flip($res));
+        
+        $key = '_type_';
+    $temp_array = array();
+    $i = 0;
+    $key_array = array();
+    
+    foreach($res as $val){
+        if(!in_array($val[$key],$key_array)){
+            $key_array[$i] = $val[$key];
+            $temp_array[$i] = $val;
+        }
+        $i++;
+    }
+    $res = array_values($temp_array);
+    return $res;
+        
+        
+        
+        
+       
+    }
+    
+    public function get_lnglat(){
+        $all = $this->db->prepare("SELECT _longitude_, _latitude_ FROM _companies_ WHERE _rating_  = 5");
+        $all->execute();
+        $res = $all->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+    
+    
+    public function aprv_etry(){
+        $id = $_POST['id'];
+        $aprv = $this->db->prepare('UPDATE _companies_ SET sts = 2 WHERE id = :id');
+        $res = $aprv->execute(array(':id'=> $id));
+        if($res == true){
+            $res = "Approved successfully";
+            return $res;
+        }
+        else{
+            $res = "Somthing wrong while approving entry";
+            return $res;
+        }
+        
     }
 
 }
