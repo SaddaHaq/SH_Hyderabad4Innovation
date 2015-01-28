@@ -16,25 +16,19 @@
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
         <script type="text/javascript">
-
-
-
         </script>
     </head>
     <body>
-
         <div class="container">
             <div class="main-container">
+                <img src="/images/cha.png" class="char popver" rel="popover" >
                 <div class="mp-frm">
-
-                    <a id="popver" href="#" class="mps-inpt btn btn-info btn-small" rel="popover">H</a>
+                    <a id="popver" href="#" class="popver mps-inpt btn btn-info btn-small" rel="popover"></a>
                     <select id="comny_name">
                         <option value="1" selected="">Select Category </option>
-
                     </select>
-                    <buttun id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></buttun>
+                    <button id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></button>
                 </div>
-
             </div>
         </div>
         <div class="modal fade" id="newentry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -70,7 +64,6 @@
                 </div>
             </div>
         </div>
-
         <div class="modal fade" id="admin_aprv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

@@ -19,7 +19,7 @@ $('html').on('click', function (e) {
     google.maps.event.addDomListener(window, 'load', initialize);
 
 
-    $('#popver').popover({
+    $('.popver').popover({
         html: true,
         placement: 'bottom',
         title: '<p id="new" class="cnt" data-toggle="modal" data-target="#newentry">New</p>',
