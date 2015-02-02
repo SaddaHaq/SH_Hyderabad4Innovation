@@ -19,15 +19,19 @@
         </script>
     </head>
     <body>
+        <!--<div class="mapr"><iframe src="//mappr.io/play/Hyderabad4Innovation" width="800" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>-->
         <div class="container">
             <div class="main-container">
                 <img src="/images/cha.png" class="char popver" rel="popover" >
                 <div class="mp-frm">
                     <a id="popver" href="#" class="popver mps-inpt btn btn-info btn-small" rel="popover"></a>
-                    <select id="comny_name">
+                    <a href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" class="mps-inpt btn btn-info btn-small h-btns" target="_blank"><i class="icon-plus"></i></a>
+                    <a href="about" class="mps-inpt btn btn-info btn-small Abt-btns">A</a>
+                    <a href="contact" class="mps-inpt btn btn-info btn-small h-btns"><i class="icon-call"></i></a>
+<!--                    <select id="comny_name">
                         <option value="1" selected="">Select Category </option>
-                    </select>
-                    <button id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></button>
+                    </select>-->
+                    <!--<button id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></button>-->
                 </div>
             </div>
         </div>

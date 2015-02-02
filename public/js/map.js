@@ -23,7 +23,7 @@ $('html').on('click', function (e) {
         html: true,
         placement: 'bottom',
         title: '<p id="new" class="cnt" data-toggle="modal" data-target="#newentry">New</p>',
-        content: '<p id="admn" class="cnt" data-toggle="modal" data-target="#admin_aprv">Admin</p>'
+        content: ''
     }).parent().on('click', '#admn', function () {
 
         $.ajax({
