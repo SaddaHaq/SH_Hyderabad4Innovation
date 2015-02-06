@@ -1,7 +1,7 @@
 <!DOCTYPE html>    
 <html>
     <head> 
-        <title>SH_Hyderabad4Innovation</title>
+        <title>Hyderabad 4 Innovation</title>
         <link rel="stylesheet" href="/public/css/menu.css" />
         <link rel="stylesheet" href="/public/css/index.css" />
         <link rel="stylesheet" href="/public/global/saddahaq/css/saddahaq-ie7.css" />
@@ -25,7 +25,7 @@
     <div class="container clearfix">
         <div id="hrw-bg">
             <a class="hrw-logo static-logo" href="/">
-                <h4>Hyderabad4<br>Innovation</h4>
+                <h4>Hyderabad 4 Innovation</h4>
             </a>
         </div>
         <a href="#" class="nav-toggle"><i class="icon-menu-large"></i></a>
@@ -45,7 +45,7 @@
         </div></nav>
     </div>
 </div>
-        <div class="mapr"><iframe src="//beta.mappr.io/play/Hyderabad4Innovation" width="1286" height="660" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+        <div class="mapr"><iframe src="//beta.mappr.io/play/Hyderabad4Innovation" style="position: absolute; height: 100%; width: 100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 <!--        <div class="container">
             <div class="main-container">
                 <img src="/images/cha.png" class="char popver" rel="popover" >
