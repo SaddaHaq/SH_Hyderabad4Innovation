@@ -2,7 +2,7 @@
 <html>
     <head> 
         <title>SH_Hyderabad4Innovation</title>
-        <link rel="icon" type="image/png" href="https://saddahaq.blob.core.windows.net/multimedia/favicon.ico">
+        <link rel="stylesheet" href="/public/css/menu.css" />
         <link rel="stylesheet" href="/public/css/index.css" />
         <link rel="stylesheet" href="/public/global/saddahaq/css/saddahaq-ie7.css" />
         <link rel="stylesheet" href="/public/global/saddahaq/css/saddahaq.css" />
@@ -15,12 +15,38 @@
         <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript">
         </script>
     </head>
     <body>
-        <!--<div class="mapr"><iframe src="//mappr.io/play/Hyderabad4Innovation" width="800" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>-->
-        <div class="container">
+     <div class="static-topbar hrw-home-topbar hrwHome">
+    <div class="container clearfix">
+        <div id="hrw-bg">
+            <a class="hrw-logo static-logo" href="/">
+                <img src="/images/ch2.png">
+                <h4>Hyderabad4<br>Innovation</h4>
+            </a>
+        </div>
+        <a href="#" class="nav-toggle"><i class="icon-menu-large"></i></a>
+        <nav class="static-home-nav">
+            <span class="static-nav static-links"> 
+                <span class="work-navgroup static-link">
+                    <a target="_blank" href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" class="media"><span class="mnu-bg med"></span>New</a>
+                </span>
+                <span class="work-navgroup static-link">
+                    <a href="/about" class="media"><span class="mnu-bg med"></span>About</a>
+                </span>
+                <span class="work-navgroup static-link">
+                    <a href="/contact" class="media"><span class="mnu-bg med"></span>Contact</a>
+                </span>
+            </span>
+            <div class="social hidden-xs social_js hideElement">
+        </div></nav>
+    </div>
+</div>
+        <div class="mapr"><iframe src="//beta.mappr.io/play/Hyderabad4Innovation" width="1286" height="660" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+<!--        <div class="container">
             <div class="main-container">
                 <img src="/images/cha.png" class="char popver" rel="popover" >
                 <div class="mp-frm">
@@ -28,13 +54,13 @@
                     <a href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" class="mps-inpt btn btn-info btn-small h-btns" target="_blank"><i class="icon-plus"></i></a>
                     <a href="about" class="mps-inpt btn btn-info btn-small Abt-btns">A</a>
                     <a href="contact" class="mps-inpt btn btn-info btn-small h-btns"><i class="icon-call"></i></a>
-<!--                    <select id="comny_name">
+                    <select id="comny_name">
                         <option value="1" selected="">Select Category </option>
-                    </select>-->
-                    <!--<button id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></button>-->
+                    </select>
+                    <button id="srch-butn" class="mps-inpt btn btn-info btn-small btn-login-indx"><i class="icon-search"></i></button>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="modal fade" id="newentry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

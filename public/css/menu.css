@@ -1,0 +1,861 @@
+.static-topbar {
+    /*background: #39424e;*/
+    background: rgba(57, 66, 78, 1);
+    border-bottom: 3px solid #23aad3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1039;
+    height: 80px;
+}
+a{
+    text-decoration: none !important;
+}
+@media only screen and (max-width: 799px) {
+    .nav-toggle {
+        color: white;
+        display: block;
+        font-size: 1.25em;
+        position: absolute;
+        right: 0;
+        line-height: 66px;
+    }
+
+    .nav-toggle:hover {
+        color: white;
+    }
+
+    .static-home-nav {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height .4s, padding .4s;
+        width: 100%;
+    }
+
+    .static-home-nav.open {
+        max-height: 400px;
+        padding: 2em 0;
+    }
+
+    .static-links {
+        padding-bottom: 1em;
+    }
+    .tmnu-itms{
+        font-size: 2em !important;
+        text-align: center !important;
+    }
+    .static-links a {
+        color: white;
+        display: block;
+        padding: .75em .25em;
+    }
+
+    .static-links a:hover,.static-links a.active,.static-links a:active {
+        background: rgba(35, 41, 49, 0.45);
+        color: #04a8ca;
+    }
+
+    .static-links .work-dropdown {
+        margin-left: 10%;
+    }
+
+    .static-links .work-dropdown a:before {
+        content: '-';
+        margin-right: .5em;
+    }
+
+    .static-auth {
+        display: block;
+        text-align: center;
+    };
+}
+
+@media only screen and (min-width: 800px) {
+
+    .static-auth,.static-links {
+        display: inline-block;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .static-home-nav {
+        /*text-align: right;*/
+    }
+
+    .static-link {
+        position: relative;
+    }
+
+    a.static-link,.static-link>a {
+        color: #ddd;
+        cursor: pointer;
+        font-size: 1.262em;
+        font-weight: 400;
+        line-height : 1.4em;
+        display: inline-block;
+        height : 80px;
+        padding : 0 28px;
+        box-sizing : border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        margin: 1px 0;
+        position: relative;
+    }
+    
+    .mnu-bg{
+        width: 48px;
+        opacity: .75;
+        display: block;
+        margin : 24px auto;
+    }
+    .static-links a .mnu-bg:nth-child(1) {
+        background-position: -16px -4px;
+    }
+    .static-links a .mnu-bg.abt {
+        background-position: -80px -4px;
+    }
+    .static-links a .mnu-bg.pgm {
+        background-position: -144px -4px;
+    }
+    .static-links a .mnu-bg.fac {
+        background-position: -208px -4px;
+    }
+    .static-links a .mnu-bg.med {
+        background-position: -272px -4px;
+    }
+    .static-links a .mnu-bg.prt {
+        background-position: -336px -4px;
+    }
+    .static-links a .mnu-bg.app {
+        background-position: -400px -4px;
+    }
+    .static-links a .mnu-bg.faq {
+        background-position: -464px -4px;
+    }
+    .tmnu-itms {
+        font-size: 2.4em;
+        text-align: center;
+    }
+    #hrw-bg {
+        width : 200px;
+        height : 77px;
+        text-align: center;
+        background: #FFF;
+        position: absolute;
+        top : 0;
+        left : 0;
+    }
+    .hrw-logo img{
+        position: absolute;
+max-width: 47px;
+left: 7px;
+top: -4px
+    
+    }
+    .hrw-logo h4{
+        font-family: 'Open Sans Condensed',sans-serif;
+        font-size: 1.4em;
+        font-weight: 700;
+        color: #04a8ca;
+        text-shadow: 0px 2px 10px #A2A2A2;
+        padding-left: 35px;
+padding-top: 9px;
+line-height: 1.3em;
+
+    }
+
+    a.static-link a,.static-link>a a {
+        color: inherit;
+    }
+
+    a.static-link:active,a.static-link.active,a.static-link:hover,.static-link>a:active,.static-link>a.active,.static-link>a:hover {
+        color: #04a8ca;
+    }
+
+    a.static-link:active a,a.static-link.active a,a.static-link:hover a,.static-link>a:active a,.static-link>a.active a,.static-link>a:hover a {
+        color: inherit;
+    }
+
+    a.static-link:active,a.static-link.active,.static-link>a:active,.static-link>a.active {
+        /*background: #232931;*/
+        background: rgba(35, 41, 49, 0.45);
+    }
+
+    .work-dropdown {
+        background: #23aad3;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2),0 3px 25px rgba(0,0,0,0.3);
+        color: #39424e;
+        padding: 0 1em;
+        position: absolute;
+        left: -40%;
+        text-align: left;
+        width: 150%;
+        z-index: 100;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity .4s ease;
+    }
+
+    .work-dropdown a {
+        color: inherit;
+        font-size: 1.1em;
+        line-height: 1.6em;
+    }
+
+    .work-dropdown:before {
+        content: '';
+        border: 10px solid transparent;
+        border-bottom-color: #2e363f;
+        border-bottom-color: white;
+        position: absolute;
+        top: -19px;
+        left: 42%;
+        left: calc(50% - 10px);
+    }
+
+    .work-dropdown>a {
+        display: block;
+        padding-bottom: .75em;
+    }
+
+    .work-dropdown>a:hover {
+        color: #04a8ca;
+    }
+
+    .work-navgroup:hover .work-dropdown {
+        opacity: 1;
+        overflow: visible;
+        padding-top: .55em;
+        max-height: 400px;
+        transform: scale(1, 1);
+    };
+}
+
+@media only screen and (min-width: 960px) {
+    .static-links {
+        float : none;
+        margin-left : 150px;
+    }
+}
+
+.static-hero {
+    background-color: #1D2343;
+    position: relative;
+    padding: 8em 0;
+    text-align: center;
+}
+
+.static-hero h2 {
+    font-size: 2em;
+    margin-bottom: .5em;
+    position: relative;
+}
+
+.static-navigation,.careers-navigation {
+    font-family: "Whitney SSm A","Whitney SSm B",verdana,"Lucida Grande",sans-serif;
+}
+
+.static-navigation .static-navigation--inner,.careers-navigation .static-navigation--inner {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.static-navigation .static-navigation--inner .right_nav,.careers-navigation .static-navigation--inner .right_nav {
+    display: none;
+}
+
+.static-navigation .static-navigation--inner .right_nav a,.static-navigation .static-navigation--inner .right_nav span,.careers-navigation .static-navigation--inner .right_nav a,.careers-navigation .static-navigation--inner .right_nav span {
+    z-index: 99999999;
+    color: #000;
+    position: relative;
+}
+
+.static-navigation .static-nav-fixed,.careers-navigation .static-nav-fixed {
+    position: relative;
+    z-index: 100;
+    line-height: 3.5em;
+}
+
+.static-navigation .static-nav-fixed.pull-right,.careers-navigation .static-nav-fixed.pull-right {
+    margin-right: 2.5%;
+}
+
+.static-navigation .static-nav-fixed a,.careers-navigation .static-nav-fixed a {
+    color: #979faf;
+    text-decoration: underline;
+}
+
+.careers-navigation {
+    padding: 1.25em 20px;
+    height: 2.625em;
+}
+
+.careers-navigation a:not(.btn) {
+    color: #626b7f;
+    font-size: 16px;
+}
+
+.careers-navigation .careers-navigation-logo {
+    background: url("brand/wordmark_sm.png");
+    background: url("brand/wordmark_sm.svg");
+    height: 46px;
+    width: 197px;
+    top: .5em;
+    display: inline-block;
+}
+
+.careers-navigation .careers-navigation-toggle {
+    display: none;
+}
+
+.careers-navigation .careers-navigation_links {
+    float: right;
+    margin-top: 10px;
+}
+
+.careers-navigation .careers-navigation_links a:hover:not(.btn-primary) {
+    color: #39424e;
+}
+
+.static-content {
+    background: #fff;
+}
+
+.static-content.open {
+    transform: translate(0, 0);
+}
+
+.static_hero-title {
+    font-size: 1.5em;
+}
+
+.static_hero-content {
+    color: #04a8ca;
+    font-size: 1.1em;
+    font-family: "Whitney SSm A","Whitney SSm B",verdana,"Lucida Grande",sans-serif;
+}
+
+.static-section {
+    padding: 5em 0;
+    text-align: center;
+}
+
+.static-section .btn-text.color-green {
+    color: #26a655;
+}
+
+.static-section img {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.static-section.static-hero {
+    padding: 8em 0 3em;
+}
+
+.static_section-title,.static_section-subtitle {
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: bold;
+}
+
+.static_section-title a,.static_section-subtitle a {
+    color: #979faf;
+    text-decoration: underline;
+}
+
+.static_section-intro {
+    font-size: 1.15em;
+}
+
+.static-hero-sub {
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+}
+
+.static-hero-sub:after {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    content: '';
+    height: 11px;
+    background: url("static/concave-shadow-down.png") no-repeat;
+    background-size: 100%;
+    background-position: center center;
+}
+
+.static-footer {
+    text-align: center;
+    font-family: "Whitney SSm A","Whitney SSm B",verdana,"Lucida Grande",sans-serif;
+}
+
+.static-footer a:hover {
+    color: #04a8ca;
+}
+
+.static-footer .x-footer-brand {
+    margin-bottom: 1em;
+    color: #fff;
+    font-size: .8em;
+    text-align: center;
+}
+
+.static-footer .x-footer-brand #brand-logo {
+    width: 202px;
+    height: 55px;
+    margin: 1em auto 0;
+    background: url("brand/typemark--inverse60x200.png");
+}
+
+.static-footer .x-footer-brand a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.static-footer .x-footer-links {
+    float: right;
+    text-align: center;
+}
+
+.static-footer .x-footer-number {
+    text-align: center;
+}
+
+.static-footer .x-footer-number a {
+    color: #04a8ca;
+    text-decoration: underline;
+}
+
+.xtos-inner {
+    text-align: left;
+}
+
+.xtos-inner li {
+    margin-bottom: 20px;
+}
+
+.xtos-inner p {
+    margin-bottom: 20px;
+}
+
+.xtos-inner ol {
+    list-style: none;
+    counter-reset: tos-counter;
+}
+
+.xtos-inner ol ol {
+    list-style: decimal;
+    margin-left: 50px;
+}
+
+.xtos-inner ol ol ol {
+    list-style: lower-alpha;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.xtos-inner h3 {
+    margin-bottom: 1em;
+    padding-bottom: 10px;
+    counter-increment: tos-counter;
+}
+
+.xtos-inner h3 small {
+    font-weight: 400;
+    font-size: .75em;
+    font-style: italic;
+}
+
+.xtos-inner h3:before {
+    content: counter(tos-counter,upper-alpha) ".";
+    margin-right: 10px;
+}
+
+@media screen and (min-width: 480px) {
+    .static-footer {
+        text-align: left;
+    }
+
+    .static-hero-sub:after {
+        bottom: -9px;
+    };
+}
+
+@media screen and (min-width: 768px) {
+    .alignL-md {
+        text-align: left;
+    }
+
+    .alignR-md {
+        text-align: right;
+    }
+
+    .static-section.static-hero {
+        padding: 8em 0 5em;
+    }
+
+    .static-section.static-hero.hr_hero,.static-section.static-hero.xcodepair_hero {
+        padding-bottom: 0;
+    }
+
+    .static_hero-title,.static_section-title {
+        font-size: 1.75em;
+    };
+}
+
+@media screen and (min-width: 900px) {
+    .static-navigation {
+        background: #fff;
+        padding: 1.25em 20px;
+        height: 2.625em;
+    }
+
+    .static-navigation a:not(.btn) {
+        color: #39424e;
+        font-size: 16px;
+    }
+
+    .static-navigation .static-nav-fixed {
+        margin-top: -.5em;
+    }
+
+    .static-navigation-logo {
+        background: url("brand/wordmark_sm.png");
+        height: 46px;
+        width: 197px;
+        top: .5em;
+        display: inline-block;
+    }
+
+    .static-navigation-logo.x-logo {
+        background: url(https://hrcdn.net/hackerrank/assets/brand/wordmark_for_work_sm-bb44154992e088cc6e6aeab6cab7de77.png);
+        background: url(https://hrcdn.net/hackerrank/assets/brand/wordmark_for_work_sm-b17a63fe49a11df4102a15341a385d50.svg);
+        width: 216px;
+    }
+
+    .static-navigation-logo.isTag {
+        background: url(https://hrcdn.net/hackerrank/assets/brand/HR4W_Tag-bb44154992e088cc6e6aeab6cab7de77.png);
+        width: 175px;
+        background: url(https://hrcdn.net/hackerrank/assets/brand/HR4W_Tag-b17a63fe49a11df4102a15341a385d50.svg);
+    }
+
+    .static-navigation-toggle {
+        display: none;
+    }
+
+    .static-navigation_links {
+        float: right;
+        margin-top: 2px;
+    }
+
+    .static-navigation_links a:hover:not(.btn) {
+        color: #979faf;
+    };
+}
+
+@media screen and (max-width: 900px) {
+    .right_nav {
+        display: block !important;
+    }
+
+    .static-navigation {
+        height: 0;
+    }
+
+    .static-navigation_links {
+        position: fixed;
+        top: 5em;
+        left: 0;
+        width: 50%;
+        z-index: 1;
+    }
+
+    .static-navigation_links a {
+        display: block;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 10px;
+        text-decoration: none;
+        text-align: left;
+        background: transparent !important;
+        border: none;
+        box-shadow: none !important;
+    }
+
+    .static-navigation_links a.signup {
+        color: #04a8ca;
+    }
+
+    .static-navigation_links a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .static-navigation_links a:not(.btn) {
+        padding-left: 20px;
+    }
+
+    .static-navigation_links .static-auth {
+        display: block;
+        padding: 10px 0;
+        margin: 10px 10px 0;
+        border-top: 1px solid #979faf;
+        border-top: 1px solid rgba(151,159,175,0.5);
+    }
+
+    .static-content {
+        position: relative;
+        box-shadow: -1px 0 3px rgba(0,0,0,0.4),-1px 0 0 #414754;
+        z-index: 10;
+        background: #fff;
+        min-height: 80%;
+        width: 100%;
+        transition-timing-function: ease;
+        transition-duration: .3s;
+        transition-property: height, transform;
+    }
+
+    .static-content.open {
+        bottom: 2em;
+        transform: translate(10em, 1em);
+        height: 80%;
+        overflow: hidden;
+        box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+        background: #fff;
+    }
+
+    .static-content .btn-large {
+        padding: 12px 30px;
+    }
+
+    .static-navigation-logo {
+        float: left;
+        z-index: 100;
+        position: relative;
+        box-shadow: none;
+        display: inline-block;
+        height: 46px;
+        width: 42px;
+        top: .5em;
+        margin-left: 3%;
+        transition: all 0.3s ease;
+    }
+
+    .static-navigation-logo.open {
+        transform: translate(10em, 2.7em);
+    }
+
+    .static-navigation-logo,.careers-navigation-logo {
+        background: url("brand/h_mark_sm.png") !important;
+        ;width: 42px !important;
+    }
+
+    .static-navigation-toggle {
+        float: right;
+        z-index: 100;
+        margin-right: 3%;
+        font-size: 30px;
+        line-height: 60px;
+        transition: all 0.3s ease;
+    }
+
+    .static-navigation-toggle.open {
+        transform: translate(0, 1.5em);
+    };
+}
+
+@media screen and (min-width: 960px) {
+    .alignL-lg {
+        text-align: left;
+    }
+
+    .alignR-lg {
+        text-align: right;
+    }
+
+    .static-hero-sub:after {
+        bottom: -11px;
+    }
+
+    .static_hero-title {
+        font-size: 2.25em;
+    }
+
+    .static_section-title {
+        font-size: 2em;
+    }
+
+    .static-footer .x-footer-brand img {
+        margin-top: 0;
+    }
+
+    .static-footer .x-footer-links {
+        text-align: left;
+    };
+}
+
+@media screen and (min-width: 1040px) {
+    .static-hero-sub {
+        width: 1039px;
+        margin: 0 auto;
+    };
+}
+
+.api-users img {
+    opacity: 0.5;
+    position: relative;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    margin: 0 20px;
+}
+
+.api-users .group-one {
+    width: 750px;
+    margin-bottom: 50px;
+}
+
+.api-users .group-two {
+    width: 530px;
+}
+
+.api-users .cal {
+    top: 20px;
+}
+
+.api-users .teradata {
+    top: 5px;
+}
+
+.api-users .sap,.api-users .florida {
+    top: -25px;
+}
+
+.api-group {
+    margin-bottom: 30px;
+}
+
+.hrabout_story {
+    max-height: 15em;
+    -moz-transition: 0.2s all ease;
+    -o-transition: 0.2s all ease;
+    -ms-transition: 0.2s all ease;
+    -webkit-transition: 0.2s all ease;
+    transition: 0.2s all ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.social{
+    /*width: 226px;*/
+    height: 46px;
+    position: fixed;
+    /* top: 34px; */
+    top: 12px;
+    left: 82%;
+    z-index: 11;
+}
+
+.social a{
+    float: left;
+    display: inline;
+    margin-right: 8px;
+    outline: none;
+}
+.social a i{
+    width: 14px;
+    height: 13px;
+    font-size: 19px;
+    padding: 10px;
+    float: left;
+    text-align: center;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.social a.social_network{
+    /*display: none;*/
+    opacity: 0;
+}
+
+.social a i:hover{
+    color: #2bec8f;
+    border: 1px solid #2bec8f;
+}
+
+.social_bottom{
+    width: 290px;
+    height: 46px;
+    position: fixed;
+    bottom: 34px;
+    left: 30px;
+    z-index: 11;
+}
+
+.social_bottom a{
+    float: left;
+    display: inline;
+    margin-right: 8px;
+    outline: none;
+}
+.social_bottom a i{
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    padding: 10px;
+    float: left;
+    text-align: center;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.social_bottom a.social_network{
+    display: none;
+}
+
+.social_bottom a i:hover{
+    color: #2bec8f;
+    border: 1px solid #2bec8f;
+}
+.social_share {
+    float: left;
+    width: 100%;
+    clear: both;
+}
+.social_share a i {
+    font-size: 16px;
+    padding: 0 10px;
+    color: #a2a2a2;
+}
+
+.i{
+    position: fixed;
+    top: 18px;
+    left: 95%;
+    width: 14px;
+    height: 13px;
+    font-size: 19px;
+    padding: 10px;
+    float: left;
+    text-align: center;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+}
+.i:hover{
+    color: #26D774;
+    border: 1px solid #26D774;
+}
