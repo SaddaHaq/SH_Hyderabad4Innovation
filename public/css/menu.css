@@ -108,7 +108,7 @@ a{
         line-height : 1.4em;
         display: inline-block;
         height : 80px;
-        padding : 0 28px;
+        padding : 0 23px;
         box-sizing : border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -171,7 +171,7 @@ top: -4px
         font-size: 2.5em;
         font-weight: 500;
         color: white;
-        /*padding-left: 35px;*/
+        padding-left: 24px;
         padding-top: 9px;
         line-height: 1.3em;
         letter-spacing: 0.1em;
