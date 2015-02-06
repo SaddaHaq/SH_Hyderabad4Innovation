@@ -152,7 +152,7 @@ a{
         text-align: center;
     }
     #hrw-bg {
-        width : 40%;
+        width : 636px;
         height : 77px;
         text-align: center;
         position: absolute;
@@ -171,7 +171,7 @@ top: -4px
         font-size: 2.5em;
         font-weight: 500;
         color: white;
-        padding-left: 24px;
+        padding-left: 0px;
         padding-top: 9px;
         line-height: 1.3em;
         letter-spacing: 0.1em;
