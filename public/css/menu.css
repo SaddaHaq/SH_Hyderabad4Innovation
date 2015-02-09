@@ -1,4 +1,4 @@
-@font-face {
+103@font-face {
   font-family: 'hyderabad4';
   src: url('../global/font/Chunkfive_Ex.eot?52736809');
   src: url('../global/font/saddahaq.eot?52736809#iefix') format('embedded-opentype'),
@@ -108,7 +108,7 @@ a{
         line-height : 1.4em;
         display: inline-block;
         height : 80px;
-        padding : 0 23px;
+        padding : 0 16px;
         box-sizing : border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
