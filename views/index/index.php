@@ -30,12 +30,21 @@
         </div>
         <a href="#" class="nav-toggle"><i class="icon-menu-large"></i></a>
         <nav class="static-home-nav">
-            <span class="static-nav static-links"> 
+            <span class="static-nav static-links">
+		<span class="work-navgroup static-link">
+                    <a href="/" class="media"><span class="mnu-bg med"></span>Home</a>
+                </span>
                 <span class="work-navgroup static-link">
-                    <a target="_blank" href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" class="media"><span class="mnu-bg med"></span>New</a>
+                    <a target="_blank" href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" class="media"><span class="mnu-bg med"></span>Submit</a>
+                </span>
+		<span class="work-navgroup static-link">
+                    <a href="/directory" class="media"><span class="mnu-bg med"></span>Directory</a>
                 </span>
                 <span class="work-navgroup static-link">
                     <a href="/about" class="media"><span class="mnu-bg med"></span>About</a>
+                </span>
+		<span class="work-navgroup static-link">
+                    <a href="/team" class="media"><span class="mnu-bg med"></span>Team</a>
                 </span>
                 <span class="work-navgroup static-link">
                     <a href="/contact" class="media"><span class="mnu-bg med"></span>Contact</a>
