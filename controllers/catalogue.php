@@ -1,14 +1,13 @@
 <?php
 
-class About extends Controller {
+class Catalogue extends Controller {
     function __construct() {
         parent::__construct();
-        // echo "index(login page)";
     }
     
     
     public function index(){
-        $this->view->render('directory/directory');
+        $this->view->render('catalogue/catalogue');
     }
 }
 

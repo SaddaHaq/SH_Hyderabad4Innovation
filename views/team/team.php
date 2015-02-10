@@ -6,9 +6,9 @@
          <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body style="background-color: rgb(231, 231, 231); padding: 0; margin: 0">
-        <div class="cntr"><div class="hdr">Contact</div>
+        <div class="cntr"><div class="hdr">Team</div>
             
-                        <div id="contact-form">
+<!--                        <div id="contact-form">
                             <h3>EMAIL US</h3>
                             <div class="form-group clearfix">
                                 <input type="email" class="requiredField ct-ipt email" id="contact-email" name="email" placeholder="Email">
@@ -23,7 +23,7 @@
                                 <textarea class="requiredField ct-txara" id="message" name="message" rows="1" placeholder="Message"></textarea>
                             </div>
                             <button id="cnt-send" class="btn btn-theme">Submit</button>
-                        </div>
+                        </div>-->
             
             
         </div>

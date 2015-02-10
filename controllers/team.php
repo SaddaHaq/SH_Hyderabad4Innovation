@@ -1,9 +1,8 @@
 <?php
 
-class About extends Controller {
+class Team extends Controller {
     function __construct() {
         parent::__construct();
-        // echo "index(login page)";
     }
     
     
