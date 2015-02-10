@@ -1,13 +1,6 @@
-<html>
-    <head>
-        <title>Contact</title>
-        <link rel="stylesheet" href="/public/css/index.css" />
-        <link rel="stylesheet" href="/public/css/menu.css" />
-         <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
-    </head>
-    <body style="background-color: rgb(231, 231, 231); padding: 0; margin: 0">
-        <div class="cntr"><div class="hdr">Contact</div>
-            
+<?php require 'views/header.php'; ?>
+        <div class="cntr">
+            <!--<div class="hdr">Contact</div>-->
                         <div id="contact-form">
                             <h3>EMAIL US</h3>
                             <div class="form-group clearfix">
@@ -27,5 +20,3 @@
             
             
         </div>
-    </body>
-</html>
