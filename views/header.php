@@ -35,7 +35,7 @@
                     <a href="/" class="media"><span class="mnu-bg med"></span>Home</a>
                 </span>
                 <span class="work-navgroup static-link">
-                    <a target="_blank" href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" class="media"><span class="mnu-bg med"></span>Submit</a>
+                    <a href="/submit" class="media"><span class="mnu-bg med"></span>Submit</a>
                 </span>
 		<span class="work-navgroup static-link">
                     <a href="/catalogue" class="media"><span class="mnu-bg med"></span>Directory</a>

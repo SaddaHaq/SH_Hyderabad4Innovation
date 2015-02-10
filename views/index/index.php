@@ -68,3 +68,4 @@
             </div>
         </div>
         <!--<div id="map_canvas" style="width: 1300px; height: 550px"></div>-->
+<?php require 'views/footer.php'; ?>
