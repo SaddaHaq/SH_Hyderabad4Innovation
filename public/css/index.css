@@ -330,16 +330,22 @@ padding-top: 1px;
 
 .cntr h4{
     font-family: 'Quattrocento', serif !important;
-    font-size: 1.6em;
+    font-size: 2em;
     padding-left: 20px;
+    font-weight: 700;
 }
 
 .cntr p{
     font-family: 'Quattrocento', serif !important;
-    font-size: 1.1em;
+    font-size: 1.4em;
     padding-left: 60px;
     padding-right: 60px;
-    line-height: 1.5em;
+    line-height: 1.6em;
+}
+.abt-s{
+    width: 75%;
+    margin: auto;
+    padding:20px; 
 }
 .ct-ipt {
 background-color: #eee;
