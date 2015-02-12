@@ -1,4 +1,20 @@
 $(document).ready(function () {
+    
+    
+    
+//$('.').click(function(){
+//   $('.left--mbl-mnu').css({'width': '200px'}).toggle(); 
+//});
+    $('.mbl-rsp-mnu').click(function(e){
+        e.preventDefault();
+        if($('.left--mbl-mnu').width() == 0){
+           $('.left--mbl-mnu').css({'width': '200px'});
+           $(this).css({'color': '#F74895'})
+        }else{
+            $('.left--mbl-mnu').css({'width': '0px'});
+            $(this).css({'color': '#333'})
+        }
+    });
 
 $('html').on('click', function (e) {
     if (typeof $(e.target).data('original-title') == 'undefined') {

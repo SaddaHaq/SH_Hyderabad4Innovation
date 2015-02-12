@@ -870,3 +870,262 @@ top: -4px
     color: #26D774;
     border: 1px solid #26D774;
 }
+
+
+
+
+@media screen and (max-width: 768px) {
+    body{
+        padding: 0 !important;
+    }
+    .static-auth,.static-links {
+        display: inline-block;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .static-home-nav {
+        /*text-align: right;*/
+    }
+
+    .static-link {
+        position: relative;
+    }
+
+    a.static-link,.static-link>a {
+        color: #ddd;
+        cursor: pointer;
+        font-size: 1.262em;
+        font-weight: 400;
+        line-height : 1.4em;
+        display: inline-block;
+        height : 80px;
+        padding : 0 16px;
+        box-sizing : border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        margin: 1px 0;
+        position: relative;
+        font-family: 'Quattrocento', serif !important;
+    }
+    
+    .mnu-bg{
+        width: 48px;
+        opacity: .75;
+        display: block;
+        margin : 24px auto;
+    }
+    .static-links a .mnu-bg:nth-child(1) {
+        background-position: -16px -4px;
+    }
+    .static-links a .mnu-bg.abt {
+        background-position: -80px -4px;
+    }
+    .static-links a .mnu-bg.pgm {
+        background-position: -144px -4px;
+    }
+    .static-links a .mnu-bg.fac {
+        background-position: -208px -4px;
+    }
+    .static-links a .mnu-bg.med {
+        background-position: -272px -4px;
+    }
+    .static-links a .mnu-bg.prt {
+        background-position: -336px -4px;
+    }
+    .static-links a .mnu-bg.app {
+        background-position: -400px -4px;
+    }
+    .static-links a .mnu-bg.faq {
+        background-position: -464px -4px;
+    }
+    .tmnu-itms {
+        font-size: 2.4em;
+        text-align: center;
+    }
+    #hrw-bg {
+        width : 636px;
+        height : 77px;
+        text-align: left;
+        position: absolute;
+        top : 0;
+        left : 0;
+    }
+    .hrw-logo img{
+        position: absolute;
+max-width: 47px;
+left: 7px;
+top: -4px
+    
+    }
+    .hrw-logo h4{
+        font-family: 'hyderabad4' !important;
+        font-size: 1.8em !important;
+        font-weight: 500 !important;
+        color: white !important;
+        line-height: 1.3em !important;
+        letter-spacing: 0.1em !important;
+        padding: 16px;
+        display: inline-block;
+    }
+
+    a.static-link a,.static-link>a a {
+        color: inherit;
+    }
+
+    a.static-link:active,a.static-link.active,a.static-link:hover,.static-link>a:active,.static-link>a.active,.static-link>a:hover {
+        color: #04a8ca;
+    }
+
+    a.static-link:active a,a.static-link.active a,a.static-link:hover a,.static-link>a:active a,.static-link>a.active a,.static-link>a:hover a {
+        color: inherit;
+    }
+
+    a.static-link:active,a.static-link.active,.static-link>a:active,.static-link>a.active {
+        /*background: #232931;*/
+        background: rgba(35, 41, 49, 0.45);
+    }
+
+    .work-dropdown {
+        background: #23aad3;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2),0 3px 25px rgba(0,0,0,0.3);
+        color: #39424e;
+        padding: 0 1em;
+        position: absolute;
+        left: -40%;
+        text-align: left;
+        width: 150%;
+        z-index: 100;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity .4s ease;
+    }
+
+    .work-dropdown a {
+        color: inherit;
+        font-size: 1.1em;
+        line-height: 1.6em;
+    }
+
+    .work-dropdown:before {
+        content: '';
+        border: 10px solid transparent;
+        border-bottom-color: #2e363f;
+        border-bottom-color: white;
+        position: absolute;
+        top: -19px;
+        left: 42%;
+        left: calc(50% - 10px);
+    }
+
+    .work-dropdown>a {
+        display: block;
+        padding-bottom: .75em;
+    }
+
+    .work-dropdown>a:hover {
+        color: #04a8ca;
+    }
+
+    .work-navgroup:hover .work-dropdown {
+        opacity: 1;
+        overflow: visible;
+        padding-top: .55em;
+        max-height: 400px;
+        transform: scale(1, 1);
+    };
+}
+
+.mbl-rsp-mnu{
+position: absolute;
+text-align: right;
+float: right;
+right: 0px;
+margin: 24px;
+}
+.mbl-rsp-mnu i{
+    color: white !important;
+    font-size: 2.5em;
+    
+}
+.mbl-mnu-ul{
+text-align: center;
+border: 3px solid #23aad3;
+padding: 0;
+background-color: white;
+display: none;
+}
+
+.mbl-mnu-ul li{
+    font-size: 1.3em;
+    color: #23aad3;
+    font-family: 'Quattrocento', serif !important;
+    padding: 8px 24px 8px 24px;
+}
+
+.left--mbl-mnu {
+background-color: rgba(57, 66, 78, 1);
+top: 80px;
+left: 0;
+width: 0px;
+position: fixed;
+height: 100%;
+z-index: 99996;
+overflow: hidden;
+border-right: 1px solid #333;
+}
+.lft-mnu-lst {
+margin-top: 48px;
+margin-left: -38px;
+}
+.lft--mbl-mnu-item a {
+padding: 12px 0 12px 15px;
+text-decoration: none !important;
+display: block;
+overflow: hidden;
+color: white !important;
+}
+.lft-mnu-lst li i {
+font-size: 1.8em;
+position: absolute;
+margin-top: -2px;
+}
+.mnu-itm-ttl {
+    margin-left: 24px;
+/* display: none; */
+font-size: 1.3em;
+font-family: 'Quattrocento', serif !important;
+font-weight: 500 !important;
+padding-left: 15px;
+}
+.lft-mnu-lst li {
+border-bottom: 1px solid #5C5C5C;
+}
+.hidn-mbl-sidbar {
+cursor: default;
+-moz-transition: width ease-in-out 0.28s, background linear 0.1s;
+-webkit-transition: width ease-in-out 0.28s, background linear 0.1s;
+-o-transition: width ease-in-out 0.28s, background linear 0.1s;
+transition: width ease-in-out 0.28s, background linear 0.1s;
+-ms-transform: translate(0px, 0);
+-moz-transform: translate(0px, 0);
+-webkit-transform: translate3d(0px, 0, 0);
+transform: translate(0px, 0);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+-webkit-font-smoothing: subpixel-antialiased;
+}
+.lft-mnu-lst li:hover{
+    background-color: rgba(51, 51, 51, 0.69) !important;
+}
+.lft-mnu-lst li:hover span{
+    color: #23aad3 !important;
+}

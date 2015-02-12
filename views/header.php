@@ -30,6 +30,19 @@
         </div>
         <a href="#" class="nav-toggle"><i class="icon-menu-large"></i></a>
         <nav class="static-home-nav">
+            <div class="hidden-desktop mbl-rsp-mnu">
+                <a href="#" class="mbl-mnu-nvcn"><i class="icon-navicon"></i></a>
+<!--                <ul class="mbl-mnu-ul">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Submit</a></li>
+                    <li><a href="#">Directory</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                    
+                </ul>-->
+        </div>
+            
             <span class="static-nav static-links">
 		<span class="work-navgroup static-link">
                     <a href="/" class="media"><span class="mnu-bg med"></span>Home</a>
@@ -50,7 +63,20 @@
                     <a href="/contact" class="media"><span class="mnu-bg med"></span>Contact</a>
                 </span>
             </span>
-            <div class="social hidden-xs social_js hideElement">
-        </div></nav>
+            
+            
+            <div class="left--mbl-mnu hidn-mbl-sidbar"><ul class="lft-mnu-lst">
+            <li class="lft--mbl-mnu-item"><a href="/"><span class="mnu-itm-ttl">Home</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/submit"><span class="mnu-itm-ttl">Submit</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/catalogue" class="sb-mnu-intiavs"><span class="mnu-itm-ttl">Directory</span></a>
+                </li>
+            <li class="lft--mbl-mnu-item"><a href="/about"><span class="mnu-itm-ttl">About</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/team"><span class="mnu-itm-ttl">Team</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/contact"><span class="mnu-itm-ttl">Contact</span></a></li>
+        </ul></div>
+        
+        </nav>
+        
+        
     </div>
 </div>
