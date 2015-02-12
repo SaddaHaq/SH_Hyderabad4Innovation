@@ -12,13 +12,14 @@
         <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <script type="text/javascript" src="/public/js/popup.js"></script>
         <script type="text/javascript" src="/public/js/map.js"></script>
-        <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
+        <!--<script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>-->
+        <!--<script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>-->
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
         <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
        <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript">
         </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
     </head>
     <body>
      <div class="static-topbar hrw-home-topbar hrwHome">
@@ -30,7 +31,7 @@
         </div>
         <a href="#" class="nav-toggle"><i class="icon-menu-large"></i></a>
         <nav class="static-home-nav">
-            <div class="hidden-desktop mbl-rsp-mnu">
+            <div class="mbl-rsp-mnu hidden-sm hidden-md hidden-lg">
                 <a href="#" class="mbl-mnu-nvcn"><i class="icon-navicon"></i></a>
 <!--                <ul class="mbl-mnu-ul">
                     <li><a href="#">Home</a></li>
@@ -43,7 +44,7 @@
                 </ul>-->
         </div>
             
-            <span class="static-nav static-links">
+            <span class="static-nav static-links ">
 		<span class="work-navgroup static-link">
                     <a href="/" class="media"><span class="mnu-bg med"></span>Home</a>
                 </span>

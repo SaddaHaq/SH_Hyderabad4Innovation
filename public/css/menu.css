@@ -962,13 +962,14 @@ top: -4px
     }
     .hrw-logo h4{
         font-family: 'hyderabad4' !important;
-        font-size: 1.8em !important;
+        font-size: 1.55em !important;
         font-weight: 500 !important;
         color: white !important;
         line-height: 1.3em !important;
-        letter-spacing: 0.1em !important;
-        padding: 16px;
+        letter-spacing: 0em !important;
+        padding: 18px 0px 0px 10px;
         display: inline-block;
+        vertical-align: middle !important;
     }
 
     a.static-link a,.static-link>a a {
@@ -1045,7 +1046,7 @@ position: absolute;
 text-align: right;
 float: right;
 right: 0px;
-margin: 24px;
+margin: 22px 20px 0px 0px;
 }
 .mbl-rsp-mnu i{
     color: white !important;
@@ -1095,7 +1096,7 @@ position: absolute;
 margin-top: -2px;
 }
 .mnu-itm-ttl {
-    margin-left: 24px;
+    margin-left: 16px;
 /* display: none; */
 font-size: 1.3em;
 font-family: 'Quattrocento', serif !important;
@@ -1103,7 +1104,7 @@ font-weight: 500 !important;
 padding-left: 15px;
 }
 .lft-mnu-lst li {
-border-bottom: 1px solid #5C5C5C;
+border-bottom: 1px solid #333;
 }
 .hidn-mbl-sidbar {
 cursor: default;
@@ -1126,6 +1127,6 @@ user-select: none;
 .lft-mnu-lst li:hover{
     background-color: rgba(51, 51, 51, 0.69) !important;
 }
-.lft-mnu-lst li:hover span{
-    color: #23aad3 !important;
+.lft-mnu-lst li:hover{
+    background-color: rgba(51, 51, 51, 0.69) !important; 
 }

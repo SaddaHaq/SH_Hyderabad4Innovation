@@ -200,18 +200,18 @@ $('html').on('click', function (e) {
         });
     });
 
-    $.ajax({
-        url: 'index/clst',
-        method: 'post',
-        success: function (d) {
-            var data = JSON.parse(d);
-            var i;
-            var lngt = data.length;
-            for (i = 0; i < lngt; i++) {
-                $('#comny_name').append('<option value="' + i + '" >' + data[i]._type_ + '</option>')
-            }
-        }
-    })
+//    $.ajax({
+//        url: 'index/clst',
+//        method: 'post',
+//        success: function (d) {
+//            var data = JSON.parse(d);
+//            var i;
+//            var lngt = data.length;
+//            for (i = 0; i < lngt; i++) {
+//                $('#comny_name').append('<option value="' + i + '" >' + data[i]._type_ + '</option>')
+//            }
+//        }
+//    })
     
     $('.modal-body').on('click', '#aprv-etry', function(e){
         e.preventDefault();

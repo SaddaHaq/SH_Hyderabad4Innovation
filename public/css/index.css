@@ -1,7 +1,20 @@
-body{
-    font-family: 'Quattrocento', serif;
-}
 
+body,html {
+    position: relative;
+    height: 100%;
+}
+body {
+    font-family: 'Quattrocento', serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    background: #000;
+    color: #a0a1a6 !important;
+    margin:0;
+    padding:0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 #table{
     
 }
@@ -300,7 +313,7 @@ padding-right: 25px;
       
       .cntr{
        margin: auto;
-       /*width: 70%;*/
+       width: 100%;
        height: auto;
        min-height: 100%;
        background-color: white;
@@ -333,6 +346,7 @@ padding-top: 1px;
     font-size: 2em;
     padding-left: 0px;
     font-weight: 700;
+    color: #333;
 }
 
 .cntr p{
@@ -340,7 +354,8 @@ padding-top: 1px;
     font-size: 1.4em;
     /*padding-left: 60px;*/
     /*padding-right: 60px;*/
-    line-height: 1.6em;
+    line-height: 1.65em;
+    color: #333;
 }
 .abt-s{
     width: 75%;
@@ -446,5 +461,17 @@ padding-top: 10px !important;
 }
 #contact-form{
     width: 50% !important;
+}
+.tem_ul{
+    padding: 24px !important;
+}
+.tem_ul li img{
+    max-width: 100% !important;
+}
+.ec_ul{
+  padding: 24px !important;  
+}
+.ec_ul li img{
+    width: 100%;
 }
 }
