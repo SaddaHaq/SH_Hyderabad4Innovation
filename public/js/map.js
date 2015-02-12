@@ -16,55 +16,55 @@ $(document).ready(function () {
         }
     });
 
-$('html').on('click', function (e) {
-    if (typeof $(e.target).data('original-title') == 'undefined') {
-    $('[data-original-title]').popover('hide');
-  }
-});
+//$('html').on('click', function (e) {
+//    if (typeof $(e.target).data('original-title') == 'undefined') {
+//    $('[data-original-title]').popover('hide');
+//  }
+//});
 
-    var map;
-    function initialize() {
-        var mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(-34.397, 150.644)
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
-    }
+//    var map;
+//    function initialize() {
+//        var mapOptions = {
+//            zoom: 8,
+//            center: new google.maps.LatLng(-34.397, 150.644)
+//        };
+//        map = new google.maps.Map(document.getElementById('map-canvas'),
+//                mapOptions);
+//    }
+//
+//    google.maps.event.addDomListener(window, 'load', initialize);
 
-    google.maps.event.addDomListener(window, 'load', initialize);
 
-
-    $('.popver').popover({
-        html: true,
-        placement: 'bottom',
-        title: '<p id="new" class="cnt" data-toggle="modal" data-target="#newentry">New</p>',
-        content: ''
-    }).parent().on('click', '#admn', function () {
-
-        $.ajax({
-            url: 'index/new_entries',
-            method: 'post',
-            data: {
-                'tp': 'new'
-            },
-            success: function (d) {
-                $('.new-lst').css({'background-color': 'rgba(146, 24, 24, 0.6)'})
-                var data = JSON.parse(d);
-                var i;
-                var lng = data.length;
-                $('.lst-tab').html('');
-                $('.lst-tab').html('<tr><th>Company Name</th><th>Type</th>' +
-                        '<th>City</th><th>Status</th></tr>')
-                for (i = 0; i < lng; i++) {
-                    $('.lst-tab').append('<tr><td align="center"><a id="0" href="#">' + data[i]._name_ + '</a></td>' +
-                            '<td align="center">' + data[i]._type_ + '</td>' +
-                            '<td align="center"><a id="0" href="#"><i class="icon-eye-open"></i>' +
-                            '' + data[i]._city_ + '</a></td><td style="text-align: center"><a id="aprv-etry" data-id='+ data[i].id +' href="#" class="mps-inpt btn btn-info btn-small">Approve</a></td></tr>');
-                }
-            }
-        });
-    });
+//    $('.popver').popover({
+//        html: true,
+//        placement: 'bottom',
+//        title: '<p id="new" class="cnt" data-toggle="modal" data-target="#newentry">New</p>',
+//        content: ''
+//    }).parent().on('click', '#admn', function () {
+//
+//        $.ajax({
+//            url: 'index/new_entries',
+//            method: 'post',
+//            data: {
+//                'tp': 'new'
+//            },
+//            success: function (d) {
+//                $('.new-lst').css({'background-color': 'rgba(146, 24, 24, 0.6)'})
+//                var data = JSON.parse(d);
+//                var i;
+//                var lng = data.length;
+//                $('.lst-tab').html('');
+//                $('.lst-tab').html('<tr><th>Company Name</th><th>Type</th>' +
+//                        '<th>City</th><th>Status</th></tr>')
+//                for (i = 0; i < lng; i++) {
+//                    $('.lst-tab').append('<tr><td align="center"><a id="0" href="#">' + data[i]._name_ + '</a></td>' +
+//                            '<td align="center">' + data[i]._type_ + '</td>' +
+//                            '<td align="center"><a id="0" href="#"><i class="icon-eye-open"></i>' +
+//                            '' + data[i]._city_ + '</a></td><td style="text-align: center"><a id="aprv-etry" data-id='+ data[i].id +' href="#" class="mps-inpt btn btn-info btn-small">Approve</a></td></tr>');
+//                }
+//            }
+//        });
+//    });
 
 
     $('#new_etry').click(function () {
@@ -200,18 +200,60 @@ $('html').on('click', function (e) {
         });
     });
 
-//    $.ajax({
-//        url: 'index/clst',
-//        method: 'post',
-//        success: function (d) {
-//            var data = JSON.parse(d);
-//            var i;
-//            var lngt = data.length;
-//            for (i = 0; i < lngt; i++) {
-//                $('#comny_name').append('<option value="' + i + '" >' + data[i]._type_ + '</option>')
-//            }
-//        }
-//    })
+    $.ajax({
+        url: 'index/clst',
+        method: 'post',
+        success: function (d) {
+            var data = JSON.parse(d);
+            var i;
+            var lngt = data.length;
+            for (i = 0; i < lngt; i++) {
+                $('#comny_name').append('<option value="' + i + '" >' + data[i]._resources_type + '</option>')
+            }
+        }
+    });
+    
+    $('#comny_name').change(function () {
+//        $('.itms').html('');
+        $.ajax({
+            url: 'index/bytp',
+            method: 'post',
+            data: {'tp': $('#comny_name option:selected').text()},
+            success: function (d) {
+                var r = JSON.parse(d);
+                var l = r.length;
+                var i;
+                
+                for (i = 0; i < l; i++) {
+
+                    var id = r[i]._search_id.toLowerCase();
+                    var $this = $('#' + id);
+                    $this.css({'display': 'block'});
+                    $this.find('.indx-nme').text(r[i]._search_id);
+                    $('.itms').find('#' + id).append('<div class="cmpny-items">'+
+                                                        '<div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
+                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
+                                                        '<p class="dtls-p"><span>Email:</span>' + r[i]._resources_email + '</p>'+
+                                                        '<p class="dtls-w"><span>Key Member:</span>' + r[i]._resources_key_members + '</p>'+
+                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._resources_phone + '</p>'+
+                                                        '<p><span>Description:</span><br>' + r[i]._resources_description + '</p>'+
+                                                        '<p><span>Contact:</span>' + r[i]._resources_contact_person + '</p><p><span>Address:</span>' + r[i]._resources_address + '</p></div>');
+                            
+                }
+
+            }
+        });
+
+    });
+    
+    $("#index").on('click', 'li a', function() {
+        var id = $(this).attr('href');
+    $('html, body').animate({
+        scrollTop: $(id).offset().top
+    }, 1800);
+});
+    
+    
     
     $('.modal-body').on('click', '#aprv-etry', function(e){
         e.preventDefault();

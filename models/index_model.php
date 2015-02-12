@@ -34,15 +34,15 @@ class Index_model extends Model {
         else{
        $sts = 'Smothing wrong while adding entry!!';
             return $sts;
-            
         }
     }
     
-    public function new_etries(){
-        $all = $this->db->prepare("SELECT * FROM _companies_ WHERE sts = 1");
+    public function getEntryByType(){
+        $tp = $_POST['tp'];
+        $all = $this->db->prepare("SELECT * FROM _startups_resources_ WHERE _resources_type = ".$this->db->quote($tp));
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
-        //var_dump($res);
+//        var_dump($res); 
         return $res; 
     }
     
@@ -59,12 +59,12 @@ class Index_model extends Model {
 
 
     public function compnys_list(){
-        $all = $this->db->prepare("SELECT _type_ FROM _companies_");
+        $all = $this->db->prepare("SELECT _resources_type FROM _startups_resources_");
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
 //        $res = array_keys(array_flip($res));
         
-        $key = '_type_';
+        $key = '_resources_type';
     $temp_array = array();
     $i = 0;
     $key_array = array();
@@ -107,5 +107,7 @@ class Index_model extends Model {
         }
         
     }
+    
+    
 
 }

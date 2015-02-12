@@ -11,8 +11,8 @@ class Index extends Controller {
     public function map() {
         echo $this->model->map_etry();
     }
-    public function new_entries() {
-        echo json_encode($this->model->new_etries());
+    public function bytp() {
+        echo json_encode($this->model->getEntryByType());
     }
     public function all_entries() {
         echo json_encode($this->model->all());

@@ -14,7 +14,6 @@
         <script type="text/javascript" src="/public/js/map.js"></script>
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>-->
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
         <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
        <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
         <script type="text/javascript">

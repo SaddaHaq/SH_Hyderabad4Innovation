@@ -142,7 +142,7 @@ margin-top: 2px;
 select{
     background-color: #FFF !important;
     width: 250px;
-    height: 40px;
+    height: 30px;
     cursor: pointer; 
     padding-top: 2px !important;
 }
@@ -320,13 +320,13 @@ padding-right: 25px;
        margin-top: 78px;
       }
       .hdr{
-       color: white;
-text-align: center;
-font-size: 2em;
-background-color: rgba(0, 0, 0, 0.5) !important;
-font-family: hyderabad4;
-font-weight: 300;
-line-height: 1.5;
+        color: #333;
+        text-align: center;
+        font-size: 2em;
+        font-family: hyderabad4;
+        font-weight: 300;
+        line-height: 1.5;
+        padding-top: 24px;
       }
 
 #contact-form {
@@ -474,4 +474,88 @@ padding-top: 10px !important;
 .ec_ul li img{
     width: 100%;
 }
+}
+#index{
+    padding: 0;
+}
+#index li{
+    display: inline-block;
+    font-size: 1.2em;
+}
+#index li a{
+    color: #333 !important; 
+}
+.indx{
+ float: left;   
+}
+
+.indx h3{
+    
+}
+.cat-ttp{
+    float: right;
+    /*margin-left: 40px;*/
+}
+.s-hdr{
+ color: #333;
+        text-align: left;
+        font-size: 1.3em;
+        font-family: 'Quattrocento', serif !important;
+        font-weight: 700;
+        line-height: 1.9 !important;
+        color: rgb(230, 4, 4);  
+}
+.cmpy_ttl{
+    font-size: 1.8em !important;
+    color: #23aad3 !important;
+    text-align: center !important;
+    font-family: 'Quattrocento', serif !important;
+    font-weight: 700;
+    padding-bottom: 24px;
+    
+}
+.itms div p span{
+    font-style: italic;
+    font-size: 0.9em;
+    padding-right: 10px;
+}
+.itms{
+    width: 100%;
+    padding-left:40px;
+    padding-right:40px;
+    margin-top: 120px;
+}
+.itms p{
+    font-size: 1.3em !important;
+}
+.dtls-w{
+    float: left;
+}
+.dtls-p{
+ /*float: left;*/   
+ text-align: right;
+}
+.indx-nme{
+    font-size: 2.5em !important;
+    display: inline-block;
+    text-align: center !important;
+    /*background-color: #23aad3;*/
+    background-color: antiquewhite;
+    padding-top: 10px !important;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 40px;
+}
+.cmpny-items{
+    /*border: 1px solid #333;*/
+    margin-bottom: 80px; 
+}
+
+.idex-itm{
+    display: none;
+    
+}
+.rsrc-nav{
+    width: 70%;
+    margin: auto;
 }
