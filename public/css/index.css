@@ -492,6 +492,9 @@ padding-top: 10px !important;
 .itms div p span{
     display: none;
 }
+.cat-ttp{
+   float: right !important;
+}
 }
 #index{
     padding: 0;
@@ -613,4 +616,21 @@ margin-top: 16px;
 }
 .cmpny-items i{
     color: red;
+}
+.nw-rsrc{
+    text-align: center;
+}
+.nw-btn{
+    font-size: 1.3em;
+    color: green;
+    border: 1px solid green;
+    padding: 8px 10px 8px 10px;
+    border-radius:5px;
+    cursor: pointer;
+    /*font-family: 'Quattrocento', serif !important;*/
+    font-weight: 500;
+    
+}
+.nw-btn:hover{
+    box-shadow: 0px 0px 15px rgb(186, 223, 186);
 }

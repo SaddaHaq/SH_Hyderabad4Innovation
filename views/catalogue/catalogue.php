@@ -2,6 +2,7 @@
 <div class="container">
     <div class="cntr">
         <h1 class="hdr">Resource Directory</h1>
+        <div class="nw-rsrc"><a href="https://docs.google.com/forms/d/1aHrSrp765LiK6jDKdBvlQMVMlz56y2rbaovsmwm9kUA/viewform" target="_blank"><span class="nw-btn">New <i class="icon-plus"></i></span></a></div>
         <div class="rsrc-nav">
         <div class="indx">
             <h3 class="s-hdr">A to Z index</h3>
