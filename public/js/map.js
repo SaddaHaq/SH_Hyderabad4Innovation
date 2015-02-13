@@ -241,7 +241,9 @@ $(document).ready(function () {
     });
     
     $('#comny_name').change(function () {
-        $('.itms').empty();
+        $('.indx-nme').empty();
+        $('.cmpny-items').remove();
+        $('.indx-nme').css({'display': 'none'});
         $.ajax({
             url: 'index/bytp',
             method: 'post',
@@ -256,6 +258,7 @@ $(document).ready(function () {
                     var id = r[i]._cmpny_id_.toLowerCase();
                     var $this = $('#' + id);
                     $this.css({'display': 'block'});
+                    $this.find('.indx-nme').css({'display': 'block'});
                     $this.find('.indx-nme').text(r[i]._cmpny_id_);
                     $('.itms').find('#' + id).append('<div class="cmpny-items">'+
                                                         '<div class="cmpy_ttl">' + r[i]._name_ + '</div>'+
