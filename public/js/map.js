@@ -221,7 +221,6 @@ $(document).ready(function () {
             var r = JSON.parse(d);
             var l = r.length;
             var i;
-
             for (i = 0; i < l; i++) {
                 var id = r[i]._resources_name.slice(0, 1);
                 id = id.toLowerCase();
@@ -229,16 +228,17 @@ $(document).ready(function () {
                 $this.css({'display': 'inline-block'});
                 $this.find('.indx-nme').css({'display': 'block'});
                 $this.find('.indx-nme').text(id);
-                $('.itms').find('#' + id).append('<div class="cmpny-items"><div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
-                            '<div class="cmp-cnct"><div class="dtls-lst">'+
-                            '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
-                            '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>'+
-                            '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>'+
-                            '<div class="cp-lgo"><img src="/images/echo7.png"></div><div class="clearfix"></div></div>'+
-                            '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>'+
-                            '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
-                    
-                    //                $('.itms').find('#' + id).append('<div class="cmpny-items">' +
+                $('#index').find("li[data-index='" + id + "']").children('a').css({'color': '#23aad3'});
+                $('.itms').find('#' + id).append('<div class="cmpny-items"><div class="cmpy_ttl">' + r[i]._resources_name + '</div>' +
+                        '<div class="cmp-cnct"><div class="dtls-lst">' +
+                        '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>' +
+                        '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>' +
+                        '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>' +
+                        '<div class="cp-lgo"><img src="/images/echo7.png"></div><div class="clearfix"></div></div>' +
+                        '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>' +
+                        '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
+
+                //                $('.itms').find('#' + id).append('<div class="cmpny-items">' +
 //                        '<div class="cmpy_ttl">' + r[i]._resources_name + '</div>' +
 //                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>' +
 //                        '<p class="dtls-p"><span>Email:</span>' + r[i]._resources_email + '</p>' +
@@ -262,7 +262,7 @@ $(document).ready(function () {
                 var r = JSON.parse(d);
                 var l = r.length;
                 var i;
-
+                $('#index').find("li").children('a').css({'color': '#727272'});
                 for (i = 0; i < l; i++) {
                     var id = r[i]._resources_name.slice(0, 1);
                     id = id.toLowerCase();
@@ -271,13 +271,14 @@ $(document).ready(function () {
                     $this.find('.indx-nme').css({'display': 'block'});
                     $this.find('.indx-nme').text(id);
 
-                    $('.itms').find('#' + id).append('<div class="cmpny-items"><div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
-                            '<div class="cmp-cnct"><div class="dtls-lst">'+
-                            '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
-                            '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>'+
-                            '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>'+
-                            '<div class="cp-lgo"><img src="/images/echo7.png"></div><div class="clearfix"></div></div>'+
-                            '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>'+
+                    $('#index').find("li[data-index='" + id + "']").children('a').css({'color': '#23aad3'});
+                    $('.itms').find('#' + id).append('<div class="cmpny-items"><div class="cmpy_ttl">' + r[i]._resources_name + '</div>' +
+                            '<div class="cmp-cnct"><div class="dtls-lst">' +
+                            '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>' +
+                            '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>' +
+                            '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>' +
+                            '<div class="cp-lgo"><img src="/images/echo7.png"></div><div class="clearfix"></div></div>' +
+                            '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>' +
                             '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
 
 
@@ -325,9 +326,19 @@ $(document).ready(function () {
     });
 
 
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 400) {
+            $('body').find('#goTop').fadeIn('slow');
+        } else {
+            $('body').find('#goTop').fadeOut('slow');
+        }
+    });
 
-
-
+    $('#goTop').click(function () {
+        $('html, body').animate({
+            scrollTop: $('body').offset().top
+        }, 500);
+    });
 
 
 

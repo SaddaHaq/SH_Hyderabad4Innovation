@@ -7,33 +7,33 @@
         <div class="indx">
             <h3 class="s-hdr">A to Z index</h3>
             <ul id="index">
-                <li><a href="#">All</a></li>
-                <li><a href="#a">A</a></li>
-                <li><a href="#b">B</a></li>
-                <li><a href="#c">C</a></li>
-                <li><a href="#d">D</a></li>
-                <li><a href="#e">E</a></li>
-                <li><a href="#f">F</a></li>
-                <li><a href="#g">G</a></li>
-                <li><a href="#h">H</a></li>
-                <li><a href="#i">I</a></li>
-                <li><a href="#j">J</a></li>
-                <li><a href="#k">K</a></li>
-                <li><a href="#l">L</a></li>
-                <li><a href="#m">M</a></li>
-                <li><a href="#n">N</a></li>
-                <li><a href="#o">O</a></li>
-                <li><a href="#p">P</a></li>
-                <li><a href="#q">Q</a></li>
-                <li><a href="#r">R</a></li>
-                <li><a href="#s">S</a></li>
-                <li><a href="#t">T</a></li>
-                <li><a href="#u">U</a></li>
-                <li><a href="#v">V</a></li>
-                <li><a href="#w">W</a></li>
-                <li><a href="#x">X</a></li>
-                <li><a href="#y">Y</a></li>
-                <li><a href="#z">Z</a></li>
+                <li data-index="all"><a href="#">All</a></li>
+                <li data-index="a"><a href="#a">A</a></li>
+                <li data-index="b"><a href="#b">B</a></li>
+                <li data-index="c"><a href="#c">C</a></li>
+                <li data-index="d"><a href="#d">D</a></li>
+                <li data-index="e"><a href="#e">E</a></li>
+                <li data-index="f"><a href="#f">F</a></li>
+                <li data-index="g"><a href="#g">G</a></li>
+                <li data-index="h"><a href="#h">H</a></li>
+                <li data-index="i"><a href="#i">I</a></li>
+                <li data-index="j"><a href="#j">J</a></li>
+                <li data-index="k"><a href="#k">K</a></li>
+                <li data-index="l"><a href="#l">L</a></li>
+                <li data-index="m"><a href="#m">M</a></li>
+                <li data-index="n"><a href="#n">N</a></li>
+                <li data-index="o"><a href="#o">O</a></li>
+                <li data-index="p"><a href="#p">P</a></li>
+                <li data-index="q"><a href="#q">Q</a></li>
+                <li data-index="r"><a href="#r">R</a></li>
+                <li data-index="s"><a href="#s">S</a></li>
+                <li data-index="t"><a href="#t">T</a></li>
+                <li data-index="u"><a href="#u">U</a></li>
+                <li data-index="v"><a href="#v">V</a></li>
+                <li data-index="w"><a href="#w">W</a></li>
+                <li data-index="x"><a href="#x">X</a></li>
+                <li data-index="y"><a href="#y">Y</a></li>
+                <li data-index="z"><a href="#z">Z</a></li>
             </ul>
         </div>
             <div class="cat-ttp">
@@ -119,6 +119,10 @@
         </div>
     </div>
 </div>
-
+<div id="goTop">
+<a class="stt" href="#">
+<i class="icon-chevron-up"></i>
+</a>
+</div>
 
 <?php require 'views/footer.php'; ?>

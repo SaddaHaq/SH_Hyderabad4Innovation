@@ -513,8 +513,9 @@ font-family: serif;
 
 }
 #index li a{
-    /*color: #333 !important;*/ 
+    color: #727272; 
 }
+
 .indx{
  float: left;   
 }
@@ -584,8 +585,9 @@ font-family: serif;
     margin-bottom: 80px; 
 }
 
+
 .idex-itm{
-    /*display: none;*/
+    display: none;
     
 }
 .cmpny-items{
@@ -648,6 +650,21 @@ margin-top: 3px;
 .nw-btn:hover i{
 -webkit-transform: rotate(180deg) !important;
 transform: rotate(180deg) !important;
-display: inline-block;
+display: inline-blck;
 }
 
+#goTop {
+position: fixed;
+bottom: 20px;
+right: 10px;
+background-color: #b9b8b9;
+padding: 2px;
+z-index: 10;
+display: none;
+}
+#goTop a {
+color: #FFF;
+font-size: 2.285em;
+display: block;
+text-align: center;
+text-decoration: none;
