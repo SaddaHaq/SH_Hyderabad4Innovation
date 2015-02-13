@@ -39,7 +39,7 @@ class Index_model extends Model {
     
     public function getEntryByType(){
         $tp = $_POST['tp'];
-        $all = $this->db->prepare("SELECT * FROM _startups_resources_ WHERE _resources_type = ".$this->db->quote($tp));
+        $all = $this->db->prepare("SELECT * FROM _companies_ WHERE _type_ = ".$this->db->quote($tp));
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
 //        var_dump($res); 
@@ -47,11 +47,11 @@ class Index_model extends Model {
     }
     
     public function all(){
-        $all = $this->db->prepare("SELECT id, _name_, _website_, _type_, _city_ FROM _companies_ WHERE sts = 2");
+        $all = $this->db->prepare("SELECT * FROM _companies_");
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
 //        var_dump($res);
-        return $res; 
+        return $res;
     }
   public function unique_multidim_array($array, $key){
     
@@ -59,12 +59,12 @@ class Index_model extends Model {
 
 
     public function compnys_list(){
-        $all = $this->db->prepare("SELECT _resources_type FROM _startups_resources_");
+        $all = $this->db->prepare("SELECT _type_ FROM _companies_");
         $all->execute();
         $res = $all->fetchAll(PDO::FETCH_ASSOC);
 //        $res = array_keys(array_flip($res));
         
-        $key = '_resources_type';
+        $key = '_type_';
     $temp_array = array();
     $i = 0;
     $key_array = array();

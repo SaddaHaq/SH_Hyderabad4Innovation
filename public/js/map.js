@@ -208,13 +208,40 @@ $(document).ready(function () {
             var i;
             var lngt = data.length;
             for (i = 0; i < lngt; i++) {
-                $('#comny_name').append('<option value="' + i + '" >' + data[i]._resources_type + '</option>')
+                $('#comny_name').append('<option value="' + i + '" >' + data[i]._type_ + '</option>')
             }
         }
     });
     
+    
+     $.ajax({
+        url: 'index/all_entries',
+        method: 'post',
+        success: function (d) {
+             var r = JSON.parse(d);
+                var l = r.length;
+                var i;
+                
+                for (i = 0; i < l; i++) {
+
+                    var id = r[i]._cmpny_id_.toLowerCase();
+                    var $this = $('#' + id);
+                    $this.css({'display': 'block'});
+                    $this.find('.indx-nme').text(r[i]._cmpny_id_);
+                    $('.itms').find('#' + id).append('<div class="cmpny-items">'+
+                                                        '<div class="cmpy_ttl">' + r[i]._name_ + '</div>'+
+                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._website_ + '" target="_blank">' + r[i]._website_ + '</a></p>'+
+                                                        '<p class="dtls-p"><span>City:</span>' + r[i]._city_ + '</p>'+
+                                                        '<p class="dtls-w"><span>Type:</span>' + r[i]._type_ + '</p>'+
+                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._contact_details_ + '</p>'+
+                                                        '<p><span>Description:</span><br>' + r[i]._desc_ + '</p>'+
+                                                        '<p><span>Address:</span>' + r[i]._address_ + '</p></div>');
+                                            }
+        }
+    });
+    
     $('#comny_name').change(function () {
-//        $('.itms').html('');
+        $('.itms').empty();
         $.ajax({
             url: 'index/bytp',
             method: 'post',
@@ -226,18 +253,26 @@ $(document).ready(function () {
                 
                 for (i = 0; i < l; i++) {
 
-                    var id = r[i]._search_id.toLowerCase();
+                    var id = r[i]._cmpny_id_.toLowerCase();
                     var $this = $('#' + id);
                     $this.css({'display': 'block'});
-                    $this.find('.indx-nme').text(r[i]._search_id);
+                    $this.find('.indx-nme').text(r[i]._cmpny_id_);
                     $('.itms').find('#' + id).append('<div class="cmpny-items">'+
-                                                        '<div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
-                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
-                                                        '<p class="dtls-p"><span>Email:</span>' + r[i]._resources_email + '</p>'+
-                                                        '<p class="dtls-w"><span>Key Member:</span>' + r[i]._resources_key_members + '</p>'+
-                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._resources_phone + '</p>'+
-                                                        '<p><span>Description:</span><br>' + r[i]._resources_description + '</p>'+
-                                                        '<p><span>Contact:</span>' + r[i]._resources_contact_person + '</p><p><span>Address:</span>' + r[i]._resources_address + '</p></div>');
+                                                        '<div class="cmpy_ttl">' + r[i]._name_ + '</div>'+
+                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._website_ + '" target="_blank">' + r[i]._website_ + '</a></p>'+
+                                                        '<p class="dtls-p"><span>City:</span>' + r[i]._city_ + '</p>'+
+                                                        '<p class="dtls-w"><span>Type:</span>' + r[i]._type_ + '</p>'+
+                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._contact_details_ + '</p>'+
+                                                        '<p><span>Description:</span><br>' + r[i]._desc_ + '</p>'+
+                                                        '<p><span>Address:</span>' + r[i]._address_ + '</p></div>');
+//                    $('.itms').find('#' + id).append('<div class="cmpny-items">'+
+//                                                        '<div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
+//                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
+//                                                        '<p class="dtls-p"><span>Email:</span>' + r[i]._resources_email + '</p>'+
+//                                                        '<p class="dtls-w"><span>Key Member:</span>' + r[i]._resources_key_members + '</p>'+
+//                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._resources_phone + '</p>'+
+//                                                        '<p><span>Description:</span><br>' + r[i]._resources_description + '</p>'+
+//                                                        '<p><span>Contact:</span>' + r[i]._resources_contact_person + '</p><p><span>Address:</span>' + r[i]._resources_address + '</p></div>');
                             
                 }
 
