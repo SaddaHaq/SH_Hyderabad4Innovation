@@ -35,29 +35,60 @@
                 <li><a href="#z">Z</a></li>
             </ul>
         </div>
-        <div class="cat-ttp">
-            <h3 class="s-hdr">Select category</h3>
-        <select id="comny_name">
-        </select>
-        </div>
+            <div class="cat-ttp">
+                <h3 class="s-hdr">Select category</h3>
+                <select id="comny_name">
+                </select>
+            </div>
         </div>
         <div class="clearfix"></div>
         <div class="itms">
             <div id="a" class="idex-itm">
                 <h4 class="indx-nme"></h4>
 <!--                <div class="cmpny-items">
-                <div class="cmpy_ttl">CIE @ IIIT-H Foundation</div>
-                <p class="dtls-w"><span>Website:</span><a href="http://iiith.org/" target="_blank">http://iiith.org/</a></p>
-                <p class="dtls-p"><span>Email:</span>manoj.surya@iiith.org</p>
-                <p class="dtls-w"><span>Key Member:</span>Srinivas Kollipara</p>
-                <p class="dtls-p"><span>Phone:</span>91-9985743059</p>
-                <p><span>Description:</span><br>The IIIT-H Foundation manages over 30,000 sft of space that consists of a co-working space
-                    and Incubator known as the Centre for Innovation and Entrepreneurship (CIE) on the IIIT-H
-                    campus. CIE is one of the largest Incubators in India, with over 50 startups under its roof.</p>
-                <p><span>Contact:</span> Manoj Surya</p>
-                <p><span>Address:</span>CIE, Vindhya C4,IIIT Campus,</p>
+                    <div class="cmpy_ttl">CIE @ IIIT-H Foundation</div>
+                    <div class="cmp-cnct">
+                        <div class="dtls-lst">
+                            <p class=""><i class="icon-home"></i><span>Website:</span><a href="http://iiith.org/" target="_blank">http://iiith.org/</a></p>
+                            <p class=""><i class="icon-mail"></i><span>Email:</span>manoj.surya@iiith.org</p>
+                            <p class=""><i class="icon-call"></i><span>Phone:</span>91-9985743059</p>
+                        </div>
+                        <div class="cp-lgo">
+                            <img src="/images/echo7.png">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <p><span>About Company:</span><br>The IIIT-H Foundation manages over 30,000 sft of space that consists of a co-working space
+                        and Incubator known as the Centre for Innovation and Entrepreneurship (CIE) on the IIIT-H
+                        campus. CIE is one of the largest Incubators in India, with over 50 startups under its roof.</p>
+                    <p><i class="icon-profile"></i><span>Contact:</span> Manoj Surya</p>
+                    <p><i class="icon-map-location"></i><span>Address:</span>CIE, Vindhya C4,IIIT Campus,  in India, with over 50 startups under  in India, with over 50 startups under</p>-->
+<!--                </div>
+
+
+
+
+                <div class="cmpny-items">
+                    <div class="cmpy_ttl">CIE @ IIIT-H Foundation</div>
+                    <div class="cmp-cnct">
+                        <div class="dtls-lst">
+                            <p class=""><i class="icon-home"></i><span>Website:</span><a href="http://iiith.org/" target="_blank">http://iiith.org/</a></p>
+                            <p class=""><i class="icon-mail"></i><span>Email:</span>manoj.surya@iiith.org</p>
+                            <p class=""><i class="icon-call"></i><span>Phone:</span>91-9985743059</p>
+                        </div>
+
+                        <div class="cp-lgo">
+                            <img src="/images/echo0.png">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <p><span>About Company:</span><br>The IIIT-H Foundation manages over 30,000 sft of space that consists of a co-working space
+                        and Incubator known as the Centre for Innovation and Entrepreneurship (CIE) on the IIIT-H
+                        campus. CIE is one of the largest Incubators in India, with over 50 startups under its roof.</p>
+                    <p><i class="icon-profile"></i><span>Contact:</span> Manoj Surya</p>
+                    <p><i class="icon-map-location"></i><span>Address:</span>CIE, Vindhya C4,IIIT Campus,  in India, with over 50 startups under  in India, with over 50 startups under</p>
                 </div>-->
-                
             </div>
         <div id="b" class="idex-itm"><h4 class="indx-nme"></h4></div>
         <div id="c" class="idex-itm"><h4 class="indx-nme"></h4></div>

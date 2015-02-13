@@ -1,16 +1,16 @@
 $(document).ready(function () {
-    
-    
-    
+
+
+
 //$('.').click(function(){
 //   $('.left--mbl-mnu').css({'width': '200px'}).toggle(); 
 //});
-    $('.mbl-rsp-mnu').click(function(e){
+    $('.mbl-rsp-mnu').click(function (e) {
         e.preventDefault();
-        if($('.left--mbl-mnu').width() == 0){
-           $('.left--mbl-mnu').css({'width': '200px'});
-           $(this).css({'color': '#F74895'})
-        }else{
+        if ($('.left--mbl-mnu').width() == 0) {
+            $('.left--mbl-mnu').css({'width': '200px'});
+            $(this).css({'color': '#F74895'})
+        } else {
             $('.left--mbl-mnu').css({'width': '0px'});
             $(this).css({'color': '#333'})
         }
@@ -70,15 +70,15 @@ $(document).ready(function () {
     $('#new_etry').click(function () {
         var nme = $('#name').val();
         var web = $('#website').val();
-        var typ  = $('#tp').val();
-        var abt =  $('#abt').val();
+        var typ = $('#tp').val();
+        var abt = $('#abt').val();
         var cty = $('#cty').val();
         var adr = $('#adrss').val();
         var cnt = $('#cntat').val();
         var rtng = $('#rtng').val();
         var lang = $('#lng').val();
         var lat = $('#ltd').val();
-        if(nme.trim() == '' || nme.trim() == null){
+        if (nme.trim() == '' || nme.trim() == null) {
             $('.er').css({'opacity': '1'}).text('Company name cannot be empty');
             $('#name').focus();
             $('.modal-body').effect('shake', {
@@ -87,7 +87,7 @@ $(document).ready(function () {
             }, 300);
             return;
         }
-        else if(web.trim() == '' || web.trim() == null){
+        else if (web.trim() == '' || web.trim() == null) {
             $('.er').css({'opacity': '1'}).text('Company wbsite cannot be empty');
             $('#website').focus();
             $('.modal-body').effect('shake', {
@@ -96,7 +96,7 @@ $(document).ready(function () {
             }, 300);
             return;
         }
-        else if(typ.trim() == '' || typ.trim() == null){
+        else if (typ.trim() == '' || typ.trim() == null) {
             $('.er').css({'opacity': '1'}).text('Company Type cannot be empty');
             $('#tp').focus();
             $('.modal-body').effect('shake', {
@@ -105,8 +105,8 @@ $(document).ready(function () {
             }, 300);
             return;
         }
-        else if(abt.trim() == '' || abt.trim() == null){
-             $('.er').css({'opacity': '1'}).text('Company Description cannot be empty');
+        else if (abt.trim() == '' || abt.trim() == null) {
+            $('.er').css({'opacity': '1'}).text('Company Description cannot be empty');
             $('#abt').focus();
             $('.modal-body').effect('shake', {
                 times: 2,
@@ -114,7 +114,7 @@ $(document).ready(function () {
             }, 300);
             return;
         }
-        else if(cty.trim() == '' || cty.trim() == null){
+        else if (cty.trim() == '' || cty.trim() == null) {
             $('.er').css({'opacity': '1'}).text('Company Location cannot be empty');
             $('#cty').focus();
             $('.modal-body').effect('shake', {
@@ -194,7 +194,7 @@ $(document).ready(function () {
                     $('.lst-tab').append('<tr><td align="center"><a id="0" href="#">' + data[i]._name_ + '</a></td>' +
                             '<td align="center">' + data[i]._type_ + '</td>' +
                             '<td align="center"><a id="0" href="#"><i class="icon-eye-open"></i>' +
-                            '' + data[i]._city_ + '</a></td><td style="text-align: center"><a id="aprv-etry" data-id='+ data[i].id +' href="#" class="mps-inpt btn btn-info btn-small">Approve</a></td></tr>');
+                            '' + data[i]._city_ + '</a></td><td style="text-align: center"><a id="aprv-etry" data-id=' + data[i].id + ' href="#" class="mps-inpt btn btn-info btn-small">Approve</a></td></tr>');
                 }
             }
         });
@@ -208,38 +208,48 @@ $(document).ready(function () {
             var i;
             var lngt = data.length;
             for (i = 0; i < lngt; i++) {
-                $('#comny_name').append('<option value="' + i + '" >' + data[i]._type_ + '</option>')
+                $('#comny_name').append('<option value="' + i + '" >' + data[i]._resources_type + '</option>')
             }
         }
     });
-    
-    
-     $.ajax({
+
+
+    $.ajax({
         url: 'index/all_entries',
         method: 'post',
         success: function (d) {
-             var r = JSON.parse(d);
-                var l = r.length;
-                var i;
-                
-                for (i = 0; i < l; i++) {
+            var r = JSON.parse(d);
+            var l = r.length;
+            var i;
 
-                    var id = r[i]._cmpny_id_.toLowerCase();
-                    var $this = $('#' + id);
-                    $this.css({'display': 'block'});
-                    $this.find('.indx-nme').text(r[i]._cmpny_id_);
-                    $('.itms').find('#' + id).append('<div class="cmpny-items">'+
-                                                        '<div class="cmpy_ttl">' + r[i]._name_ + '</div>'+
-                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._website_ + '" target="_blank">' + r[i]._website_ + '</a></p>'+
-                                                        '<p class="dtls-p"><span>City:</span>' + r[i]._city_ + '</p>'+
-                                                        '<p class="dtls-w"><span>Type:</span>' + r[i]._type_ + '</p>'+
-                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._contact_details_ + '</p>'+
-                                                        '<p><span>Description:</span><br>' + r[i]._desc_ + '</p>'+
-                                                        '<p><span>Address:</span>' + r[i]._address_ + '</p></div>');
-                                            }
+            for (i = 0; i < l; i++) {
+                var id = r[i]._resources_name.slice(0, 1);
+                id = id.toLowerCase();
+                var $this = $('#' + id);
+                $this.css({'display': 'inline-block'});
+                $this.find('.indx-nme').css({'display': 'block'});
+                $this.find('.indx-nme').text(id);
+                $('.itms').find('#' + id).append('<div class="cmpny-items"><div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
+                            '<div class="cmp-cnct"><div class="dtls-lst">'+
+                            '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
+                            '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>'+
+                            '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>'+
+                            '<div class="cp-lgo"><img src="/images/echo7.png"></div><div class="clearfix"></div></div>'+
+                            '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>'+
+                            '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
+                    
+                    //                $('.itms').find('#' + id).append('<div class="cmpny-items">' +
+//                        '<div class="cmpy_ttl">' + r[i]._resources_name + '</div>' +
+//                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>' +
+//                        '<p class="dtls-p"><span>Email:</span>' + r[i]._resources_email + '</p>' +
+//                        '<p class="dtls-w"><span>Key Member:</span>' + r[i]._resources_key_members + '</p>' +
+//                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._resources_phone + '</p>' +
+//                        '<p><span>Description:</span><br>' + r[i]._resources_description + '</p>' +
+//                        '<p><span>Contact:</span>' + r[i]._resources_contact_person + '</p><p><span>Address:</span>' + r[i]._resources_address + '</p></div>');
+            }
         }
     });
-    
+
     $('#comny_name').change(function () {
         $('.indx-nme').empty();
         $('.cmpny-items').remove();
@@ -252,61 +262,65 @@ $(document).ready(function () {
                 var r = JSON.parse(d);
                 var l = r.length;
                 var i;
-                
-                for (i = 0; i < l; i++) {
 
-                    var id = r[i]._cmpny_id_.toLowerCase();
+                for (i = 0; i < l; i++) {
+                    var id = r[i]._resources_name.slice(0, 1);
+                    id = id.toLowerCase();
                     var $this = $('#' + id);
-                    $this.css({'display': 'block'});
+                    $this.css({'display': 'inline-block'});
                     $this.find('.indx-nme').css({'display': 'block'});
-                    $this.find('.indx-nme').text(r[i]._cmpny_id_);
-                    $('.itms').find('#' + id).append('<div class="cmpny-items">'+
-                                                        '<div class="cmpy_ttl">' + r[i]._name_ + '</div>'+
-                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._website_ + '" target="_blank">' + r[i]._website_ + '</a></p>'+
-                                                        '<p class="dtls-p"><span>City:</span>' + r[i]._city_ + '</p>'+
-                                                        '<p class="dtls-w"><span>Type:</span>' + r[i]._type_ + '</p>'+
-                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._contact_details_ + '</p>'+
-                                                        '<p><span>Description:</span><br>' + r[i]._desc_ + '</p>'+
-                                                        '<p><span>Address:</span>' + r[i]._address_ + '</p></div>');
+                    $this.find('.indx-nme').text(id);
+
+                    $('.itms').find('#' + id).append('<div class="cmpny-items"><div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
+                            '<div class="cmp-cnct"><div class="dtls-lst">'+
+                            '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
+                            '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>'+
+                            '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>'+
+                            '<div class="cp-lgo"><img src="/images/echo7.png"></div><div class="clearfix"></div></div>'+
+                            '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>'+
+                            '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
+
+
+
+
 //                    $('.itms').find('#' + id).append('<div class="cmpny-items">'+
-//                                                        '<div class="cmpy_ttl">' + r[i]._resources_name + '</div>'+
-//                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>'+
-//                                                        '<p class="dtls-p"><span>Email:</span>' + r[i]._resources_email + '</p>'+
-//                                                        '<p class="dtls-w"><span>Key Member:</span>' + r[i]._resources_key_members + '</p>'+
-//                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._resources_phone + '</p>'+
-//                                                        '<p><span>Description:</span><br>' + r[i]._resources_description + '</p>'+
-//                                                        '<p><span>Contact:</span>' + r[i]._resources_contact_person + '</p><p><span>Address:</span>' + r[i]._resources_address + '</p></div>');
-                            
+//                                                        '<div class="cmpy_ttl">' + r[i]._name_ + '</div>'+
+//                                                        '<p class="dtls-w"><span>Website:</span><a href="' + r[i]._website_ + '" target="_blank">' + r[i]._website_ + '</a></p>'+
+//                                                        '<p class="dtls-w"><span>Type:</span>' + r[i]._type_ + '</p>'+
+//                                                        '<p class="dtls-p"><span>Phone:</span>' + r[i]._contact_details_ + '</p>'+
+//                                                        '<p><span>About Company:</span><br>' + r[i]._desc_ + '</p>'+
+//                                                        '<p><span>Address:</span>' + r[i]._address_ + '</p></div>');
+
                 }
 
             }
         });
 
     });
-    
-    $("#index").on('click', 'li a', function() {
+
+    $("#index").on('click', 'li a', function () {
         var id = $(this).attr('href');
-    $('html, body').animate({
-        scrollTop: $(id).offset().top
-    }, 1800);
-});
-    
-    
-    
-    $('.modal-body').on('click', '#aprv-etry', function(e){
+        $('html, body').animate({
+            scrollTop: $(id).offset().top
+        }, 1800);
+    });
+
+
+
+    $('.modal-body').on('click', '#aprv-etry', function (e) {
         e.preventDefault();
-        
+
         $.ajax({
-           url: 'index/aprv',
-           method: 'post',
-           data: {
-               sts: 'aprv',
-               id: $(this).data('id'),
-           },
-           success: function(d){
-               $('#admin_aprv .p-cls').trigger('click');
-               alert(d);
-           }
+            url: 'index/aprv',
+            method: 'post',
+            data: {
+                sts: 'aprv',
+                id: $(this).data('id'),
+            },
+            success: function (d) {
+                $('#admin_aprv .p-cls').trigger('click');
+                alert(d);
+            }
         });
     });
 
