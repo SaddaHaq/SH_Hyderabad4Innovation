@@ -881,7 +881,11 @@ top: -4px
     .static-auth,.static-links {
         display: inline-block;
     }
-
+    #hrw-bg{
+        width: 100% !important;
+        float: right !important;
+        text-align: right !important;
+    }
     .nav-toggle {
         display: none;
     }
@@ -967,7 +971,7 @@ top: -4px
         color: white !important;
         line-height: 1.3em !important;
         letter-spacing: 0em !important;
-        padding: 18px 0px 0px 10px;
+        padding: 18px 13px 0px 10px;
         display: inline-block;
         vertical-align: middle !important;
     }
@@ -1043,10 +1047,10 @@ top: -4px
 
 .mbl-rsp-mnu{
 position: absolute;
-text-align: right;
-float: right;
-right: 0px;
-margin: 22px 20px 0px 0px;
+text-align: left;
+float: left;
+left: 0px;
+margin: 22px 20px 0px 5px;
 }
 .mbl-rsp-mnu i{
     color: white !important;

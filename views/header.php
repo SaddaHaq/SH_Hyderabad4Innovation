@@ -67,7 +67,7 @@
             
             <div class="left--mbl-mnu hidn-mbl-sidbar"><ul class="lft-mnu-lst">
             <li class="lft--mbl-mnu-item"><a href="/"><span class="mnu-itm-ttl">Home</span></a></li>
-            <li class="lft--mbl-mnu-item"><a href="/submit"><span class="mnu-itm-ttl">Submit</span></a></li>
+<!--            <li class="lft--mbl-mnu-item"><a href="/submit"><span class="mnu-itm-ttl">Submit</span></a></li>-->
             <li class="lft--mbl-mnu-item"><a href="/catalogue" class="sb-mnu-intiavs"><span class="mnu-itm-ttl">Directory</span></a>
                 </li>
             <li class="lft--mbl-mnu-item"><a href="/about"><span class="mnu-itm-ttl">About</span></a></li>

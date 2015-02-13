@@ -624,7 +624,7 @@ margin-top: 16px;
     font-size: 1.3em;
     color: green;
     border: 1px solid green;
-    padding: 8px 10px 8px 10px;
+    padding: 8px 35px 8px 10px;
     border-radius:5px;
     cursor: pointer;
     /*font-family: 'Quattrocento', serif !important;*/
@@ -634,3 +634,20 @@ margin-top: 16px;
 .nw-btn:hover{
     box-shadow: 0px 0px 15px rgb(186, 223, 186);
 }
+.nw-btn i{
+   -webkit-transform: rotate(0);
+transform: rotate(0);
+-webkit-transition: -webkit-transform .5s;
+transition: transform .5s; 
+display: inline;
+position: absolute;
+margin-left: 6px;
+margin-top: 3px;
+}
+
+.nw-btn:hover i{
+-webkit-transform: rotate(180deg) !important;
+transform: rotate(180deg) !important;
+display: inline-block;
+}
+
