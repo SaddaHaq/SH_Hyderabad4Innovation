@@ -145,6 +145,7 @@ select{
     height: 30px;
     cursor: pointer; 
     padding-top: 2px !important;
+    color: #333 !important;
 }
 .mps-inpt{
     margin-bottom: 7px !important;
@@ -474,16 +475,32 @@ padding-top: 10px !important;
 .ec_ul li img{
     width: 100%;
 }
+#index{
+    border: 0px solid #C4C4C4 !important;
+}
+#index li{
+    border: 1px solid !important;
+    margin-bottom: 5px;
+}
 }
 #index{
     padding: 0;
+    border: 1px solid #C4C4C4;
+    margin-top: 12px;
+    
 }
 #index li{
     display: inline-block;
     font-size: 1.2em;
+    border-left: 1px solid;
+padding-left: 7px;
+padding-right: 4px;
+padding-top: 1px;
+font-family: serif;
+
 }
 #index li a{
-    color: #333 !important; 
+    /*color: #333 !important;*/ 
 }
 .indx{
  float: left;   
@@ -556,6 +573,6 @@ padding-top: 10px !important;
     
 }
 .rsrc-nav{
-    width: 70%;
+    width: 90%;
     margin: auto;
 }

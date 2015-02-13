@@ -6,6 +6,7 @@
         <div class="indx">
             <h3 class="s-hdr">A to Z index</h3>
             <ul id="index">
+                <li><a href="#">All</a></li>
                 <li><a href="#a">A</a></li>
                 <li><a href="#b">B</a></li>
                 <li><a href="#c">C</a></li>
