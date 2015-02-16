@@ -363,6 +363,16 @@ padding-top: 1px;
     margin: auto;
     padding:20px; 
 }
+.abt-s h3{
+font-family: 'Quattrocento', serif !important;
+font-size: 2em;
+padding-left: 0px;
+font-weight: 700;
+color: #E74040;
+text-align: center;
+line-height: 3em;
+text-transform: uppercase;
+}
 .ct-ipt {
 background-color: #eee;
 color: #888;
@@ -677,3 +687,38 @@ font-size: 2.285em;
 display: block;
 text-align: center;
 text-decoration: none;
+}
+.hilits 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.hilits.big {
+    min-width: 720px;
+    margin-bottom: 60px;
+}
+
+.hilits.big li {
+    min-width: 221px;
+    margin: 0;
+}
+.hilits li {
+    text-align: center;
+    display: inline-block;
+    padding: 0 12px;
+    width: 19%;
+}
+.hilits .icn {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    margin: 0 auto;
+}
+.hilits .icn img {
+    max-width: 100%;
+}
+.hilits .ttl {
+    font-size: 1.2857em;
+    line-height: 1.4em;
+}

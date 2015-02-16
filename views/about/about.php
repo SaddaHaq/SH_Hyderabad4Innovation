@@ -3,8 +3,29 @@
             <!--<div class="hdr">Contact</div>-->
             <div class="abt-s">
                             <h4>ABOUT US</h4>
-                            <p>Hyderabad4Innovation (H4I) is an informal group that includes the Directors of IIT/IIIT/BITS/ISB and industry leaders like BVR Mohan Reddy, Srini Raju and JA Chowdary and TiE& HYSEA presidents. H4I's objective is to nurture, accelerate and amplify the startup innovation ecosystem in Hyderabad.</p>
-                            <p>Hyderabad 4 Innovation will build a directory of academic incubators, social groups, research institutions, and other commercial entities (incubators, co-working spaces, seed funds & accelerators). Over 80 startup support organizations/groups coming together to deliberate on creating a platform for active collaboration amongst the groups</p>
+                            <p>H4I is an initiative by a group of senior leaders to nurture and grow the innovation ecosystem in Hyderabad.  Bringing together leaders from academics, research, industry and investment. Meeting every 2 months since 2013 to informally brainstorm on possible action items and launching  few initiatives like IdeaCarnival at IIIT-H, IIT and BITS, a summer program for tier 2 college students, entrepreneurship courses at IIT and more.</p>
+                            <h3>The founding members included</h3>
+                            <h4>Directors of</h4>
+                            <ul class="hilits big">
+                        <li class="box">
+                            <p class="icn"><img src="/images/iit-h.png"></p>
+                            <p class="ttl">IIT - Hyderabad<br>(Prof.Desai)</p>
+                        </li>
+                        <li class="box">
+                            <p class="icn"><img src="http://t-hub.co.in/global/images/icon_iiith.png"></p>
+                            <p class="ttl">IIIT, Hyderabad<br>(Dr.PJ Narayanan)</p>
+                        </li>
+                        <li class="box">
+                            <p class="icn"><img src="http://t-hub.co.in/global/images/icon_isb.png"></p>
+                            <p class="ttl">ISB, Hyderabad<br>(Prof.VS Rao)</p>
+                        </li>
+                        <li class="box">
+                            <p class="icn"><img src="/images/bits.png"></p>
+                            <p class="ttl">BITS - Hyderabad<br>(Dr.G.N.Rao)</p>
+                        </li>
+                    </ul>
+                            <p>In keeping with the efforts to foster the innovation ecosystem, H4I has taken up this new initiative to discover and network the innovation support ecosystem players in the city. Bringing together incubators, accelerator, research institutions, co working spaces, events, organisations, investors and more. Working with Hyderabad Hackers, H4I has compiled the directory of all support resources. And brought all the groups and organisations together got a networking meeting on Feb 15 to discover each other and to brainstorm on a sustained engagement network got all the ecosystem player to collaborate and cross-leverage each other. The same is being now taken forward as a FB group and mailing list apart from the interactive map on this site. </p>
+                            
             </div>
             
         </div>
