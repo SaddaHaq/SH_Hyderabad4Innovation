@@ -20,7 +20,7 @@
                             <p class="ttl">ISB, Hyderabad<br>(Prof.VS Rao)</p>
                         </li>
                         <li class="box">
-                            <p class="icn"><img src="/images/bits.png"></p>
+                            <p class="icn"><img src="/images/bits1.png"></p>
                             <p class="ttl">BITS - Hyderabad<br>(Dr.G.N.Rao)</p>
                         </li>
                     </ul>
