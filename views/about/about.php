@@ -24,6 +24,49 @@
                             <p class="ttl">BITS - Hyderabad<br>(Dr.G.N.Rao)</p>
                         </li>
                     </ul>
+                          <h4>Industry leaders</h4>  
+                        <ul class="hilits big">
+                        <li class="box">
+                            <p><i class="icon-profile"></i></p>
+                            <p class="ttl">BVR Mohan Reddy</p>
+                        </li>
+                        <li class="box">
+                            <p><i class="icon-profile"></i></p>
+                            <p class="ttl">Srini Raju</p>
+                        </li>
+                        <li class="box">
+                            <p><i class="icon-profile"></i></p>
+                            <p class="ttl"> JA Chowdary</p>
+                        </li>
+                    </ul>
+                          
+                          <h4>Investment ecosystem principals</h4>  
+                        <ul class="hilits big">
+                        <li class="box">
+                            <!--<p><i class="icon-profile"></i></p>-->
+                            <p><i class="icon-profile"></i></p><p class="ttl">Srini Koppolu</p>
+                        </li>
+                        <li class="box">
+                            <!--<p><i class="icon-profile"></i></p>-->
+                            <p><i class="icon-profile"></i></p><p class="ttl">Dr.Ramesh Byrapaneni</p>
+                        </li>
+                        <li class="box">
+                            <!--<p><i class="icon-profile"></i></p>-->
+                            <p><i class="icon-profile"></i></p><p class="ttl">Sateesh Andra</p>
+                        </li>
+                        <li class="box">
+                            <!--<p><i class="icon-profile"></i></p>-->
+                            <p><i class="icon-profile"></i></p><p class="ttl">TiE President</p>
+                        </li>
+                        <li class="box">
+                            <!--<p><i class="icon-profile"></i></p>-->
+                            <p><i class="icon-profile"></i></p><p class="ttl">Prof.Vasudeva Varma</p>
+                        </li>
+                        <li class="box">
+                            <!--<p><i class="icon-profile"></i></p>-->
+                            <p><i class="icon-profile"></i></p><p class="ttl">Ramesh Loganathan</p>
+                        </li>
+                    </ul>
                             <p>In keeping with the efforts to foster the innovation ecosystem, H4I has taken up this new initiative to discover and network the innovation support ecosystem players in the city. Bringing together incubators, accelerator, research institutions, co working spaces, events, organisations, investors and more. Working with Hyderabad Hackers, H4I has compiled the directory of all support resources. And brought all the groups and organisations together got a networking meeting on Feb 15 to discover each other and to brainstorm on a sustained engagement network got all the ecosystem player to collaborate and cross-leverage each other. The same is being now taken forward as a FB group and mailing list apart from the interactive map on this site. </p>
                             
             </div>

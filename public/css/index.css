@@ -722,3 +722,35 @@ text-decoration: none;
     font-size: 1.2857em;
     line-height: 1.4em;
 }
+
+.hilits li p i{
+    font-size: 4.5em;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.hilits li:nth-child(1) p i{
+    color: rgb(76, 165, 42);
+}
+
+.hilits li:nth-child(2) p i{
+    color: rgb(177, 32, 32);
+}
+.hilits li:nth-child(3) p i{
+    color: rgb(202, 165, 45);
+}
+.hilits li:nth-child(4) p i{
+    color: rgb(27, 143, 120);
+}
+.hilits li:nth-child(5) p i{
+    color: rgb(45, 76, 202);
+}
+.hilits li:nth-child(6) p i{
+    color: rgb(172, 117, 0);
+}
+
+.hilits li p:hover i{
+    filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1)
+}
