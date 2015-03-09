@@ -27,5 +27,12 @@ class Index extends Controller {
      
   public function aprv(){
       echo $this->model->aprv_etry();
-  } 
+  }
+  
+  public function adnws(){
+      $url = $_POST['url'];
+      $tp = $_POST['tp'];
+      $strp = $_POST['strtp'];
+            echo $this -> model -> adnews($url, $tp, $strp);
+  }
 }

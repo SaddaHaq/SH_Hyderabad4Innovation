@@ -114,7 +114,7 @@ a{
         -moz-box-sizing: border-box;
         margin: 1px 0;
         position: relative;
-        font-family: 'Quattrocento', serif !important;
+        font-family: lato;
     }
     
     .mnu-bg{
@@ -912,7 +912,7 @@ top: -4px
         -moz-box-sizing: border-box;
         margin: 1px 0;
         position: relative;
-        font-family: 'Quattrocento', serif !important;
+        font-family: lato !important;
     }
     
     .mnu-bg{
@@ -1068,7 +1068,7 @@ display: none;
 .mbl-mnu-ul li{
     font-size: 1.3em;
     color: #23aad3;
-    font-family: 'Quattrocento', serif !important;
+    font-family: lato !important;
     padding: 8px 24px 8px 24px;
 }
 
@@ -1103,7 +1103,7 @@ margin-top: -2px;
     margin-left: 16px;
 /* display: none; */
 font-size: 1.3em;
-font-family: 'Quattrocento', serif !important;
+font-family: lato !important;
 font-weight: 500 !important;
 padding-left: 15px;
 }

@@ -696,4 +696,10 @@ public function bank_statement_model(){
         return $full_data;
         
     }
+    
+    public function getnews(){
+        $gtnws = $this -> db ->query('SELECT * FROM _startups_news_ ORDER BY _news_addedon DESC LIMIT 20');
+        $res = $gtnws->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 }

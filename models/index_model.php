@@ -109,5 +109,45 @@ class Index_model extends Model {
     }
     
     
+    public function adnews($url, $tp, $strp){
 
+        $u = $url;
+        $sites_html = file_get_contents($u);
+
+        $html = new DOMDocument();
+        @$html->loadHTML($sites_html);
+        $data = null;
+        $meta_og_img = null;
+        //Get all meta tags and loop through them.
+        foreach ($html->getElementsByTagName('meta') as $meta) {
+
+            //If the meta tag reads "og:", save the property and value to an array
+            if (strpos($meta->getAttribute('property'), 'og:') !== false || strpos($meta->getAttribute('property'), 'article:published_time') !== false) {
+                $data[$meta->getAttribute('property')] = $meta->getAttribute('content');
+            }
+        }
+
+        $d = $data;
+        $time = time();
+        $id = md5($time . rand(21, 221) . '#$sr');
+        $addentry = $this -> db -> query("INSERT INTO _startups_news_ VALUES(".$this -> db -> quote($id).", ".$this -> db -> quote($d['og:title']).",".$this -> db -> quote($d['og:description']).",".
+                                                                                $this -> db -> quote($d['og:image']).",".
+                                                                                $this -> db -> quote($d['og:site_name']).",".
+                                                                                $this -> db -> quote($d['og:url']).",".
+                                                                                $this -> db -> quote($tp).",".
+                                                                                $this -> db -> quote('0').",".
+                                                                                $this -> db -> quote(strtotime($d['article:published_time'])).",".
+                                                                                $this -> db -> quote($strp).",".
+                                                                                $this -> db -> quote(time()).")");
+       if($addentry == true){
+           $sts = 'Url added successfully!!';
+       }else{
+           $sts = "Somthig wrong while adding Url please try again";
+       } 
+       return $sts;
+        
+           }
+    
+
+    
 }

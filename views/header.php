@@ -8,14 +8,15 @@
         <link rel="stylesheet" href="/public/global/saddahaq/css/saddahaq.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="/public/css/news.css" />
         <script type="text/javascript" src="/public/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <script type="text/javascript" src="/public/js/popup.js"></script>
         <script type="text/javascript" src="/public/js/map.js"></script>
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>-->
-        <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-       <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
+       <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+       <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <script type="text/javascript">
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
@@ -58,6 +59,9 @@
                 </span>
 		<span class="work-navgroup static-link">
                     <a href="/team" class="media"><span class="mnu-bg med"></span>Team</a>
+                </span>
+                <span class="work-navgroup static-link">
+                    <a href="/news" class="media"><span class="mnu-bg med"></span>News</a>
                 </span>
                 <span class="work-navgroup static-link">
                     <a href="/contact" class="media"><span class="mnu-bg med"></span>Contact</a>
