@@ -37,15 +37,17 @@
                     <!--<b>Add news</b>-->
                 </span>
                 <div class="ad-nws-frm">
-                    <div class="ad-nws-hdr">Add URL</div>
+                    <div class="ad-nws-hdr">Submit News</div>
                     <form id="adnws_form">
                         Url:<br><input type="text" id="nws-url"><br>  
                         Startup Name:<br> <input type="text" id="strp_nme"><br>
                         Type of news: <br>
                         <select id="nws-tp">
-                            <option>Startups</option>
-                            <option>IT news</option>
-                            <option>Business</option>
+                            <option>Product Launch</option>
+                            <option>Product Update</option>
+                            <option>Company Update</option>
+                            <option>Funding</option>
+                            <option>Exit</option>
                         </select><br>
                         <button class="nws-btn" id="add-nws-btn">Submit</button><span class="add-new-dly"><img src="/images/loader.gif"></span>
                         <span class="nws-err"></span>
