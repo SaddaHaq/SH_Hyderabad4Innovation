@@ -41,7 +41,7 @@
                     <form id="adnws_form">
                         Url:<br><input type="text" id="nws-url"><br>  
                         Startup Name:<br> <input type="text" id="strp_nme">
-                        <span class="no-strtp" style="display: none; padding-bottom: 4px;: ">Start up doesn't exist. To add a startup, <a href="/submit">click here</a></span>
+                        <span class="no-strtp" style="display: none; padding-bottom: 4px;: ">Start up doesn't exist. To add a startup, <a href="/addstartup">click here</a></span>
                         Type of news: <br>
                         <select id="nws-tp">
                             <option>Product Launch</option>
