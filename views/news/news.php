@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php require 'views/header.php'; ?>
+<?php require 'views/header.php'; ?>]
+<?= $string = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', '', $string); ?>
         <div class="pg" id="news">
             <?php $nws_itm = $this->getnws ?>
             <section>
@@ -13,23 +14,25 @@
                                 if ($c >= 4) {
                                     $c = 0;} ?>
                                 <div class="tl-dt" style="background-color: <?= $colours[$c]; ?>">
-                                    <h1> <?= $nws_itm[$i]['_news_addedby'] ?></h1>
+                                    <h1><a href="#" data-cnt="<?= $nws_itm[$i]['_news_addedby'] ?>" data-tp="strtp" class="nws-strp"><?= $nws_itm[$i]['_news_addedby'] ?></a></h1>
                                     <!--<h1></h1> <h1><?= date('j', $nws_itm[$i]['_news_pubtime']) ?></h1>-->
                                     <!--<p class="athr"><i></i></p>-->
-                                    <p class="athr"><i>Type: <?= $nws_itm[$i]['_news_type'] ?></i></p>
-                                    <p class="athr"><i>Src: <?= $nws_itm[$i]['_news_src'] ?></i></p>
+                                    <p class="athr"><i>Type: <a href="#" data-cnt="<?= $nws_itm[$i]['_news_type'] ?>" data-tp="nwstype" class="nws-strp"><?= $nws_itm[$i]['_news_type'] ?></a></i></p>
+                                    <p class="athr"><i>Src: <a href="#" data-cnt="<?= $nws_itm[$i]['_news_src'] ?>" data-tp="nwssrc" class="nws-strp"><?= $nws_itm[$i]['_news_src'] ?></a></i></p>
                                     <p class="athr"><i>Pub date: <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
                                 </div>
                                 <h2 class='s-h'><a href="<?= $nws_itm[$i]['_news_link'] ?>" target="_blank"><?= $nws_itm[$i]['_news_hdlne'] ?></a></h2>
                                 <p class='dsc'><?= $nws_itm[$i]['_news_smry'] ?></p>
                                 <a href='<?= $nws_itm[$i]['_news_link'] ?>' target="_blank" class="rd-mre">Read more.. <i class="icon_angle-right"></i></a>
+                                <p class='dsc' style="padding-top: 8px">Published by <?= $nws_itm[$i]['_news_src'] ?> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></p>
                             </div>
                             <div class='clearfix'></div>
                         </li>
                     <?php $c++; }?>
                 </ul>
-                <?php if(sizeof($nws_itm) > 0){ ?>
+                <?php if(sizeof($nws_itm) > 7){ ?>
                 <button class="nws-btn" id="nws-ldmre-btn" style="margin-left: 50%;">Load more</button>
+                <a href="/news" id="back-btn" style="display: none;"><button class="nws-btn" style="margin-left: 10%">Back</button></a>
                 <?php }?>
             </section>
             <div class="ad-nws ad-nww-clps">
@@ -48,6 +51,9 @@
                             <option>Product Update</option>
                             <option>Company Update</option>
                             <option>Funding</option>
+                            <option>Company Profile</option>
+                            <option>Founder Profile</option>
+                            <option>General Updates</option>
                             <option>Exit</option>
                         </select><br>
                         <button class="nws-btn" id="add-nws-btn">Submit</button><span class="add-new-dly"><img src="/images/loader.gif"></span>

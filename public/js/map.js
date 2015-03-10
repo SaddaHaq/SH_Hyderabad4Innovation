@@ -382,12 +382,13 @@ $(document).ready(function () {
                document.getElementById("adnws_form").reset();
                $('.ad-nws-navg').click();
                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:tomato'>";
-                    html += "<h1>"+strtp+"</h1><p class='athr'><i>Type: "+tp+"</i></p>";
-                    html += "<p class='athr'><i>Src: "+d[0]._news_src+"</i></p><p class='athr'><i>Pub date: "+ d[0]['article:published_time'] +"</i></p>";
+                    html += "<h1><a href='#' data-cnt="+strtp+" data-tp='strtp' class='nws-strp'>"+strtp+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+tp+"' data-tp='nwstype' class='nws-strp'>"+tp+"</a></i></p>";
+                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[0]['og:site_name']+"' data-tp='nwssrc' class='nws-strp'>"+d[0]['og:site_name']+"</a></i></p><p class='athr'><i>Pub date: "+ d[0]['article:published_time'].substr(0,10) +"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+url+"' target='_blank'>"+d[0]['og:title']+"</a></h2>";
                     html += "<p class='dsc'>"+d[0]['og:description']+"</p>";
                     html += "<a href='"+url+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
-                    html += "</div><div class='clearfix'></div></li>";
+                    html += "<p class='dsc' style='padding-top: 8px'>Published by "+d[0]['og:site_name']+" on "+ d[0]['article:published_time'].substr(0,10)+"</p>";
+                   html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').prepend(html);
                }else{
                    
@@ -467,11 +468,13 @@ $(document).ready(function () {
                      c = 0;
                  }
                 var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
-                    html += "<h1>"+d[i]._news_addedby+"</h1><p class='athr'><i>Type: "+d[i]._news_type+"</i></p>";
-                    html += "<p class='athr'><i>Src: "+d[i]._news_src+"</i></p><p class='athr'></i>Pub date: "+ new Date(d[i]._news_pubtime*1000)+"</i></p>";
+                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
+                    var x = new Date(d[i]._news_pubtime*1000) + "";
+                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"</a></i></p><p class='athr'></i>Pub date: "+x.substr(4,12)+"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
-                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
+                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
+                    html += "<p class='dsc' style='padding-top: 8px'>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;
@@ -545,6 +548,46 @@ $(document).ready(function () {
             $('.nws-err').text('');
         },
      });
+      
+  });
+  
+  $('#nws-lst').on('click', '.nws-strp', function(e){
+      e.preventDefault();
+      
+      $.ajax({
+          url: 'index/fltrnws',
+          method: 'post',
+          'data': {'cnt': $(this).data('cnt'),
+                    'tp': $(this).data('tp')},
+           success: function(data){
+               var d = JSON.parse(data);
+             if(d.length < 20){
+                 $('#back-btn').show();
+                 $('#nws-ldmre-btn').hide();
+             }
+             if(d.length != 0){
+             $('#nws-lst').html('');
+             var c = 0;
+             for (var i=0; i<d.length; i++){
+                 var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
+                 if(c >= 4){
+                     c = 0;
+                 }
+                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
+                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
+                    var x = new Date(d[i]._news_pubtime*1000) + "";
+                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"</a></i></p><p class='athr'></i>Pub date: "+x.substr(4,12)+"</i></p>";
+                    html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
+                    html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
+                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
+                    html += "<p class='dsc' style='padding-top: 8px'>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</p>";
+                    html += "</div><div class='clearfix'></div></li>";
+                    $('#nws-lst').append(html);
+                    c++;
+            }
+           }
+       }
+      })
       
   });
 

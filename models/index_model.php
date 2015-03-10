@@ -135,13 +135,21 @@ class Index_model extends Model {
         }
         $time = time();
         $id = md5($time . rand(21, 221) . '#$sr');
-        $addentry = $this -> db -> query("INSERT INTO _startups_news_ VALUES(".$this -> db -> quote($id).", ".$this -> db -> quote($d['og:title']).",".$this -> db -> quote($d['og:description']).",".
-                                                                                $this -> db -> quote($d['og:image']).",".
-                                                                                $this -> db -> quote($d['og:site_name']).",".
-                                                                                $this -> db -> quote($d['og:url']).",".
+        
+        // @delting acsii chrecters
+        $ttl = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:title']);
+        $desc = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:description']);
+        $img = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:image']);
+        $site = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:site_name']);
+        $pubdt = preg_replace('/[^(\x20-\x7F)]*/', '', $d['article:published_time']);
+        $strp = preg_replace('/[^(\x20-\x7F)]*/', '', $strp);
+        $addentry = $this -> db -> query("INSERT INTO _startups_news_ VALUES(".$this -> db -> quote($id).", ".$this -> db -> quote($ttl).",".$this -> db -> quote($desc).",".
+                                                                                $this -> db -> quote($img).",".
+                                                                                $this -> db -> quote($site).",".
+                                                                                $this -> db -> quote($url).",".
                                                                                 $this -> db -> quote($tp).",".
                                                                                 $this -> db -> quote('0').",".
-                                                                                $this -> db -> quote(strtotime($d['article:published_time'])).",".
+                                                                                $this -> db -> quote(strtotime($pubdt)).",".
                                                                                 $this -> db -> quote($strp).",".
                                                                                 $this -> db -> quote(time()).")");
        if($addentry == true){
@@ -170,31 +178,57 @@ class Index_model extends Model {
         }
 }
 
-public function addstrpetry(){
-    $name = $_POST['name'];
-    $fundrs = $_POST['fundrs'];
-    $site = $_POST['site'];
-    $desc = $_POST['desc'];
-    $poccnt = $_POST['poccnt'];
-    $pocphne = $_POST['pocphne'];
-    $poceml = $_POST['poceml'];
-    $ofceadrs = $_POST['ofceadrs'];
-    $addstartup = $this -> db -> query("INSERT INTO _startups_(_name_, _website_, _foundrs_, _cnt_name_, _desc_, _address_, _contact_email_, _cnt_phne_, sts, addedon) VALUE(".$this -> db -> quote($name).",".
-                                                                                                                                                        $this -> db -> quote($site).",".
-                                                                                                                                                        $this -> db -> quote($fundrs).",".
-                                                                                                                                                        $this -> db -> quote($poccnt).",".
-                                                                                                                                                        $this -> db -> quote($desc).",".
-                                                                                                                                                        $this -> db -> quote($ofceadrs).",".
-                                                                                                                                                        $this -> db -> quote($poceml).",".
-                                                                                                                                                        $this -> db -> quote($pocphne).",".
-                                                                                                                                                        $this -> db -> quote('0').",".
-                                                                                                                                                        $this -> db -> quote(time()).")");
-    if($addstartup == true){
-        $sts = 'Startup added successfully!!';
-    }else{
-        $sts = 'Somthing went wrong while adding startup please try again or contact admin';
+    public function addstrpetry(){
+        $name = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['name']);
+        $fundrs = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['fundrs']);
+        $site = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['site']);
+        $desc = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['desc']);
+        $poccnt = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['poccnt']);
+        $pocphne = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['pocphne']);
+        $poceml = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['poceml']);
+        $ofceadrs = preg_replace('/[^(\x20-\x7F)]*/', '', $_POST['ofceadrs']);
+        $addstartup = $this -> db -> query("INSERT INTO _startups_(_name_, _website_, _foundrs_, _cnt_name_, _desc_, _address_, _contact_email_, _cnt_phne_, sts, addedon) VALUE(".$this -> db -> quote($name).",".
+                                                                                                                                                            $this -> db -> quote($site).",".
+                                                                                                                                                            $this -> db -> quote($fundrs).",".
+                                                                                                                                                            $this -> db -> quote($poccnt).",".
+                                                                                                                                                            $this -> db -> quote($desc).",".
+                                                                                                                                                            $this -> db -> quote($ofceadrs).",".
+                                                                                                                                                            $this -> db -> quote($poceml).",".
+                                                                                                                                                            $this -> db -> quote($pocphne).",".
+                                                                                                                                                            $this -> db -> quote('0').",".
+                                                                                                                                                            $this -> db -> quote(time()).")");
+        if($addstartup == true){
+            $sts = 'Startup added successfully!!';
+        }else{
+            $sts = 'Somthing went wrong while adding startup please try again or contact admin';
+        }
+        return $sts;
     }
-    return $sts;
-}
+
+    public function nwsflring(){
+        $type = $_POST['tp'];
+        $cnt = $_POST['cnt'];
+        if($type == 'strtp'){
+            $getnws = $this -> db -> query("SELECT * FROM _startups_news_ WHERE _news_addedby =".$this -> db -> quote($cnt));
+            $res = $getnws->fetchAll(PDO::FETCH_ASSOC);
+            if($getnws == true){
+              return $res;   
+            }
+        }
+        else if($type == 'nwstype'){
+            $getnws = $this -> db -> query("SELECT * FROM _startups_news_ WHERE _news_type =".$this -> db -> quote($cnt));
+            $res = $getnws->fetchAll(PDO::FETCH_ASSOC);
+            if($getnws == true){
+              return $res;
+            }
+            }
+            else if($type == 'nwssrc'){
+            $getnws = $this -> db -> query("SELECT * FROM _startups_news_ WHERE _news_src =".$this -> db -> quote($cnt));
+            $res = $getnws->fetchAll(PDO::FETCH_ASSOC);
+            if($getnws == true){
+              return $res;
+            }
+        }
+    }
     
 }

@@ -705,6 +705,7 @@ public function bank_statement_model(){
         }
         $gtnws = $this -> db ->query("SELECT * FROM _startups_news_ ORDER BY _news_addedon DESC LIMIT $cnt, 8");
         $res = $gtnws->fetchAll(PDO::FETCH_ASSOC);
+//        var_dump($res);
         return $res;
     }
 }

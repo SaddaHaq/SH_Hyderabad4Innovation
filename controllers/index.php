@@ -48,4 +48,8 @@ class Index extends Controller {
   public function addstrp(){
       echo $this -> model -> addstrpetry();
   }
+  
+  public function fltrnws(){
+      echo json_encode($this -> model -> nwsflring());
+  }
 }
