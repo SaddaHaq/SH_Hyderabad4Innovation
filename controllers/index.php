@@ -33,6 +33,15 @@ class Index extends Controller {
       $url = $_POST['url'];
       $tp = $_POST['tp'];
       $strp = $_POST['strtp'];
-            echo $this -> model -> adnews($url, $tp, $strp);
+            echo json_encode($this -> model -> adnews($url, $tp, $strp));
+  }
+  
+  public function strtpsrch(){
+      echo json_encode($this->model->getstrtps());
+  }
+  
+  public function getnws(){
+      require APP_PATH. '/models/home_model.php';
+      echo json_encode((new Home_model()) -> getnews());
   }
 }

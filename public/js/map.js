@@ -354,20 +354,120 @@ $(document).ready(function () {
 
     $('#add-nws-btn').click(function(e){
         e.preventDefault();
-        
+        var url = $('#nws-url').val().trim();
+        var strtp = $('#strp_nme').val().trim();
+        var tp = $('#nws-tp option:selected').text();
+        if(url == ''){
+            $('.nws-err').text('URL cannot be empty');
+            return false;
+        }
+        else if(strtp == ''){
+            $('.nws-err').text('Startup cannot be empty');
+            return false;
+        }
         $.ajax({
            url:  'index/adnws',
            type: 'post',
-           data: {'url': $('#nws-url').val(),
-                  'strtp': $('#strp_nme').val(),
-                  'tp': $('#nws-tp option:selected').text()},
-           success: function(d){
-               alert(d);
+           data: {'url': url,
+                  'strtp': strtp,
+                  'tp': tp},
+              beforeSend: function () {
+                  $('.add-new-dly').show();
+              },
+           success: function(data){
+               var d = JSON.parse(data);
+               if(d.length > 1){
+               alert(d[1]);    
+               $('.add-new-dly').hide();
+               document.getElementById("adnws_form").reset();
+               $('.ad-nws-navg').click();
+               var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:tomato'>";
+                    html += "<h1>"+strtp+"</h1><p class='athr'><i>Type: "+tp+"</i></p>";
+                    html += "<p class='athr'><i>Src: "+d[0]._news_src+"<br>Pub date: "+ d[0]['article:published_time'] +"</i></p>";
+                    html += "</div><h2 class='s-h'><a href='"+url+"' target='_blank'>"+d[0]['og:title']+"</a></h2>";
+                    html += "<p class='dsc'>"+d[0]['og:description']+"</p>";
+                    html += "<a href='"+url+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
+                    html += "</div><div class='clearfix'></div></li>";
+                    $('#nws-lst').prepend(html);
+               }else{
+                   alert(d);
+                   $('.add-new-dly').hide();
+               }
+                              
+               
            }
         });
     });
     
-    var colours = ['darkseagreen', 'bisque', 'bisque', 'tomato', 'slategrey'];
+    
+    $('#strp_nme').autocomplete({
+        source: function( request, response ) {
+        $.ajax({
+          url: "index/strtpsrch",
+          method: 'post',
+          data: {
+            kwd: request.term
+          },
+          success: function( data ) {
+              var data = JSON.parse(data);
+              $(".ui-autocomplete").addClass('srch');
+             response( $.map(data, function(item, i) {
+              return{
+                  label: item._resources_name,
+                  id: item._id_        
+              }
+            }));
+            
+          }
+        });
+      }
+  });
+  
+  
+ 
+  $('.ad-nws-navg').click(function(){
+       if($('.ad-nws').hasClass('ad-nww-clps')){
+           $('.ad-nws').removeClass('ad-nww-clps');
+           $(this).find('i').removeClass('icon-chevron-left-sign').addClass('icon-chevron-right-sign');
+           $(this).css({'left': '0'});
+      }else{
+         $('.ad-nws').addClass('ad-nww-clps');
+         $(this).find('i').removeClass('icon-chevron-right-sign').addClass('icon-chevron-left-sign');
+         $(this).css({'left': '-38px'});
+      }
+  });
+  
+  $('#nws-ldmre-btn').click(function(){
+     
+     $.ajax({
+         url: 'index/getnws',
+         'type': 'post',
+         data: {'cnt': $('#nws-lst li').length},
+         success: function(data){
+             var d = JSON.parse(data);
+             if(d == 0){
+                 $('#nws-ldmre-btn').fadeOut('slow');
+             }
+             var c = 0;
+             for (var i=0; i<d.length; i++){
+                 var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
+                 if(c >= 4){
+                     c = 0;
+                 }
+                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
+                    html += "<h1>"+d[i]._news_addedby+"</h1><p class='athr'><i>Type: "+d[i]._news_type+"</i></p>";
+                    html += "<p class='athr'><i>Src: "+d[i]._news_src+"<br>Pub date: "+ new Date(d[i]._news_pubtime*1000)+"</i></p>";
+                    html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
+                    html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
+                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
+                    html += "</div><div class='clearfix'></div></li>";
+                    $('#nws-lst').append(html);
+                    c++;
+            }
+             
+         }
+     }) 
+  });
 
 });
 

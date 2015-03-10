@@ -110,7 +110,9 @@ class Index_model extends Model {
     
     
     public function adnews($url, $tp, $strp){
-
+        $chkstrp = $this -> db ->query("SELECT * FROM _startups_resources_ WHERE _resources_name = ".$this -> db -> quote($strp));
+        $rowcnt = $chkstrp->rowCount();
+        if($rowcnt > 0){
         $u = $url;
         $sites_html = file_get_contents($u);
 
@@ -126,8 +128,11 @@ class Index_model extends Model {
                 $data[$meta->getAttribute('property')] = $meta->getAttribute('content');
             }
         }
-
         $d = $data;
+        if($d == 0){
+            $sts = "Given URL is not valid try with valid URL";
+            return $sts;
+        }
         $time = time();
         $id = md5($time . rand(21, 221) . '#$sr');
         $addentry = $this -> db -> query("INSERT INTO _startups_news_ VALUES(".$this -> db -> quote($id).", ".$this -> db -> quote($d['og:title']).",".$this -> db -> quote($d['og:description']).",".
@@ -140,14 +145,29 @@ class Index_model extends Model {
                                                                                 $this -> db -> quote($strp).",".
                                                                                 $this -> db -> quote(time()).")");
        if($addentry == true){
-           $sts = 'Url added successfully!!';
+           $sts = [$d, 'Url added successfully!!'];
+           return $sts;
        }else{
            $sts = "Somthig wrong while adding Url please try again";
+           return $sts;
        } 
-       return $sts;
-        
-           }
+    }else{
+     $sts = "Given startup name is not in list try with originl";
+    return $sts;
+    }
     
-
+    }
+    
+           
+     // @startup  names for submit page autocomplete
+    public function getstrtps(){
+        $name = $_POST['kwd'];
+        $getstrtps = $this -> db -> query("SELECT _id_, _resources_name FROM _startups_resources_ WHERE _resources_name LIKE '$name%'");
+        $res = $getstrtps->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($getstrtps == true){
+            return $res; 
+        }
+}
     
 }

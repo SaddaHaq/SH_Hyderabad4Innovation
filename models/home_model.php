@@ -698,7 +698,12 @@ public function bank_statement_model(){
     }
     
     public function getnews(){
-        $gtnws = $this -> db ->query('SELECT * FROM _startups_news_ ORDER BY _news_addedon DESC LIMIT 20');
+        if(isset($_POST['cnt'])){
+            $cnt = $_POST['cnt'];
+        }else{
+            $cnt = 0;
+        }
+        $gtnws = $this -> db ->query("SELECT * FROM _startups_news_ ORDER BY _news_addedon DESC LIMIT $cnt, 8");
         $res = $gtnws->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }

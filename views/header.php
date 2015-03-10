@@ -9,10 +9,14 @@
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="/public/css/news.css" />
+        <link rel="stylesheet" href="/public/global/bootstrap/css/jquery-ui.css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <script type="text/javascript" src="/public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <script type="text/javascript" src="/public/js/popup.js"></script>
         <script type="text/javascript" src="/public/js/map.js"></script>
+        
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>-->
        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
