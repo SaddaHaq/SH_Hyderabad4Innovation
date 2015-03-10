@@ -18,7 +18,7 @@
                                     <!--<p class="athr"><i></i></p>-->
                                     <p class="athr"><i>Type: <?= $nws_itm[$i]['_news_type'] ?></i></p>
                                     <p class="athr"><i>Src: <?= $nws_itm[$i]['_news_src'] ?></i></p>
-                                                    <p class="athr"><i>Pub date: <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
+                                    <p class="athr"><i>Pub date: <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
                                 </div>
                                 <h2 class='s-h'><a href="<?= $nws_itm[$i]['_news_link'] ?>" target="_blank"><?= $nws_itm[$i]['_news_hdlne'] ?></a></h2>
                                 <p class='dsc'><?= $nws_itm[$i]['_news_smry'] ?></p>

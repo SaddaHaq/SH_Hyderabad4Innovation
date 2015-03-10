@@ -383,7 +383,7 @@ $(document).ready(function () {
                $('.ad-nws-navg').click();
                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:tomato'>";
                     html += "<h1>"+strtp+"</h1><p class='athr'><i>Type: "+tp+"</i></p>";
-                    html += "<p class='athr'><i>Src: "+d[0]._news_src+"<br>Pub date: "+ d[0]['article:published_time'] +"</i></p>";
+                    html += "<p class='athr'><i>Src: "+d[0]._news_src+"</i></p><p class='athr'><i>Pub date: "+ d[0]['article:published_time'] +"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+url+"' target='_blank'>"+d[0]['og:title']+"</a></h2>";
                     html += "<p class='dsc'>"+d[0]['og:description']+"</p>";
                     html += "<a href='"+url+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
@@ -456,7 +456,7 @@ $(document).ready(function () {
                  }
                 var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
                     html += "<h1>"+d[i]._news_addedby+"</h1><p class='athr'><i>Type: "+d[i]._news_type+"</i></p>";
-                    html += "<p class='athr'><i>Src: "+d[i]._news_src+"<br>Pub date: "+ new Date(d[i]._news_pubtime*1000)+"</i></p>";
+                    html += "<p class='athr'><i>Src: "+d[i]._news_src+"</i></p><p class='athr'></i>Pub date: "+ new Date(d[i]._news_pubtime*1000)+"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
                     html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
