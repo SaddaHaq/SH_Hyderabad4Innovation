@@ -390,7 +390,13 @@ $(document).ready(function () {
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').prepend(html);
                }else{
-                   alert(d);
+                   
+                   if(d = -1){
+                       $('.no-strtp').css({'display': 'block', 'color':'red'});
+                   }
+                   else{
+                       alert(d);
+                   }
                    $('.add-new-dly').hide();
                }
                               
@@ -410,11 +416,14 @@ $(document).ready(function () {
           },
           success: function( data ) {
               var data = JSON.parse(data);
+              if(data.length == 0){
+                  $('.no-strtp').css({'display': 'block', 'color':'red'});
+              }
               $(".ui-autocomplete").addClass('srch');
              response( $.map(data, function(item, i) {
               return{
-                  label: item._resources_name,
-                  id: item._id_        
+                  label: item._name_,
+                  id: item.id        
               }
             }));
             

@@ -110,7 +110,7 @@ class Index_model extends Model {
     
     
     public function adnews($url, $tp, $strp){
-        $chkstrp = $this -> db ->query("SELECT * FROM _startups_resources_ WHERE _resources_name = ".$this -> db -> quote($strp));
+        $chkstrp = $this -> db ->query("SELECT * FROM _startups_ WHERE _name_ = ".$this -> db -> quote($strp));
         $rowcnt = $chkstrp->rowCount();
         if($rowcnt > 0){
         $u = $url;
@@ -130,7 +130,7 @@ class Index_model extends Model {
         }
         $d = $data;
         if($d == 0){
-            $sts = "Given URL is not valid try with valid URL";
+            $sts = ["Given URL is not valid try with valid URL"];
             return $sts;
         }
         $time = time();
@@ -148,11 +148,11 @@ class Index_model extends Model {
            $sts = [$d, 'Url added successfully!!'];
            return $sts;
        }else{
-           $sts = "Somthig wrong while adding Url please try again";
+           $sts = ["Somthig wrong while adding Url please try again"];
            return $sts;
        } 
     }else{
-     $sts = "Given startup name is not in list try with originl";
+     $sts = ["-1"];
     return $sts;
     }
     
@@ -162,7 +162,7 @@ class Index_model extends Model {
      // @startup  names for submit page autocomplete
     public function getstrtps(){
         $name = $_POST['kwd'];
-        $getstrtps = $this -> db -> query("SELECT _id_, _resources_name FROM _startups_resources_ WHERE _resources_name LIKE '$name%'");
+        $getstrtps = $this -> db -> query("SELECT id, _name_ FROM _startups_ WHERE _name_ LIKE '$name%'");
         $res = $getstrtps->fetchAll(PDO::FETCH_ASSOC);
         
         if($getstrtps == true){
