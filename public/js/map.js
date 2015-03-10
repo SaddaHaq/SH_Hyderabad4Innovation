@@ -478,34 +478,34 @@ $(document).ready(function () {
       var poceml = $('#strp-poceml').val().trim();
       var ofceadrs = $('#strp-ofcadrs').val().trim();
       var desc = $('#strp-desc').val().trim();
-      var emRegx = '/^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$';
+      var emRegx = /^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/;
       var regx = new RegExp(emRegx);
       if(nme == ''){
-          $('.nws-err').text('Startup name cannot be emoty');
+          $('.nws-err').text('Startup name cannot be empty');
           return;
       }
       else if(site == ''){
-          $('.nws-err').text('Startup Website cannot be emoty');
+          $('.nws-err').text('Startup Website cannot be empty');
           return;
       }
       else if(fundrs == ''){
-          $('.nws-err').text('Startup founders name cannot be emoty');
+          $('.nws-err').text('Startup founders name cannot be empty');
           return;
       }
       else if(poccnt == ''){
-          $('.nws-err').text('Startup contact name cannot be emoty');
+          $('.nws-err').text('Startup contact name cannot be empty');
           return;
       }
       else if(poceml == ''){
-          $('.nws-err').text('Startup contact email cannot be emoty');
+          $('.nws-err').text('Startup contact email cannot be empty');
           return;
       }
-//      else if(regx.test(poceml) != true){
-//          $('.nws-err').text('Please enter valid email');
-//          return;
-//      }
+      else if(!emRegx.test(poceml)){
+          $('.nws-err').text('Please enter valid email');
+          return;
+      }
       else if(ofceadrs == ''){
-          $('.nws-err').text('Startup address cannot be emoty');
+          $('.nws-err').text('Startup address cannot be empty');
           return;
       }
      
@@ -524,6 +524,7 @@ $(document).ready(function () {
         success: function(d){
             alert(d);
             document.getElementById('strp_ad_fm').reset();
+            $('.nws-err').text('');
         },
      });
       
