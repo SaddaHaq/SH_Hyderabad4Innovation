@@ -111,8 +111,8 @@ class Index_model extends Model {
     
     public function adnews($url, $tp, $strp){
         $chkstrp = $this -> db ->query("SELECT * FROM _startups_ WHERE _name_ = ".$this -> db -> quote($strp));
-        $rowcnt = $chkstrp->rowCount();
-        if($rowcnt > 0){
+        //$rowcnt = $chkstrp->rowCount();
+        if($chkstrp->rowCount() > 0){
         $u = $url;
         $sites_html = file_get_contents($u);
 
@@ -153,7 +153,7 @@ class Index_model extends Model {
        } 
     }else{
      $sts = ["-1"];
-    return $sts;
+     return $sts;
     }
     
     }

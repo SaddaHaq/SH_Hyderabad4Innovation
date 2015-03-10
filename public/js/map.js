@@ -391,11 +391,12 @@ $(document).ready(function () {
                     $('#nws-lst').prepend(html);
                }else{
                    
-                   if(d = -1){
+                   if(d[0] == '-1'){
                        $('.no-strtp').css({'display': 'block', 'color':'red'});
+                       alert('hha find');
                    }
                    else{
-                       alert(d);
+                       alert(d[0]);
                    }
                    $('.add-new-dly').hide();
                }
