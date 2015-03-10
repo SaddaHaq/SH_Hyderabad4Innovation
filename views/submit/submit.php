@@ -1,17 +1,17 @@
 <?php require 'views/header.php'; ?>
 <div class="cntr">
     <div class="slt">
-            <h2 style="color: black !important">Add News</h2>
-            <form id="video_galry_fm">
-                Url:<br> <input type="text" id="nws-url"><br>  
-                Startup Name:<br> <input type="text" id="strp_nme"><br>
-                Type of news: <br>
-                <select id="nws-tp">
-                    <option>Startups</option>
-                    <option>IT news</option>
-                    <option>Business</option>
-                </select><br>
-                <button class="nw-btn" id="add-nws-btn">Submit</button>
+            <h2 style="color: black !important">Add Start up</h2>
+            <form id="strp_ad_fm">
+                *Startup name:<br> <input type="text" id="strp-nme"><br>  
+                *Website:<br> <input type="text" id="strp-site"><br>  
+                *Founders:<br> <input type="text" id="strp-fundrs"><br>  
+                *Point of contact -- name:<br> <input type="text" id="strp-poccnt"><br>  
+                *PoC Email Address:<br> <input id="strp-poceml" type="email"  required><br>  
+                *office address:<br> <textarea id="strp-ofcadrs"></textarea><br>  
+                Description:<br> <textarea id="strp-desc"></textarea><br>
+                <button class="nw-btn" id="add-strp-btn">Submit</button>
+                <span class="nws-err"></span>
             </form>
             <table id="frm">
 

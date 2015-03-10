@@ -44,4 +44,8 @@ class Index extends Controller {
       require APP_PATH. '/models/home_model.php';
       echo json_encode((new Home_model()) -> getnews());
   }
+  
+  public function addstrp(){
+      echo $this -> model -> addstrpetry();
+  }
 }

@@ -468,6 +468,67 @@ $(document).ready(function () {
          }
      }) 
   });
+  
+  $('#add-strp-btn').click(function(e){
+      e.preventDefault();
+      var nme = $('#strp-nme').val().trim();
+      var site = $('#strp-site').val().trim();
+      var fundrs = $('#strp-fundrs').val().trim();
+      var poccnt = $('#strp-poccnt').val().trim();
+      var poceml = $('#strp-poceml').val().trim();
+      var ofceadrs = $('#strp-ofcadrs').val().trim();
+      var desc = $('#strp-desc').val().trim();
+      var emRegx = '/^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$';
+      var regx = new RegExp(emRegx);
+      if(nme == ''){
+          $('.nws-err').text('Startup name cannot be emoty');
+          return;
+      }
+      else if(site == ''){
+          $('.nws-err').text('Startup Website cannot be emoty');
+          return;
+      }
+      else if(fundrs == ''){
+          $('.nws-err').text('Startup founders name cannot be emoty');
+          return;
+      }
+      else if(poccnt == ''){
+          $('.nws-err').text('Startup contact name cannot be emoty');
+          return;
+      }
+      else if(poceml == ''){
+          $('.nws-err').text('Startup contact email cannot be emoty');
+          return;
+      }
+//      else if(regx.test(poceml) != true){
+//          $('.nws-err').text('Please enter valid email');
+//          return;
+//      }
+      else if(ofceadrs == ''){
+          $('.nws-err').text('Startup address cannot be emoty');
+          return;
+      }
+     
+     $.ajax({
+        url: 'index/addstrp',
+        method: 'post',
+        data: {
+            'name': nme,
+            'site': site,
+            'fundrs': fundrs,
+            'poccnt': poccnt,
+            'poceml': poceml,
+            'ofceadrs': ofceadrs,
+            'desc': desc,
+        },
+        success: function(d){
+            alert(d);
+            document.getElementById('strp_ad_fm').reset();
+        },
+     });
+      
+  });
 
 });
 
+//99
