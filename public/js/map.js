@@ -418,6 +418,8 @@ $(document).ready(function () {
               var data = JSON.parse(data);
               if(data.length == 0){
                   $('.no-strtp').css({'display': 'block', 'color':'red'});
+              }else{
+                  $('.no-strtp').css({'display': 'none', 'color':'red'});
               }
               $(".ui-autocomplete").addClass('srch');
              response( $.map(data, function(item, i) {
