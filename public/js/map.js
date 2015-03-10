@@ -428,11 +428,11 @@ $(document).ready(function () {
   $('.ad-nws-navg').click(function(){
        if($('.ad-nws').hasClass('ad-nww-clps')){
            $('.ad-nws').removeClass('ad-nww-clps');
-           $(this).find('i').removeClass('icon-chevron-left-sign').addClass('icon-chevron-right-sign');
+           $(this).find('i').removeClass('icon-plus-circle').addClass('icon-remove-circle');
            $(this).css({'left': '0'});
       }else{
          $('.ad-nws').addClass('ad-nww-clps');
-         $(this).find('i').removeClass('icon-chevron-right-sign').addClass('icon-chevron-left-sign');
+         $(this).find('i').removeClass('icon-remove-circle').addClass('icon-plus-circle');
          $(this).css({'left': '-38px'});
       }
   });

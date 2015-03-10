@@ -17,8 +17,8 @@
                                     <!--<h1></h1> <h1><?= date('j', $nws_itm[$i]['_news_pubtime']) ?></h1>-->
                                     <!--<p class="athr"><i></i></p>-->
                                     <p class="athr"><i>Type: <?= $nws_itm[$i]['_news_type'] ?></i></p>
-                                    <p class="athr"><i>Src: <?= $nws_itm[$i]['_news_src'] ?><br>
-                                                    Pub date: <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
+                                    <p class="athr"><i>Src: <?= $nws_itm[$i]['_news_src'] ?></i></p>
+                                                    <p class="athr"><i>Pub date: <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
                                 </div>
                                 <h2 class='s-h'><a href="<?= $nws_itm[$i]['_news_link'] ?>" target="_blank"><?= $nws_itm[$i]['_news_hdlne'] ?></a></h2>
                                 <p class='dsc'><?= $nws_itm[$i]['_news_smry'] ?></p>
@@ -33,7 +33,7 @@
                 <?php }?>
             </section>
             <div class="ad-nws ad-nww-clps">
-                <span class="ad-nws-navg"><i class="icon-chevron-left-sign"></i>
+                <span class="ad-nws-navg"><i class="icon-plus-circle"></i>
                     <!--<b>Add news</b>-->
                 </span>
                 <div class="ad-nws-frm">
