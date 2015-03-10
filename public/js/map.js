@@ -475,6 +475,7 @@ $(document).ready(function () {
       var site = $('#strp-site').val().trim();
       var fundrs = $('#strp-fundrs').val().trim();
       var poccnt = $('#strp-poccnt').val().trim();
+      var pocphne = $('#strp-pocphne').val().trim();
       var poceml = $('#strp-poceml').val().trim();
       var ofceadrs = $('#strp-ofcadrs').val().trim();
       var desc = $('#strp-desc').val().trim();
@@ -494,6 +495,10 @@ $(document).ready(function () {
       }
       else if(poccnt == ''){
           $('.nws-err').text('Startup contact name cannot be empty');
+          return;
+      }
+      else if(pocphne == ''){
+          $('.nws-err').text('Startup phone no cannot be empty');
           return;
       }
       else if(poceml == ''){
@@ -517,6 +522,7 @@ $(document).ready(function () {
             'site': site,
             'fundrs': fundrs,
             'poccnt': poccnt,
+            'pocphne': pocphne,
             'poceml': poceml,
             'ofceadrs': ofceadrs,
             'desc': desc,

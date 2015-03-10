@@ -7,6 +7,7 @@
                 *Website:<br> <input type="text" id="strp-site"><br>  
                 *Founders:<br> <input type="text" id="strp-fundrs"><br>  
                 *Point of contact -- name:<br> <input type="text" id="strp-poccnt"><br>  
+                *PoC Phone-no:<br> <input type="text" id="strp-pocphne"><br>  
                 *PoC Email Address:<br> <input id="strp-poceml" type="email"  required><br>  
                 *office address:<br> <textarea id="strp-ofcadrs"></textarea><br>  
                 Description:<br> <textarea id="strp-desc"></textarea><br>

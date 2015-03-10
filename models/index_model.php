@@ -176,15 +176,17 @@ public function addstrpetry(){
     $site = $_POST['site'];
     $desc = $_POST['desc'];
     $poccnt = $_POST['poccnt'];
+    $pocphne = $_POST['pocphne'];
     $poceml = $_POST['poceml'];
     $ofceadrs = $_POST['ofceadrs'];
-    $addstartup = $this -> db -> query("INSERT INTO _startups_(_name_, _website_, _foundrs_, _cnt_name_, _desc_, _address_, _contact_email_, sts, addedon) VALUE(".$this -> db -> quote($name).",".
+    $addstartup = $this -> db -> query("INSERT INTO _startups_(_name_, _website_, _foundrs_, _cnt_name_, _desc_, _address_, _contact_email_, _cnt_phne_, sts, addedon) VALUE(".$this -> db -> quote($name).",".
                                                                                                                                                         $this -> db -> quote($site).",".
                                                                                                                                                         $this -> db -> quote($fundrs).",".
                                                                                                                                                         $this -> db -> quote($poccnt).",".
                                                                                                                                                         $this -> db -> quote($desc).",".
-                                                                                                                                                        $this -> db -> quote($poceml).",".
                                                                                                                                                         $this -> db -> quote($ofceadrs).",".
+                                                                                                                                                        $this -> db -> quote($poceml).",".
+                                                                                                                                                        $this -> db -> quote($pocphne).",".
                                                                                                                                                         $this -> db -> quote('0').",".
                                                                                                                                                         $this -> db -> quote(time()).")");
     if($addstartup == true){
