@@ -80,6 +80,7 @@
                 </li>
             <li class="lft--mbl-mnu-item"><a href="/about"><span class="mnu-itm-ttl">About</span></a></li>
             <li class="lft--mbl-mnu-item"><a href="/team"><span class="mnu-itm-ttl">Team</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/news"><span class="mnu-itm-ttl">News</span></a></li>
             <li class="lft--mbl-mnu-item"><a href="/contact"><span class="mnu-itm-ttl">Contact</span></a></li>
         </ul></div>
         

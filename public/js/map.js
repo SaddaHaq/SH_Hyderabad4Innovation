@@ -387,7 +387,7 @@ $(document).ready(function () {
                     html += "</div><h2 class='s-h'><a href='"+url+"' target='_blank'>"+d[0]['og:title']+"</a></h2>";
                     html += "<p class='dsc'>"+d[0]['og:description']+"</p>";
                     html += "<a href='"+url+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
-                    html += "<p class='dsc' style='padding-top: 8px'>Published by "+d[0]['og:site_name']+" on "+ d[0]['article:published_time'].substr(0,10)+"</p>";
+                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[0]['og:site_name']+" on "+ d[0]['article:published_time'].substr(0,10)+"</i></p>";
                    html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').prepend(html);
                }else{
@@ -474,7 +474,7 @@ $(document).ready(function () {
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
                     html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='padding-top: 8px'>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</p>";
+                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;
@@ -580,7 +580,7 @@ $(document).ready(function () {
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
                     html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='padding-top: 8px'>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</p>";
+                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;

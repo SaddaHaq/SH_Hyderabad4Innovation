@@ -24,7 +24,7 @@
                                 <h2 class='s-h'><a href="<?= $nws_itm[$i]['_news_link'] ?>" target="_blank"><?= $nws_itm[$i]['_news_hdlne'] ?></a></h2>
                                 <p class='dsc'><?= $nws_itm[$i]['_news_smry'] ?></p>
                                 <a href='<?= $nws_itm[$i]['_news_link'] ?>' target="_blank" class="rd-mre">Read more.. <i class="icon_angle-right"></i></a>
-                                <p class='dsc' style="padding-top: 8px">Published by <?= $nws_itm[$i]['_news_src'] ?> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></p>
+                                <p class='dsc' style="padding-top: 8px"><i>Published by <?= $nws_itm[$i]['_news_src'] ?> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
                             </div>
                             <div class='clearfix'></div>
                         </li>
