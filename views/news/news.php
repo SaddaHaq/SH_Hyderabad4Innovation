@@ -52,7 +52,7 @@
                 </span>
                 <div class="ad-nws-frm">
                     <div class="ad-nws-hdr">Submit News</div>
-                    <span> To add a startup, <a href="/addstartup">click here</a></span>
+                    <span style="margin:auto 20%"> To add a startup, <a href="/addstartup">click here</a></span>
                     <form id="adnws_form">
                         Url:<br><input type="text" id="nws-url"><br>  
                         Startup Name:<br> <input type="text" id="strp_nme">
