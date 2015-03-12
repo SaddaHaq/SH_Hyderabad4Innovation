@@ -438,7 +438,7 @@ $(document).ready(function () {
   
  
   $('.ad-nws-navg').click(function(){
-      $('.ad-nws-navg').floatingAction();
+      
        if($('.ad-nws').hasClass('ad-nww-clps')){
            $('.ad-nws').removeClass('ad-nww-clps');
            $(this).find('i').removeClass('icon-plus-circle').addClass('icon-remove-circle');
@@ -689,8 +689,34 @@ $(document).ready(function () {
   $("#flter_sub_sctn" ).on('focus', '.date-sclet', function(){
     $(this).datepicker({dateFormat: 'dd-mm-yy', minDate: new Date(1999, 10 - 1, 25)});
   });
-  
  
+    $('body').on('click', '#contact-fab', function(){
+        $('#contact-fab').floatingAction();
+    });
+    
+    $('.pg').on('click', '.nws-clps', function(){
+        if($(this).height() < 40){
+        if($(this).index() == 0){
+            var hght = '310px';
+        }else{
+            var hght = '640px';
+        };
+        $(this).find('h2').addClass('clps-actv');
+        $(this).find('h2').children('i').removeClass('icon-chevron-down').addClass('icon-chevron-up');
+        $(this).children().css({'opacity': '1'});
+        $(this).css({'height': hght, 'border-top-left-radius': '4px', 'border-top-right-radius': '4px'});
+        $(this).siblings('.nws-clps').css({'height': '39px', 'overflow': 'hidden', 'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
+        $(this).siblings('.nws-clps').find('h2').removeClass('clps-actv');
+        $(this).siblings('.nws-clps').find('h2').children('i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
+        $(this).siblings('.nws-clps').find('h2').css({'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
+    }else{
+//        $(this).find('h2').removeClass('clps-actv').css({'padding-bottom': '0px'});
+//        $(this).find('h2').children('i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
+//        $(this).children().css({'opacity': '1'});
+//        $(this).css({'height': 38, 'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
+    }
+      });
+      
 });
 
 //99

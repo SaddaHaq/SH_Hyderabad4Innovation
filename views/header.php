@@ -18,7 +18,7 @@
         <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <script type="text/javascript" src="/public/js/popup.js"></script>
         <script type="text/javascript" src="/public/js/map.js"></script>
-        <script type="text/javascript" src="http://imbhargav.com/assets/js/materialize.js"></script>
+        <script type="text/javascript" src="/public/js/metrl.js"></script>
         
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>-->
