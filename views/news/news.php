@@ -54,17 +54,17 @@
                 <span class="ad-nws-navg"><i class="icon-plus-circle"></i></span>
                    <div class="ad-nws-frm">
                     <div class="ad-nws-hdr">Submit News</div>
+                    <span style="margin:auto 20%"> To add a startup, <a href="/addstartup">click here</a></span>
                     <form id="adnws_form">
                         Url:<br><input type="text" id="nws-url"><br>  
                         Startup Name:<br> <input type="text" id="strp_nme">
                         <span class="no-strtp" style="display: none; padding-bottom: 4px;: ">Start up doesn't exist. To add a startup, <a href="/addstartup">click here</a></span>
                         Type of news: <br>
                         <select id="nws-tp">
-                            <option>Product Launch</option>
+                            <option>In the News</option>
                             <option>Product/Company Update</option>
                             <option>Funding</option>
                             <option>Founder Profile</option>
-                            <option>Ecosystem Updates</option>
                             <option>Company Exit</option>
                         </select><br>
                         <button class="nws-btn" id="add-nws-btn">Submit</button><span class="add-new-dly"><img src="/images/loader.gif"></span>
