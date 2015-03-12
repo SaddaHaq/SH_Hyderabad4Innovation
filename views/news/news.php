@@ -17,14 +17,12 @@
                                     <h1><a href="#" data-cnt="<?= $nws_itm[$i]['_news_addedby'] ?>" data-tp="strtp" class="nws-strp"><?= $nws_itm[$i]['_news_addedby'] ?></a></h1>
                                     <!--<h1></h1> <h1><?= date('j', $nws_itm[$i]['_news_pubtime']) ?></h1>-->
                                     <!--<p class="athr"><i></i></p>-->
-                                    <p class="athr"><i>Type: <a href="#" data-cnt="<?= $nws_itm[$i]['_news_type'] ?>" data-tp="nwstype" class="nws-strp"><?= $nws_itm[$i]['_news_type'] ?></a></i></p>
-                                    <p class="athr"><i>Src: <a href="#" data-cnt="<?= $nws_itm[$i]['_news_src'] ?>" data-tp="nwssrc" class="nws-strp"><?= $nws_itm[$i]['_news_src'] ?></a></i></p>
-                                    <p class="athr"><i>Pub date: <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
+                                    <p class="athr"><i>In: <a href="#" data-cnt="<?= $nws_itm[$i]['_news_type'] ?>" data-tp="nwstype" class="nws-strp"><?= $nws_itm[$i]['_news_type'] ?></a></i></p>
                                 </div>
                                 <h2 class='s-h'><a href="<?= $nws_itm[$i]['_news_link'] ?>" target="_blank"><?= $nws_itm[$i]['_news_hdlne'] ?></a></h2>
                                 <p class='dsc'><?= $nws_itm[$i]['_news_smry'] ?></p>
                                 <a href='<?= $nws_itm[$i]['_news_link'] ?>' target="_blank" class="rd-mre">Read more.. <i class="icon_angle-right"></i></a>
-                                <p class='dsc' style="padding-top: 8px"><i>Published by <?= $nws_itm[$i]['_news_src'] ?> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
+                                <p class='dsc' style="padding-top: 8px"><i>Published by <a href="#" data-cnt="<?= $nws_itm[$i]['_news_src'] ?>" data-tp="nwssrc" class="nws-strp"><?= $nws_itm[$i]['_news_src'] ?></a> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
                             </div>
                             <div class='clearfix'></div>
                         </li>
@@ -48,13 +46,11 @@
                         Type of news: <br>
                         <select id="nws-tp">
                             <option>Product Launch</option>
-                            <option>Product Update</option>
-                            <option>Company Update</option>
+                            <option>Product/Company Update</option>
                             <option>Funding</option>
-                            <option>Company Profile</option>
                             <option>Founder Profile</option>
-                            <option>General Updates</option>
-                            <option>Exit</option>
+                            <option>Ecosystem Updates</option>
+                            <option>Company Exit</option>
                         </select><br>
                         <button class="nws-btn" id="add-nws-btn">Submit</button><span class="add-new-dly"><img src="/images/loader.gif"></span>
                         <span class="nws-err"></span>
