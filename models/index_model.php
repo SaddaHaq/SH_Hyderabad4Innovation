@@ -204,6 +204,25 @@ class Index_model extends Model {
         }
         return $sts;
     }
+    
+    public function fltring_optins(){
+        $slctd = $_POST['slctd'];
+        if($slctd == 'src'){
+            $src = $this -> db -> query("SELECT DISTINCT _news_src FROM _startups_news_");
+                $res = $src->fetchAll(PDO::FETCH_ASSOC);
+                return $res;
+        }
+        else if($slctd == 'strtp'){
+            $strtp = $this -> db -> query("SELECT DISTINCT _news_addedby FROM _startups_news_");
+            $res = $strtp->fetchAll(PDO::FETCH_ASSOC);
+                return $res;
+        }
+        else if($slctd == 'tp'){
+            $type = $this -> db -> query("SELECT DISTINCT _news_type FROM _startups_news_");
+                $res = $type->fetchAll(PDO::FETCH_ASSOC);
+                return $res;
+        }
+    }
 
     public function nwsflring(){
         $type = $_POST['tp'];

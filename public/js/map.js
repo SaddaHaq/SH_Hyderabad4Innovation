@@ -590,7 +590,88 @@ $(document).ready(function () {
       })
       
   });
-
+  
+  $('#nws-fltr-optn').change(function(){
+     var slctd = $('#nws-fltr-optn option:selected').data('slct');
+     
+     $.ajax({
+        url: 'index/fltroptns',
+        method: 'post',
+        data: {'slctd': slctd},
+        success: function(data){
+            var d = JSON.parse(data);
+            if(slctd == 'src'){
+                $('#flter_sub_sctn').html('');
+                var html = '<select id="'+slctd+'_suboptns">';
+                html += '<option>Select</option>';
+                for(var i=0; i<d.length; i++){
+                   html += '<option data-sub="'+d[i]['_news_src']+'" data-tp="nwssrc">'+d[i]['_news_src']+'</option>'
+            }
+                        html +='</select>';
+                $('#flter_sub_sctn').append(html);
+            }
+            else if(slctd == 'strtp'){
+                $('#flter_sub_sctn').html('');
+                var html = '<select id="'+slctd+'_suboptns">';
+                 html += '<option>Select</option>';
+                for(var i=0; i<d.length; i++){
+                   html += '<option data-sub="'+d[i]['_news_addedby']+'" data-tp="strtp">'+d[i]['_news_addedby']+'</option>'
+            }
+                        html +='</select>';
+                $('#flter_sub_sctn').append(html);
+            }
+            else if(slctd == 'tp'){
+                $('#flter_sub_sctn').html('');
+                var html = '<select id="'+slctd+'_suboptns">';
+                html += '<option>Select</option>';
+                for(var i=0; i<d.length; i++){
+                   html += '<option data-sub="'+d[i]['_news_type']+'" data-tp="nwstype">'+d[i]['_news_type']+'</option>'
+            }
+                        html +='</select>';
+                $('#flter_sub_sctn').append(html);
+            }
+            
+        }
+     });
+  });
+  
+  $('#flter_sub_sctn').on('change', 'select', function(){
+      var slctd = $('#flter_sub_sctn option:selected' ).data('sub');
+      var tp = $('#flter_sub_sctn option:selected' ).data('tp');
+      $.ajax({
+          url: 'index/fltrnws',
+          method: 'post',
+          data: {'tp': tp, 'cnt': slctd},
+          success: function(data){
+              var d = JSON.parse(data);
+             if(d.length < 20){
+                 $('#back-btn').show();
+                 $('#nws-ldmre-btn').hide();
+             }
+             if(d.length != 0){
+             $('#nws-lst').html('');
+             var c = 0;
+             for (var i=0; i<d.length; i++){
+                 var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
+                 if(c >= 4){
+                     c = 0;
+                 }
+                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
+                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
+                    var x = new Date(d[i]._news_pubtime*1000) + "";
+                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"</a></i></p><p class='athr'></i>Pub date: "+x.substr(4,12)+"</i></p>";
+                    html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
+                    html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
+                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
+                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</i></p>";
+                    html += "</div><div class='clearfix'></div></li>";
+                    $('#nws-lst').append(html);
+                    c++;
+            }
+           }
+          }
+      })
+  })
 });
 
 //99

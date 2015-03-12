@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<?php require 'views/header.php'; ?>]
-<?= $string = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', '', $string); ?>
+<?php require 'views/header.php'; ?>
         <div class="pg" id="news">
+            
             <?php $nws_itm = $this->getnws ?>
             <section>
+                <div id="fltr_sctn">
+                    <h2>News by filter</h2>
+                    <select id="nws-fltr-optn">
+                            <option data-slct="strtp">Select option</option>
+                            <option data-slct="strtp">By startup</option>
+                            <option data-slct="tp">By news type</option>
+                            <option data-slct="src">By source</option>
+                        </select>
+                        <div id="flter_sub_sctn"></div>
+                </div>
+                <div class="clearfix"></div>
                 <ul id='nws-lst'>
-                    
                     <?php $c = 0; for($i=0; $i<sizeof($nws_itm); $i++){?>
                     <li>
                             <div class='nws-dsc bx'>

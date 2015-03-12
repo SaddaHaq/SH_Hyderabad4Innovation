@@ -13,6 +13,9 @@
     height : auto;
     text-align: center;
 }
+#news{
+    
+}
 #nws-intro {
     top : 75%;
     background-image: url('../images/thub_ktr.jpg');
@@ -147,7 +150,7 @@
     float: left;
     margin-right: 16px;
 }
-#nws-lst h2 {
+#news h2 {
     padding-bottom : 8px;
     font-family: lato;
     color: #333;
@@ -320,4 +323,12 @@ margin: 0px 0;
   -ms-animation: rotating 2s linear;
   -o-animation: rotating 2s linear;
   animation: rotating 2s linear;
+}
+
+#flter_sub_sctn select{
+    margin-left: 16px;
+    float: left;
+}
+#fltr_sctn select{
+    float: left;
 }
