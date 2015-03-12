@@ -593,7 +593,7 @@ $(document).ready(function () {
      var slctd = $('#nws-fltr-optn option:selected').data('slct');
      if(slctd == 'date'){
                 $('#flter_sub_sctn').html('');
-                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="nws-btn" id="tme-fltr-btn" style="margin-top: -4px; margin-left: 8px;">Go</button>';
+                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="btn btn-primary" id="tme-fltr-btn" style="margin-top: -4px; margin-left: 8px;">Go</button>';
                 $('#flter_sub_sctn').append(html);
                 return;
             }
