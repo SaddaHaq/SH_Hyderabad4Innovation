@@ -383,12 +383,11 @@ $(document).ready(function () {
                $('.ad-nws-navg').click();
                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:tomato'>";
                     html += "<h1><a href='#' data-cnt="+strtp+" data-tp='strtp' class='nws-strp'>"+strtp+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+tp+"' data-tp='nwstype' class='nws-strp'>"+tp+"</a></i></p>";
-                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[0]['og:site_name']+"' data-tp='nwssrc' class='nws-strp'>"+d[0]['og:site_name']+"</a></i></p><p class='athr'><i>Pub date: "+ d[0]['article:published_time'].substr(0,10) +"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+url+"' target='_blank'>"+d[0]['og:title']+"</a></h2>";
                     html += "<p class='dsc'>"+d[0]['og:description']+"</p>";
                     html += "<a href='"+url+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
-                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[0]['og:site_name']+" on "+ d[0]['article:published_time'].substr(0,10)+"</i></p>";
-                   html += "</div><div class='clearfix'></div></li>";
+                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[0]['og:site_name']+"' data-tp='nwssrc' class='nws-strp'>"+d[0]['og:site_name']+"<a/> on "+ d[0]['article:published_time'].substr(0,10)+"</i></p>";
+                    html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').prepend(html);
                }else{
                    
@@ -439,6 +438,7 @@ $(document).ready(function () {
   
  
   $('.ad-nws-navg').click(function(){
+      $('.ad-nws-navg').floatingAction();
        if($('.ad-nws').hasClass('ad-nww-clps')){
            $('.ad-nws').removeClass('ad-nww-clps');
            $(this).find('i').removeClass('icon-plus-circle').addClass('icon-remove-circle');
@@ -470,11 +470,10 @@ $(document).ready(function () {
                 var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
                     html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
                     var x = new Date(d[i]._news_pubtime*1000) + "";
-                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"</a></i></p><p class='athr'></i>Pub date: "+x.substr(4,12)+"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
                     html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</i></p>";
+                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"<a/> on "+x.substr(4,12)+"</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;
@@ -576,11 +575,10 @@ $(document).ready(function () {
                 var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
                     html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
                     var x = new Date(d[i]._news_pubtime*1000) + "";
-                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"</a></i></p><p class='athr'></i>Pub date: "+x.substr(4,12)+"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
                     html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</i></p>";
+                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"<a/> on "+x.substr(4,12)+"</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;
@@ -593,7 +591,12 @@ $(document).ready(function () {
   
   $('#nws-fltr-optn').change(function(){
      var slctd = $('#nws-fltr-optn option:selected').data('slct');
-     
+     if(slctd == 'date'){
+                $('#flter_sub_sctn').html('');
+                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="nws-btn" id="tme-fltr-btn" style="margin-top: -4px; margin-left: 8px;">Go</button>';
+                $('#flter_sub_sctn').append(html);
+                return;
+            }
      $.ajax({
         url: 'index/fltroptns',
         method: 'post',
@@ -635,9 +638,17 @@ $(document).ready(function () {
      });
   });
   
-  $('#flter_sub_sctn').on('change', 'select', function(){
-      var slctd = $('#flter_sub_sctn option:selected' ).data('sub');
-      var tp = $('#flter_sub_sctn option:selected' ).data('tp');
+  $('#flter_sub_sctn').on('change, click', 'select, #tme-fltr-btn', function(e){
+      
+      if($(this).attr('id') == 'tme-fltr-btn'){
+          var slctd = $('#flter_sub_sctn').find('.date-sclet').val();
+          var tp = $('#flter_sub_sctn .date-sclet' ).data('tp');
+      }else{
+          var slctd = $('#flter_sub_sctn option:selected' ).data('sub');
+          var tp = $('#flter_sub_sctn option:selected' ).data('tp');
+      }
+          
+      
       $.ajax({
           url: 'index/fltrnws',
           method: 'post',
@@ -657,21 +668,29 @@ $(document).ready(function () {
                      c = 0;
                  }
                 var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
-                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
+                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>In: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
                     var x = new Date(d[i]._news_pubtime*1000) + "";
-                    html += "<p class='athr'><i>Src: <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"</a></i></p><p class='athr'></i>Pub date: "+x.substr(4,12)+"</i></p>";
                     html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
                     html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
                     html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='padding-top: 8px'><i>Published by "+d[i]._news_src+" on "+x.substr(4,12)+"</i></p>";
+                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"<a/> on "+x.substr(4,12)+"</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;
             }
+           }else{
+               $('#nws-lst').html("<h2>We coudnt find any stroies</h2>");
            }
           }
       })
-  })
+  });
+
+
+  $("#flter_sub_sctn" ).on('focus', '.date-sclet', function(){
+    $(this).datepicker({dateFormat: 'dd-mm-yy', minDate: new Date(1999, 10 - 1, 25)});
+  });
+  
+ 
 });
 
 //99

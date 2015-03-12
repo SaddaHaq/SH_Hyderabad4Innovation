@@ -247,7 +247,17 @@ class Index_model extends Model {
             if($getnws == true){
               return $res;
             }
-        }
+            }
+            else if($type == 'nwsdate'){
+            $cnt = strtotime($cnt); 
+            $day = 86400;
+            $getnws = $this -> db -> query("SELECT * FROM _startups_news_ WHERE _news_pubtime BETWEEN ".$this -> db -> quote($cnt)." AND ".$this -> db -> quote($cnt+$day));
+            $res = $getnws->fetchAll(PDO::FETCH_ASSOC);
+//            var_dump($this -> db ->errorInfo());
+            if($getnws == true){
+              return $res;
+            }
+            }
     }
     
 }

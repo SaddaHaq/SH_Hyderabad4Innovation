@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <?php require 'views/header.php'; ?>
         <div class="pg" id="news">
-            
             <?php $nws_itm = $this->getnws ?>
             <section>
-                <div id="fltr_sctn">
-                    <h2>News by filter</h2>
+                <div class="news_sction">
+                    <div id="fltr_sctn">
+                    <h2 class="flte-hdng">Filter news by</h2>
                     <select id="nws-fltr-optn">
                             <option data-slct="strtp">Select option</option>
-                            <option data-slct="strtp">By startup</option>
-                            <option data-slct="tp">By news type</option>
-                            <option data-slct="src">By source</option>
+                            <option data-slct="strtp">Startup</option>
+                            <option data-slct="tp">News type</option>
+                            <option data-slct="src">Source</option>
+                            <option data-slct="date">Date</option>
                         </select>
                         <div id="flter_sub_sctn"></div>
                 </div>
                 <div class="clearfix"></div>
                 <ul id='nws-lst'>
+                    
                     <?php $c = 0; for($i=0; $i<sizeof($nws_itm); $i++){?>
                     <li>
                             <div class='nws-dsc bx'>
@@ -32,12 +34,13 @@
                                 <h2 class='s-h'><a href="<?= $nws_itm[$i]['_news_link'] ?>" target="_blank"><?= $nws_itm[$i]['_news_hdlne'] ?></a></h2>
                                 <p class='dsc'><?= $nws_itm[$i]['_news_smry'] ?></p>
                                 <a href='<?= $nws_itm[$i]['_news_link'] ?>' target="_blank" class="rd-mre">Read more.. <i class="icon_angle-right"></i></a>
-                                <p class='dsc' style="padding-top: 8px"><i>Published by <a href="#" data-cnt="<?= $nws_itm[$i]['_news_src'] ?>" data-tp="nwssrc" class="nws-strp"><?= $nws_itm[$i]['_news_src'] ?></a> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
+                                <p class='dsc' style="display: inline-block"><i>Published by <a href="#" data-cnt="<?= $nws_itm[$i]['_news_src'] ?>" data-tp="nwssrc" class="nws-strp"><?= $nws_itm[$i]['_news_src'] ?></a> on <?= date('M j, Y', $nws_itm[$i]['_news_pubtime']) ?></i></p>
                             </div>
                             <div class='clearfix'></div>
                         </li>
                     <?php $c++; }?>
                 </ul>
+                </div>
                 <?php if(sizeof($nws_itm) > 7){ ?>
                 <button class="nws-btn" id="nws-ldmre-btn" style="margin-left: 50%;">Load more</button>
                 <a href="/news" id="back-btn" style="display: none;"><button class="nws-btn" style="margin-left: 10%">Back</button></a>
