@@ -14,9 +14,10 @@ body {
     padding:0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(238, 238, 238) !important;
 }
 
-.btn {
+.butn {
     /*position: relative !important;*/
     padding: 8px 30px ;
     padding: 8px 16px ;
@@ -31,7 +32,7 @@ body {
     outline: none !important;
 }
 
-.btn:hover {
+.butn:hover {
     box-shadow: 0 6px 10px rgba(0,0,0,.23),0 10px 30px rgba(0,0,0,.19);
 }
 
@@ -59,7 +60,32 @@ color: rgba(255,255,255,.84) !important;
     background-color: #03a9f4 !important;
     color: rgba(255,255,255,.84) !important;
 }
+textarea{
+    background-color: white !important;
+    outline: none !important;
+    border: 1px solid #cccccc !important;
+    padding: 4px !important;
+    font-size: 1em !important;
+}
 
+input{
+    border-radius: 0px !important;
+    outline: none !important;
+    border:1px solid #cccccc !important;
+    height: 32px !important;
+    background-color: white !important;
+}
+input:focus{
+    outline: none !important;
+/*    box-shadow: none !important;
+    border-color: #cccccc !important;
+    border:1px solid #cccccc !important;*/
+}
+
+textarea:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
 #table{
     
 }
@@ -364,7 +390,7 @@ padding-right: 25px;
        width: 100%;
        height: auto;
        min-height: 100%;
-       background-color: white;
+       /*background-color: white;*/
        margin-top: 78px;
       }
       .hdr{
@@ -446,16 +472,7 @@ border: none !important;
 }
 
 #cnt-send{
- padding-top: 8px;
- padding-bottom: 8px;
- padding-left: 16px;
- padding-right: 16px;
- cursor: pointer;
- border: 1px solid #333;
- background-color: white;
- border-radius: 5px;
- color: #333;
- margin-top: 10px;
+ margin-top: 8px;
 }
 .tem_ul{
     margin: auto;
@@ -716,21 +733,20 @@ margin-top: 16px;
     font-weight: 500;
     
 }
-.nw-btn:hover{
-    box-shadow: 0px 0px 15px rgb(186, 223, 186);
-}
-.nw-btn i{
+
+.nw-rsrc-btn i{
    -webkit-transform: rotate(0);
-transform: rotate(0);
--webkit-transition: -webkit-transform .5s;
-transition: transform .5s; 
-display: inline;
-position: absolute;
-margin-left: 6px;
-margin-top: 3px;
+    transform: rotate(0);
+    -webkit-transition: -webkit-transform .5s;
+    transition: transform .5s; 
+    display: inline;
+    position: absolute;
+    margin-left: 14px;
+    margin-top: -17px;
+    font-size: 1.1em;
 }
 
-.nw-btn:hover i{
+.nw-rsrc-btn:hover i{
 -webkit-transform: rotate(180deg) !important;
 transform: rotate(180deg) !important;
 display: inline-blck;
@@ -817,4 +833,70 @@ text-decoration: none;
     filter: gray; /* IE6-9 */
   filter: grayscale(1); /* Firefox 35+ */
   -webkit-filter: grayscale(1)
+}
+
+.rippl {
+    display: block;
+    position: absolute;
+    /* background: hsl(180, 40%, 80%); */
+    border-radius: 100%;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+.rippl-input{
+    display: block;
+    position: absolute;
+    /* background: hsl(180, 40%, 80%); */
+    /*border-radius: 100%;*/
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+.rippl-input .animate{
+    animation: ripple-input 0.3s linear !important;
+    -webkit-animation: ripple-input 0.3s linear !important;
+}
+.rippl.animate {
+    animation: ripple 0.3s linear !important;
+    -webkit-animation: ripple 0.3s linear !important;
+}
+
+@keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; 
+		transform: scale(2.5);
+		-webkit-transform: scale(2.5);
+	}
+}
+@-webkit-keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0;
+		transform: scale(2.5);
+		-webkit-transform: scale(2.5);
+	}
+}
+
+@keyframes ripple-input {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; 
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+@-webkit-keyframes ripple-input {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0;
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+}
+
+button, .media{
+    /*display: block;*/
+    overflow: hidden !important;
+    position: relative;
+    outline: none !important;
+    text-shadow: none !important;
+}
+.mnu-activ {
+background-color: rgba(255,255,255,.1);
 }

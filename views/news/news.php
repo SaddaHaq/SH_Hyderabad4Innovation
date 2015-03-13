@@ -42,8 +42,8 @@
                 </ul>
                 </div>
                 <?php if(sizeof($nws_itm) > 7){ ?>
-                <button class="nws-btn" id="nws-ldmre-btn" style="margin-left: 50%;">Load more</button>
-                <a href="/news" id="back-btn" style="display: none;"><button class="nws-btn" style="margin-left: 10%">Back</button></a>
+                <button class="butn btn-warning" id="nws-ldmre-btn" style="margin-left: 50%;">Load more</button>
+                <a href="/news" id="back-btn" style="display: none;"><button class="butn btn-info" style="margin-left: 10%">Back</button></a>
                 <?php }?>
             </section>
             <div class="fab">
@@ -73,7 +73,6 @@
                     
                 </div>
             </div>-->
-            <div class="add-itms"><div class="dwnld-clps"><h2>Submit news<i class="mdi-navigation-expand-more"></i></h2></div></div>
             <div class="action-content " id="contact-content">
         <div class="action-content-inner container grey lighten-5">
             <div class="section large-pad no-margin-bottom" id="contact-section">
@@ -93,7 +92,7 @@
                             <option>Ecosystem Updates</option>
                             <option>Company Exit</option>
                         </select><br>
-                        <button class="btn btn-primary" id="add-nws-btn">Submit</button><span class="add-new-dly"><img src="/images/loader.gif"></span>
+                        <button class="butn btn-primary" id="add-nws-btn">Submit</button><span class="add-new-dly"><img src="/images/loader.gif"></span>
                         <span class="nws-err"></span>
                     </form>
                     </div>
@@ -101,15 +100,15 @@
                    <div class="nws-clps"><h2>Submit startup<i class="icon-chevron-down"></i></h2>
                    <div class="slt">
                 <form id="strp_ad_fm">
-                *Startup name:<br> <input type="text" id="strp-nme"><br>  
-                *Website:<br> <input type="text" id="strp-site"><br>  
-                *Founders:<br> <input type="text" id="strp-fundrs"><br>  
-                *Point of contact -- name:<br> <input type="text" id="strp-poccnt"><br>  
-                *PoC Phone-no:<br> <input type="text" id="strp-pocphne"><br>  
-                *PoC Email Address:<br> <input id="strp-poceml" type="email"  required><br>  
-                *office address:<br> <textarea id="strp-ofcadrs"></textarea><br>  
-                Description:<br> <textarea id="strp-desc"></textarea><br>
-                <button class="btn btn-primary" id="add-strp-btn">Submit</button>
+                *Startup name:<br> <input type="text" id="strp-nme"> 
+                *Website:<br> <input type="text" id="strp-site"> 
+                *Founders:<br> <input type="text" id="strp-fundrs">  
+                *Point of contact -- name:<br> <input type="text" id="strp-poccnt"> 
+                *PoC Phone-no:<br> <input type="text" id="strp-pocphne"> 
+                *PoC Email Address:<br> <input id="strp-poceml" type="email"  required>  
+                *office address:<br> <textarea id="strp-ofcadrs"></textarea>  
+                Description:<br> <textarea id="strp-desc"></textarea>
+                <button class="butn btn-primary" id="add-strp-btn">Submit</button>
                 <span class="nws-err"></span>
                 </form>
                 </div>

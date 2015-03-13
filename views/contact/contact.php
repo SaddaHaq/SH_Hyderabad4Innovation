@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <textarea class="requiredField ct-txara" id="message" name="message" rows="1" placeholder="Message"></textarea>
                             </div>
-                            <button id="cnt-send" class="btn btn-theme">Submit</button>
+                            <button id="cnt-send" class="butn btn-primary">Submit</button>
                         </div>
             
             

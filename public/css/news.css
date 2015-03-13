@@ -37,7 +37,7 @@
     background: rgba(75,75,75,.75);
 }
 .pg {
-    background : #FFF;
+    /*background : #FFF;*/
     padding: 8em 0;
     width : 100%;
 }
@@ -411,7 +411,7 @@ margin: 0px 0;
     }
     
 .fab .btn-floating.add {
-background-color: #009587;
+background-color: #009587 !important;
 }
 
 .btn-floating.add {

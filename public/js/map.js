@@ -593,7 +593,7 @@ $(document).ready(function () {
      var slctd = $('#nws-fltr-optn option:selected').data('slct');
      if(slctd == 'date'){
                 $('#flter_sub_sctn').html('');
-                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="btn btn-primary" id="tme-fltr-btn" style="margin-top: -4px; margin-left: 8px;">Go</button>';
+                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="butn btn-primary" id="tme-fltr-btn" style="margin-top: -4px; margin-left: 8px;">Go</button>';
                 $('#flter_sub_sctn').append(html);
                 return;
             }
@@ -717,6 +717,60 @@ $(document).ready(function () {
     }
       });
       
+       $('body').on('click', 'button, .media', function (e) {
+        var $this = $(this);
+        var parent = $this.parent()
+        var color = $this.css('color');
+        if ($this.find(".rippl").length == 0) {
+            $this.append("<span class='rippl'></span>");
+        }
+        var rpl = $this.find(".rippl");
+        rpl.removeClass("animate");
+        if (!rpl.height() && !rpl.width())
+        {
+            var d = Math.max($this.outerWidth(), $this.outerHeight());
+            rpl.css({height: d, width: d});
+        }
+        var x = e.pageX - $this.offset().left - rpl.width() / 2;
+        var y = e.pageY - $this.offset().top - rpl.height() / 2;
+        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
+    });
+    
+      $('body').on('focus', 'input', function (e) {
+        var $this = $(this);
+        var parent = $this.parent();
+        var color = "red";
+        if ($this.children(".ripple-input").length == 0) {
+            $this.after("<span class='ripple-input'></span>");
+        }
+        var rpl = $this.children(".ripple-input");
+        rpl.removeClass("animate");
+        if (!rpl.height() && !rpl.width())
+        {
+            var d = Math.max($this.outerWidth(), $this.outerHeight());
+           rpl.css({height: "2px", width: d});
+        }
+        var x =  0;
+        var y =rpl.height() / 2;
+        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '1'}).addClass("animate");
+                setTimeout(function () {
+                  rpl.css({'-webkit-transform': 'scale(1)'});
+                }, 300);
+    });
+    
+    
+      
+      // @selected menu background changing
+      var p = location.pathname.split("/")[1];
+        var mn = $('.media[data-pg="'+p+'"]');
+            mn.addClass('mnu-activ');
+      
+      // @input box metaril effect
+//      $('input').not(':input[type=file]').addClass("form-control");
+//      $('input').not(':input[type=file]').addClass("form-control");
+//      $('textarea').addClass("form-control");
+        $('input').wrap('<div>');
+//        $('input').after("</div>");
 });
 
 //99

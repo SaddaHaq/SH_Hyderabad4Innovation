@@ -53,38 +53,38 @@
             
             <span class="static-nav static-links ">
 		<span class="work-navgroup static-link">
-                    <a href="/" class="media"><span class="mnu-bg med"></span>Home</a>
+                    <a href="/" class="media" data-pg=""><span class="mnu-bg med"></span>Home</a>
                 </span>
 <!--                <span class="work-navgroup static-link">
                     <a href="/submit" class="media"><span class="mnu-bg med"></span>Submit</a>
                 </span>-->
 		<span class="work-navgroup static-link">
-                    <a href="/catalogue" class="media"><span class="mnu-bg med"></span>Directory</a>
+                    <a href="/catalogue" class="media" data-pg="catalogue"><span class="mnu-bg med"></span>Directory</a>
                 </span>
                 <span class="work-navgroup static-link">
-                    <a href="/about" class="media"><span class="mnu-bg med"></span>About</a>
+                    <a href="/about" class="media" data-pg="about"><span class="mnu-bg med"></span>About</a>
                 </span>
 		<span class="work-navgroup static-link">
-                    <a href="/team" class="media"><span class="mnu-bg med"></span>Team</a>
+                    <a href="/team" class="media" data-pg="team"><span class="mnu-bg med"></span>Team</a>
                 </span>
                 <span class="work-navgroup static-link">
-                    <a href="/news" class="media"><span class="mnu-bg med"></span>News</a>
+                    <a href="/news" class="media" data-pg="news"><span class="mnu-bg med"></span>News</a>
                 </span>
                 <span class="work-navgroup static-link">
-                    <a href="/contact" class="media"><span class="mnu-bg med"></span>Contact</a>
+                    <a href="/contact" class="media" data-pg="contact"><span class="mnu-bg med"></span>Contact</a>
                 </span>
             </span>
             
             
             <div class="left--mbl-mnu hidn-mbl-sidbar"><ul class="lft-mnu-lst">
-            <li class="lft--mbl-mnu-item"><a href="/"><span class="mnu-itm-ttl">Home</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/" data-pg="home"><span class="mnu-itm-ttl">Home</span></a></li>
 <!--            <li class="lft--mbl-mnu-item"><a href="/submit"><span class="mnu-itm-ttl">Submit</span></a></li>-->
-            <li class="lft--mbl-mnu-item"><a href="/catalogue" class="sb-mnu-intiavs"><span class="mnu-itm-ttl">Directory</span></a>
+            <li class="lft--mbl-mnu-item"><a href="/catalogue" class="sb-mnu-intiavs" data-pg="catalogue"><span class="mnu-itm-ttl">Directory</span></a>
                 </li>
-            <li class="lft--mbl-mnu-item"><a href="/about"><span class="mnu-itm-ttl">About</span></a></li>
-            <li class="lft--mbl-mnu-item"><a href="/team"><span class="mnu-itm-ttl">Team</span></a></li>
-            <li class="lft--mbl-mnu-item"><a href="/news"><span class="mnu-itm-ttl">News</span></a></li>
-            <li class="lft--mbl-mnu-item"><a href="/contact"><span class="mnu-itm-ttl">Contact</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/about" data-pg="about"><span class="mnu-itm-ttl">About</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/team" data-pg="team"><span class="mnu-itm-ttl">Team</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/news" data-pg="news"><span class="mnu-itm-ttl">News</span></a></li>
+            <li class="lft--mbl-mnu-item"><a href="/contact" data-pg="contact"><span class="mnu-itm-ttl">Contact</span></a></li>
         </ul></div>
         
         </nav>

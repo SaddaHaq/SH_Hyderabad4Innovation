@@ -12,12 +12,14 @@
 .static-topbar {
     /*background: #39424e;*/
     background: rgba(57, 66, 78, 1);
-    border-bottom: 3px solid #23aad3;
+    /*border-bottom: 3px solid #23aad3;*/
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1039;
     height: 80px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.23),0 3px 10px rgba(0,0,0,.16);
+    z-index: 10002;
 }
 a{
     text-decoration: none !important;
@@ -63,8 +65,9 @@ a{
     }
 
     .static-links a:hover,.static-links a.active,.static-links a:active {
-        background: rgba(35, 41, 49, 0.45);
-        color: #04a8ca;
+        /*background: rgba(35, 41, 49, 0.45);*/
+        /*color: #04a8ca;*/
+        opacity: 0.8;
     }
 
     .static-links .work-dropdown {
@@ -183,7 +186,8 @@ top: -4px
     }
 
     a.static-link:active,a.static-link.active,a.static-link:hover,.static-link>a:active,.static-link>a.active,.static-link>a:hover {
-        color: #04a8ca;
+        color: white !important;
+        opacity: 0.6 !important;
     }
 
     a.static-link:active a,a.static-link.active a,a.static-link:hover a,.static-link>a:active a,.static-link>a.active a,.static-link>a:hover a {
