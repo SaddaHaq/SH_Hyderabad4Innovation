@@ -160,6 +160,7 @@
     font-family: lato;
     /*color: #333;*/
     font-weight: 700;
+    padding-top: 4px;
 }
 #nws-lst .dsc {
     font-size: 1em;
@@ -263,9 +264,6 @@ margin: 0px 0;
     margin-bottom: 16px;
 }
 #adnws_form input, select{
-    width: 250px;
-    height: 28px;
-    margin-bottom: 10px;
     padding: 0px !important;
 }
 
@@ -343,7 +341,6 @@ margin: 0px 0;
     width: 200px;
     height: 28px;
     margin-bottom: 10px;
-    padding: 0px !important;
 }
 #flter_sub_sctn i{
     font-size: 2em;
@@ -736,8 +733,6 @@ margin-bottom: 16px;
 }
 .slt input, textarea{
     width: 450px;
-    height: 28px;
-    margin-bottom: 10px;
     padding: 0px !important;
 }
 .slt textarea{

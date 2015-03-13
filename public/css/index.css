@@ -72,8 +72,9 @@ input{
     border-radius: 0px !important;
     outline: none !important;
     border:1px solid #cccccc !important;
-    /*height: 28px !important;*/
+    height: 32px !important;
     background-color: white !important;
+    padding: 4px;
 }
 input:focus{
     outline: none !important;
@@ -81,10 +82,19 @@ input:focus{
     border-color: #cccccc !important;
     border:1px solid #cccccc !important;*/
 }
-
+.inpt-prnt{
+ margin-bottom: 8px;   
+}
 textarea:focus{
     outline: none !important;
     box-shadow: none !important;
+}
+select{
+    border-radius: 0px !important;
+    outline: none !important;
+    border:1px solid #cccccc !important;
+    height: 32px !important;
+    background-color: white !important;
 }
 #table{
     
@@ -103,7 +113,6 @@ margin-top: 2%;
     width: 300px;
     height: auto;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.75);
     box-shadow: 10px 10px 10px #red;
     border-radius: 15px;
 }
@@ -449,13 +458,8 @@ text-transform: uppercase;
 .ct-ipt {
 background-color: #eee;
 color: #888;
-padding: 8px 0;
-font: inherit;
 width: 100%;
-text-indent: 5px;
-resize: none;
 border: none !important;
-margin-bottom: 8px;
       }
       
 
@@ -843,18 +847,6 @@ text-decoration: none;
     transform: scale(0);
     -webkit-transform: scale(0);
 }
-.rippl-input{
-    display: block;
-    position: absolute;
-    /* background: hsl(180, 40%, 80%); */
-    /*border-radius: 100%;*/
-    transform: scale(0);
-    -webkit-transform: scale(0);
-}
-.rippl-input .animate{
-    animation: ripple-input 0.3s linear !important;
-    -webkit-animation: ripple-input 0.3s linear !important;
-}
 .rippl.animate {
     animation: ripple 0.3s linear !important;
     -webkit-animation: ripple 0.3s linear !important;
@@ -875,16 +867,29 @@ text-decoration: none;
 	}
 }
 
+.input-ripple{
+    display: block;
+    position: absolute;
+    /* background: hsl(180, 40%, 80%); */
+    /*border-radius: 100%;*/
+    transform: scale(0);
+    -webkit-transform: scale(0);
+}
+
+.input-ripple.animate {
+    animation: ripple-input 0.5s linear !important;
+    -webkit-animation: ripple-input 0.5s linear !important;
+}
 @keyframes ripple-input {
 	/*scale the element to 250% to safely cover the entire link and fade it out*/
-	100% {opacity: 0; 
+	100% {opacity: 1; 
 		transform: scale(1);
 		-webkit-transform: scale(1);
 	}
 }
 @-webkit-keyframes ripple-input {
 	/*scale the element to 250% to safely cover the entire link and fade it out*/
-	100% {opacity: 0;
+	100% {opacity: 1;
 		transform: scale(1);
 		-webkit-transform: scale(1);
 	}

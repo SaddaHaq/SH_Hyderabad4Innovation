@@ -593,7 +593,7 @@ $(document).ready(function () {
      var slctd = $('#nws-fltr-optn option:selected').data('slct');
      if(slctd == 'date'){
                 $('#flter_sub_sctn').html('');
-                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="butn btn-primary" id="tme-fltr-btn" style="margin-top: -4px; margin-left: 8px;">Go</button>';
+                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="butn btn-primary" id="tme-fltr-btn" style="margin-top: -1px; margin-left: 8px;">Go</button>';
                 $('#flter_sub_sctn').append(html);
                 return;
             }
@@ -736,29 +736,39 @@ $(document).ready(function () {
         rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
     });
     
-      $('body').on('focus', 'input', function (e) {
+    
+      $('body').on('focus', 'input, textarea', function (e) {
         var $this = $(this);
-        var parent = $this.parent();
-        var color = "red";
-        if ($this.children(".ripple-input").length == 0) {
-            $this.after("<span class='ripple-input'></span>");
+        var parent = $this.parent('.inpt-prnt');
+        var color = "#009587";
+        if (parent.children(".input-ripple").length == 0) {
+            $this.after("<span class='input-ripple'></span>");
         }
-        var rpl = $this.children(".ripple-input");
+        var rpl = parent.children(".input-ripple");
+        parent.children(".input-ripple").siblings('.input-ripple').removeClass('input-ripple');
         rpl.removeClass("animate");
+        rpl.css({'-webkit-transform': 'scale(0)'});
         if (!rpl.height() && !rpl.width())
         {
             var d = Math.max($this.outerWidth(), $this.outerHeight());
-           rpl.css({height: "2px", width: d});
+           rpl.css({height: "2.2px", width: d});
         }
-        var x =  0;
-        var y =rpl.height() / 2;
-        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '1'}).addClass("animate");
+        
+        var x =  $this.width() / 1;
+        var y =  parent.height()-10;
+        rpl.css({'background-color': color, 'opacity': '1'}).addClass("animate");
+        if($this.prop("tagName") == "TEXTAREA"){
+            rpl.css({'margin-top': '    -4px'})
+        }
                 setTimeout(function () {
                   rpl.css({'-webkit-transform': 'scale(1)'});
-                }, 300);
+                }, 500);
     });
     
-    
+    $('body').on('focusout', 'input, textarea', function (e) {
+        $('.inpt-prnt').find('span').remove();
+//        alert();
+    });
       
       // @selected menu background changing
       var p = location.pathname.split("/")[1];
@@ -766,10 +776,8 @@ $(document).ready(function () {
             mn.addClass('mnu-activ');
       
       // @input box metaril effect
-//      $('input').not(':input[type=file]').addClass("form-control");
-//      $('input').not(':input[type=file]').addClass("form-control");
-//      $('textarea').addClass("form-control");
-        $('input').wrap('<div>');
+        $('textarea').wrap('<div class="inpt-prnt">');
+        $('body').find('input').wrap('<div class="inpt-prnt">');
 //        $('input').after("</div>");
 });
 
