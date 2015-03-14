@@ -95,6 +95,7 @@ select{
     border:1px solid #cccccc !important;
     height: 32px !important;
     background-color: white !important;
+    margin-bottom: 8px !important;
 }
 #table{
     
@@ -904,4 +905,7 @@ button, .media{
 }
 .mnu-activ {
 background-color: rgba(255,255,255,.1);
+}
+.nw-rsrc-btn{
+    padding-right: 27px;
 }

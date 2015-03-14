@@ -37,8 +37,9 @@
             </ul>
         </div>
             <div class="cat-ttp">
-                <h3 class="s-hdr">Select category</h3>
+                <h3 class="s-hdr">Filter category</h3>
                 <select id="comny_name">
+                    <option>Select category</option>
                 </select>
             </div>
         </div>
