@@ -7,17 +7,15 @@
                                 <input type="email" class="requiredField ct-ipt email" id="contact-email" name="email" placeholder="Email">
                             </div>
                             <div class="form-group clearfix">
-                                <input type="text" class="requiredField ct-ipt" id="name" name="name" placeholder="Name">
+                                <input type="text" class="requiredField ct-ipt" id="contact-name" name="name" placeholder="Name">
                             </div>
                             <div class="form-group clearfix">
-                                <input type="text" class="requiredField ct-ipt" id="subject" name="name" placeholder="Subject">
+                                <input type="text" class="requiredField ct-ipt" id="contact-subject" name="name" placeholder="Subject">
                             </div>
                             <div class="form-group">
-                                <textarea class="requiredField ct-txara" id="message" name="message" rows="1" placeholder="Message"></textarea>
+                                <textarea class="requiredField ct-txara" id="contact-message" name="message" rows="1" placeholder="Message"></textarea>
                             </div>
-                            <button id="cnt-send" class="butn btn-primary">Submit</button>
+                            <button id="cnt-send" class="butn btn-primary">Submit</button> <span class="nws-err"></span>
                         </div>
-            
-            
         </div>
 <?php require 'views/footer.php'; ?>

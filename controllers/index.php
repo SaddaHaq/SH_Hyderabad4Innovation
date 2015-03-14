@@ -56,4 +56,9 @@ class Index extends Controller {
       echo json_encode($this -> model -> nwsflring());
   }
   
+  // @contact form submit
+  public function cntsbmt(){
+      echo $this-> model -> sbmtcnt();
+  }
+  
 }

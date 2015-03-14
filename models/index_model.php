@@ -270,4 +270,26 @@ class Index_model extends Model {
             }
     }
     
+    public function sbmtcnt(){
+        $eml = $_POST['eml'];
+        $nme = $_POST['nme'];
+        $sub = $_POST['sub'];
+        $msg = $_POST['msg'];
+        
+        if(trim($eml) == ''){
+            return '-1';
+        }
+        
+        $submit = $this -> db -> query("INSERT INTO _startups_cntct_frm_(_cntct_frm_email, _cntct_frm_name, _cntct_frm_subject, _cntct_frm_msg) VALUES (".$this -> db -> quote($eml).",
+                                                                                                                                                        ".$this -> db -> quote($nme).",
+                                                                                                                                                        ".$this -> db -> quote($sub).",
+                                                                                                                                                        ".$this -> db -> quote($msg).")");
+        if($submit == true){
+            mail('mukkojusatish@gmail.com', 'Thanx', 'get back u soon');
+            $sts = 'Message has been sent to the admin';
+            return $sts;
+        }
+    }   
+            
+    
 }

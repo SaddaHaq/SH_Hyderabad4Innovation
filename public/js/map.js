@@ -778,7 +778,55 @@ $(document).ready(function () {
       // @input box metaril effect
         $('textarea').wrap('<div class="inpt-prnt">');
         $('body').find('input').wrap('<div class="inpt-prnt">');
-//        $('input').after("</div>");
-});
+        
+    $('#contact-form').on('click', '#cnt-send', function(){
+        var eml = $('#contact-email');
+        var nme = $('#contact-name');
+        var sub = $('#contact-subject');
+        var msg = $('#contact-message');
+        var emlRegx = /^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/;
 
-//99
+      if(eml.val().trim() == ''){
+          $('#contact-form').find('.nws-err').text('Email cannot be empty');
+          eml.focus();
+          eml.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
+          return;
+      }
+      else if(!emlRegx.test(eml.val().trim())){
+          $('#contact-form').find('.nws-err').text('Please enter valid email');
+          eml.focus();
+          eml.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
+          return;
+      }
+      else if(nme.val().trim() == ''){
+          $('#contact-form').find('.nws-err').text('Name cannot be empty');
+          nme.focus();
+          nme.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
+          return;
+      }
+      else if(msg.val().trim() == ''){
+          $('#contact-form').find('.nws-err').text('Need a message to respond');
+          msg.focus();
+          msg.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
+          return;
+      }
+      
+      $.ajax({
+           url: 'index/cntsbmt',
+           method: 'post',
+           data: {'eml': eml.val(), 'nme': nme.val(), 'sub': sub.val(), 'msg': msg.val()},
+           success: function(d){
+               if(d == '-1'){
+                   alert('Email requred for submit a form');
+               }else{
+               alert(d);
+               setTimeout(function () {
+                  window.location.reload();
+                }, 500);
+            }
+           }
+        });
+    
+    });
+        
+});
