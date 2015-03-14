@@ -285,7 +285,7 @@ class Index_model extends Model {
                                                                                                                                                         ".$this -> db -> quote($sub).",
                                                                                                                                                         ".$this -> db -> quote($msg).")");
         if($submit == true){
-            mail('mukkojusatish@gmail.com', 'Thanx', 'get back u soon');
+            mail($eml, 'Hyderabad4innovation', 'Your message has been received we will get back to you soon');
             $sts = 'Message has been sent to the admin';
             return $sts;
         }
