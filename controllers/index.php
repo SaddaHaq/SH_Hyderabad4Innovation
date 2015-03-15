@@ -29,11 +29,18 @@ class Index extends Controller {
       echo $this->model->aprv_etry();
   }
   
+  // @parsing url before adding
+  public function parseurl(){
+      $url = $_POST['url'];
+      echo json_encode($this->model->urlparsing($url));
+  }
   public function adnws(){
       $url = $_POST['url'];
       $tp = $_POST['tp'];
       $strp = $_POST['strtp'];
-            echo json_encode($this -> model -> adnews($url, $tp, $strp));
+      $pdate = $_POST['pdate'];
+      $smry = $_POST['smry'];
+            echo json_encode($this -> model -> adnews($url, $tp, $strp, $pdate, $smry));
   }
   
   public function strtpsrch(){
@@ -46,7 +53,8 @@ class Index extends Controller {
   }
   
   public function addstrp(){
-      echo $this -> model -> addstrpetry();
+      $url = $_POST['url'];
+      echo $this -> model -> addstrpetry($url);
   }
   public function fltroptns(){
       echo json_encode($this -> model -> fltring_optins());

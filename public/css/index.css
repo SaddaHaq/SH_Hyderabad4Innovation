@@ -61,7 +61,7 @@ color: rgba(255,255,255,.84) !important;
     color: rgba(255,255,255,.84) !important;
 }
 textarea{
-    background-color: white !important;
+    background-color: white;
     outline: none !important;
     border: 1px solid #cccccc !important;
     padding: 4px !important;
@@ -73,7 +73,7 @@ input{
     outline: none !important;
     border:1px solid #cccccc !important;
     height: 32px !important;
-    background-color: white !important;
+    background-color: white;
     padding: 4px;
 }
 input:focus{
@@ -457,7 +457,6 @@ line-height: 3em;
 text-transform: uppercase;
 }
 .ct-ipt {
-background-color: #eee;
 color: #888;
 width: 100%;
 border: none !important;
@@ -465,7 +464,6 @@ border: none !important;
       
 
 .ct-txara {
-background-color: #eee;
 color: #888;
 padding: 8px 0;
 font: inherit;

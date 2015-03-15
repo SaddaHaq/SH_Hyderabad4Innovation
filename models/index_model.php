@@ -109,7 +109,41 @@ class Index_model extends Model {
     }
     
     
-    public function adnews($url, $tp, $strp){
+    // @parsing url before adding news
+    public function urlparsing($url){
+        $u = $url;
+        $sites_html = file_get_contents($u);
+        $html = new DOMDocument();
+        @$html->loadHTML($sites_html);
+        $data = null;
+        $meta_og_img = null;
+        //Get all meta tags and loop through them.
+        foreach ($html->getElementsByTagName('meta') as $meta) {
+            //If the meta tag reads "og:", save the property and value to an array
+            if (strpos($meta->getAttribute('property'), 'og:') !== false || strpos($meta->getAttribute('property'), 'article:published_time') !== false) {
+                $data[$meta->getAttribute('property')] = $meta->getAttribute('content');
+            }
+            else if(strpos($meta->getAttribute('http-equiv'), 'Last-Modified') !== false){
+                $data[$meta->getAttribute('http-equiv')] = $meta->getAttribute('content');
+            }
+        }
+        
+        $d = $data;
+//        var_dump($d);
+        if(isset($d['article:published_time'])){
+         $pubdt = preg_replace('/[^(\x20-\x7F)]*/', '', date('j-m-Y', strtotime($d['article:published_time'])));
+        }
+        
+        // @this condition writen for only BUSINESS STANDARED website pubtime
+        // when this site url comes the pubtime has comming with empty key (['Last-Modified'] like this)
+        if(isset($d['Last-Modified'])){
+            $pubdt = preg_replace('/[^(\x20-\x7F)]*/', '', date('j-m-Y', strtotime($d['Last-Modified'])));
+        }
+        return ['pubtime'=> $pubdt, 'sumry'=>$d['og:description']];
+    }
+
+
+    public function adnews($url, $tp, $strp, $pdate, $smry){
         $chkstrp = $this -> db ->query("SELECT * FROM _startups_ WHERE _name_ = ".$this -> db -> quote($strp));
         //$rowcnt = $chkstrp->rowCount();
         if($chkstrp->rowCount() > 0){
@@ -140,10 +174,16 @@ class Index_model extends Model {
         
         // @delting acsii chrecters
         $ttl = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:title']);
-        $desc = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:description']);
+        if($smry == ''){
+            $desc = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:description']);
+        }else{
+            $desc = $smry;
+        }
+        
         $img = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:image']);
         $site = preg_replace('/[^(\x20-\x7F)]*/', '', $d['og:site_name']);
-        if(isset($d['article:published_time'])){
+        if($pdate == ''){
+            if(isset($d['article:published_time'])){
         $pubdt = preg_replace('/[^(\x20-\x7F)]*/', '', $d['article:published_time']);
         }
         
@@ -151,6 +191,9 @@ class Index_model extends Model {
         // when this site url comes the pubtime has comming with empty key (['Last-Modified'] like this)
         if(isset($d['Last-Modified'])){
             $pubdt = preg_replace('/[^(\x20-\x7F)]*/', '', $d['Last-Modified']);
+        }
+        }else{
+        $pubdt = $pdate;
         }
         $strp = preg_replace('/[^(\x20-\x7F)]*/', '', $strp);
         $addentry = $this -> db -> query("INSERT INTO _startups_news_ VALUES(".$this -> db -> quote($id).", ".$this -> db -> quote($ttl).",".$this -> db -> quote($desc).",".
@@ -163,7 +206,8 @@ class Index_model extends Model {
                                                                                 $this -> db -> quote($strp).",".
                                                                                 $this -> db -> quote(time()).")");
        if($addentry == true){
-           $sts = [$d, 'Url added successfully!!'];
+           $itm = ['ttl'=>$ttl, 'desc'=>$desc, 'pdtae'=>$pubdt, 'tp'=>$tp, 'strtp'=>$strp, 'site'=>$site];
+           $sts = [$itm, 'Url added successfully!!'];
            return $sts;
        }else{
            $sts = ["Somthig wrong while adding Url please try again"];
