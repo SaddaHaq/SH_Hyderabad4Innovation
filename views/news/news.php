@@ -80,10 +80,10 @@
                    <div class="ad-nws-frm">
                     <!--<div class="ad-nws-hdr">Submit News</div>-->
                     <form id="adnws_form">
-                        Url:<br><input type="text" id="nws-url" style="width: 450px;"> 
-                        Publish time:<br><input type="text" class="date-sclet" id="nws-pdte" style="width: 450px;"> 
-                        Summary:<br><textarea id="nws-smry" style="width: 450px; height: 80px;"></textarea>
-                        Startup Name:<br> <input type="text" id="strp_nme" style="width: 450px;">
+                        *Url:<br><input type="text" id="nws-url" style="width: 450px;"> 
+                        *Publish time:<br><input type="text" class="date-sclet" id="nws-pdte" style="width: 450px;"> 
+                        *Summary:<br><textarea id="nws-smry" style="width: 450px; height: 80px;"></textarea>
+                        *Startup Name:<br> <input type="text" id="strp_nme" style="width: 450px;">
                         <span class="no-strtp" style="display: none; padding-bottom: 4px;: ">Start up doesn't exist. To add a startup, <a href="/addstartup">click here</a></span>
                         Type of news: <br>
                         <select id="nws-tp" style="width: 450px;">

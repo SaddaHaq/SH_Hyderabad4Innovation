@@ -596,7 +596,7 @@ jQuery.extend( jQuery.easing,
     var defaults = {
       hover: true
     }
-
+alert();
     options = $.extend(defaults, options);
     this.each(function(){
       var origin = $(this);

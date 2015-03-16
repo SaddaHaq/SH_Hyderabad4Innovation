@@ -222,10 +222,10 @@ $(document).ready(function () {
             var l = r.length;
             var i;
             for (i = 0; i < l; i++) {
-                
-                if(r[i]._resources_logo == ''){
+
+                if (r[i]._resources_logo == '') {
                     var logo = 'default.png';
-                }else{
+                } else {
                     logo = r[i]._resources_logo;
                 }
                 var id = r[i]._resources_name.slice(0, 1);
@@ -240,7 +240,7 @@ $(document).ready(function () {
                         '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>' +
                         '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>' +
                         '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>' +
-                        '<div class="cp-lgo"><img src="/images/logos/'+ logo +'"></div><div class="clearfix"></div></div>' +
+                        '<div class="cp-lgo"><img src="/images/logos/' + logo + '"></div><div class="clearfix"></div></div>' +
                         '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>' +
                         '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
 
@@ -270,11 +270,11 @@ $(document).ready(function () {
                 var i;
                 $('#index').find("li").children('a').css({'color': '#727272'});
                 for (i = 0; i < l; i++) {
-                    if(r[i]._resources_logo == ''){
-                    var logo = 'default.png';
-                }else{
-                    logo = r[i]._resources_logo;
-                }
+                    if (r[i]._resources_logo == '') {
+                        var logo = 'default.png';
+                    } else {
+                        logo = r[i]._resources_logo;
+                    }
                     var id = r[i]._resources_name.slice(0, 1);
                     id = id.toLowerCase();
                     var $this = $('#' + id);
@@ -288,7 +288,7 @@ $(document).ready(function () {
                             '<p class=""><i class="icon-home"></i><span>Website:</span><a href="' + r[i]._resources_website + '" target="_blank">' + r[i]._resources_website + '</a></p>' +
                             '<p class=""><i class="icon-mail"></i><span>Email:</span>' + r[i]._resources_email + '</p>' +
                             '<p class=""><i class="icon-call"></i><span>Phone:</span>' + r[i]._resources_phone + '</p></div>' +
-                            '<div class="cp-lgo"><img src="/images/logos/'+ logo + '"></div><div class="clearfix"></div></div>' +
+                            '<div class="cp-lgo"><img src="/images/logos/' + logo + '"></div><div class="clearfix"></div></div>' +
                             '<p><span>About Company:</span><br>' + r[i]._resources_description + '</p><p><i class="icon-profile"></i><span>Contact:</span>' + r[i]._resources_contact_person + '</p>' +
                             '<p><i class="icon-map-location"></i><span>Address:</span>' + r[i]._resources_address + '</p></div>');
 
@@ -351,395 +351,415 @@ $(document).ready(function () {
         }, 500);
     });
 
-    $('#nws-url').keyup(function(){
-       
-       $.ajax({
-          url: 'index/parseurl',
-          method: 'post',
-          data: {'url': $(this).val()},
-          success: function(data){
-              var d = JSON.parse(data);
-              $('#nws-pdte').css({'background-color': 'rgba(255, 255, 0, 0.17)'});
-              $('#nws-pdte').val(d['pubtime']);
-              $('#nws-smry').val(d['sumry']);
-              $('#nws-smry').css({'background-color': 'rgba(255, 255, 0, 0.17)'});
-              setTimeout(function () {
-                  $('#nws-smry').css({'background-color': 'white'});
-                  $('#nws-pdte').css({'background-color': 'white'});
+    $('#nws-url').keyup(function () {
+
+        $.ajax({
+            url: 'index/parseurl',
+            method: 'post',
+            data: {'url': $(this).val()},
+            success: function (data) {
+                var d = JSON.parse(data);
+                $('#nws-pdte').css({'background-color': 'rgba(255, 255, 0, 0.17)'});
+                $('#nws-pdte').val(d['pubtime']);
+                $('#nws-smry').val(d['sumry']);
+                $('#nws-smry').css({'background-color': 'rgba(255, 255, 0, 0.17)'});
+                setTimeout(function () {
+                    $('#nws-smry').css({'background-color': 'white'});
+                    $('#nws-pdte').css({'background-color': 'white'});
                 }, 3000);
-          }
-       });
+            }
+        });
     });
-    $('#add-nws-btn').click(function(e){
+    $('#add-nws-btn').click(function (e) {
         e.preventDefault();
         var url = $('#nws-url').val().trim();
         var strtp = $('#strp_nme').val().trim();
         var tp = $('#nws-tp option:selected').text();
-        if(url == ''){
+        if (url == '') {
             $('.nws-err').text('URL cannot be empty');
             return false;
         }
-        else if(strtp == ''){
+        else if ($('#nws-pdte').val() == '') {
+            $('.nws-err').text('Publish date cannot be empty');
+            return false;
+        }
+        else if ($('#nws-smry').val() == '') {
+            $('.nws-err').text('Publish date cannot be empty');
+            return false;
+        }
+        else if (strtp == '') {
             $('.nws-err').text('Startup cannot be empty');
             return false;
         }
         $.ajax({
-           url:  'index/adnws',
-           type: 'post',
-           data: {'url': url,
-                  'strtp': strtp,
-                  'tp': tp,
-                  'pdate': $('#nws-pdte').val(),
-                  'smry': $('#nws-smry').val()},
-              beforeSend: function () {
-                  $('.add-new-dly').show();
-              },
-           success: function(data){
-               var d = JSON.parse(data);
-               if(d.length > 1){
-               alert(d[1]);    
-               $('.add-new-dly').hide();
-               document.getElementById("adnws_form").reset();
-               $('.ad-nws-navg').click();
-               var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:tomato'>";
-                    html += "<h1><a href='#' data-cnt="+strtp+" data-tp='strtp' class='nws-strp'>"+strtp+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+tp+"' data-tp='nwstype' class='nws-strp'>"+tp+"</a></i></p>";
-                    html += "</div><h2 class='s-h'><a href='"+url+"' target='_blank'>"+d[0]['ttl']+"</a></h2>";
-                    html += "<p class='dsc'>"+d[0]['desc']+"</p>";
-                    html += "<a href='"+url+"' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
-                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[0]['site']+"' data-tp='nwssrc' class='nws-strp'>"+d[0]['site']+"<a/> on "+ d[0]['pdtae']+"</i></p>";
+            url: 'index/adnws',
+            type: 'post',
+            data: {'url': url,
+                'strtp': strtp,
+                'tp': tp,
+                'pdate': $('#nws-pdte').val(),
+                'smry': $('#nws-smry').val()},
+            beforeSend: function () {
+                $('.add-new-dly').show();
+            },
+            success: function (data) {
+                var d = JSON.parse(data);
+                if (d.length > 1) {
+                    alert(d[1]);
+                    $('.add-new-dly').hide();
+                    document.getElementById("adnws_form").reset();
+                    $('.ad-nws-navg').click();
+                    var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:tomato'>";
+                    html += "<h1><a href='#' data-cnt=" + strtp + " data-tp='strtp' class='nws-strp'>" + strtp + "</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='" + tp + "' data-tp='nwstype' class='nws-strp'>" + tp + "</a></i></p>";
+                    html += "</div><h2 class='s-h'><a href='" + url + "' target='_blank'>" + d[0]['ttl'] + "</a></h2>";
+                    html += "<p class='dsc'>" + d[0]['desc'] + "</p>";
+                    html += "<a href='" + url + "' target='_blank' class='rd-mre'>Read more.. <i class='icon_angle-right'></i></a>";
+                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='" + d[0]['site'] + "' data-tp='nwssrc' class='nws-strp'>" + d[0]['site'] + "<a/> on " + d[0]['pdtae'] + "</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').prepend(html);
-               }else{
-                   
-                   if(d[0] == '-1'){
-                       $('.no-strtp').css({'display': 'block', 'color':'red'});
-                       alert('hha find');
-                   }
-                   else{
-                       alert(d[0]);
-                   }
-                   $('.add-new-dly').hide();
-               }
-                              
-               
-           }
+                } else {
+
+                    if (d[0] == '-1') {
+                        $('.no-strtp').css({'display': 'block', 'color': 'red'});
+                        alert('hha find');
+                    }
+                    else {
+                        alert(d[0]);
+                    }
+                    $('.add-new-dly').hide();
+                }
+
+
+            }
         });
     });
-    
-    
+
+
     $('#strp_nme').autocomplete({
-        source: function( request, response ) {
-        $.ajax({
-          url: "index/strtpsrch",
-          method: 'post',
-          data: {
-            kwd: request.term
-          },
-          success: function( data ) {
-              var data = JSON.parse(data);
-              if(data.length == 0){
-                  $('.no-strtp').css({'display': 'block', 'color':'red'});
-              }else{
-                  $('.no-strtp').css({'display': 'none', 'color':'red'});
-              }
-              $(".ui-autocomplete").addClass('srch');
-             response( $.map(data, function(item, i) {
-              return{
-                  label: item._name_,
-                  id: item.id        
-              }
-            }));
-            
-          }
-        });
-      }
-  });
-  
-  
- 
-  $('.ad-nws-navg').click(function(){
-      
-       if($('.ad-nws').hasClass('ad-nww-clps')){
-           $('.ad-nws').removeClass('ad-nww-clps');
-           $(this).find('i').removeClass('icon-plus-circle').addClass('icon-remove-circle');
-           $(this).css({'left': '0'});
-      }else{
-         $('.ad-nws').addClass('ad-nww-clps');
-         $(this).find('i').removeClass('icon-remove-circle').addClass('icon-plus-circle');
-         $(this).css({'left': '-38px'});
-      }
-  });
-  
-  $('#nws-ldmre-btn').click(function(){
-     
-     $.ajax({
-         url: 'index/getnws',
-         'type': 'post',
-         data: {'cnt': $('#nws-lst li').length},
-         success: function(data){
-             var d = JSON.parse(data);
-             if(d == 0){
-                 $('#nws-ldmre-btn').fadeOut('slow');
-             }
-             var c = 0;
-             for (var i=0; i<d.length; i++){
-                 var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
-                 if(c >= 4){
-                     c = 0;
-                 }
-                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
-                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
-                    var x = new Date(d[i]._news_pubtime*1000) + "";
-                    html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
-                    html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
-                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"<a/> on "+x.substr(4,12)+"</i></p>";
-                    html += "</div><div class='clearfix'></div></li>";
-                    $('#nws-lst').append(html);
-                    c++;
-            }
-             
-         }
-     }) 
-  });
-  
-  $('#add-strp-btn').click(function(e){
-      e.preventDefault();
-      var nme = $('#strp-nme').val().trim();
-      var site = $('#strp-site').val().trim();
-      var fundrs = $('#strp-fundrs').val().trim();
-      var poccnt = $('#strp-poccnt').val().trim();
-      var pocphne = $('#strp-pocphne').val().trim();
-      var poceml = $('#strp-poceml').val().trim();
-      var ofceadrs = $('#strp-ofcadrs').val().trim();
-      var desc = $('#strp-desc').val().trim();
-      var emRegx = /^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/;
-      var regx = new RegExp(emRegx);
-      if(nme == ''){
-          $('.nws-err').text('Startup name cannot be empty');
-          return;
-      }
-      else if(site == ''){
-          $('.nws-err').text('Startup Website cannot be empty');
-          return;
-      }
-      else if(fundrs == ''){
-          $('.nws-err').text('Startup founders name cannot be empty');
-          return;
-      }
-      else if(poccnt == ''){
-          $('.nws-err').text('Startup contact name cannot be empty');
-          return;
-      }
-      else if(pocphne == ''){
-          $('.nws-err').text('Startup phone no cannot be empty');
-          return;
-      }
-      else if(poceml == ''){
-          $('.nws-err').text('Startup contact email cannot be empty');
-          return;
-      }
-      else if(!emRegx.test(poceml)){
-          $('.nws-err').text('Please enter valid email');
-          return;
-      }
-      else if(ofceadrs == ''){
-          $('.nws-err').text('Startup address cannot be empty');
-          return;
-      }
-     
-     $.ajax({
-        url: 'index/addstrp',
-        method: 'post',
-        data: {
-            'name': nme,
-            'site': site,
-            'fundrs': fundrs,
-            'poccnt': poccnt,
-            'pocphne': pocphne,
-            'poceml': poceml,
-            'ofceadrs': ofceadrs,
-            'desc': desc,
-        },
-        success: function(d){
-            alert(d);
-            document.getElementById('strp_ad_fm').reset();
-            $('.nws-err').text('');
-        },
-     });
-      
-  });
-  
-  $('#nws-lst').on('click', '.nws-strp', function(e){
-      e.preventDefault();
-      
-      $.ajax({
-          url: 'index/fltrnws',
-          method: 'post',
-          'data': {'cnt': $(this).data('cnt'),
-                    'tp': $(this).data('tp')},
-           success: function(data){
-               var d = JSON.parse(data);
-             if(d.length < 20){
-                 $('#back-btn').show();
-                 $('#nws-ldmre-btn').hide();
-             }
-             if(d.length != 0){
-             $('#nws-lst').html('');
-             var c = 0;
-             for (var i=0; i<d.length; i++){
-                 var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
-                 if(c >= 4){
-                     c = 0;
-                 }
-                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
-                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
-                    var x = new Date(d[i]._news_pubtime*1000) + "";
-                    html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
-                    html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
-                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"<a/> on "+x.substr(4,12)+"</i></p>";
-                    html += "</div><div class='clearfix'></div></li>";
-                    $('#nws-lst').append(html);
-                    c++;
-            }
-           }
-       }
-      })
-      
-  });
-  
-  $('#nws-fltr-optn').change(function(){
-     var slctd = $('#nws-fltr-optn option:selected').data('slct');
-     if(slctd == 'date'){
-                $('#flter_sub_sctn').html('');
-                var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="butn btn-primary" id="tme-fltr-btn" style="margin-top: -1px; margin-left: 8px;">Go</button>';
-                $('#flter_sub_sctn').append(html);
-                return;
-            }
-     $.ajax({
-        url: 'index/fltroptns',
-        method: 'post',
-        data: {'slctd': slctd},
-        success: function(data){
-            var d = JSON.parse(data);
-            if(slctd == 'src'){
-                $('#flter_sub_sctn').html('');
-                var html = '<select id="'+slctd+'_suboptns">';
-                html += '<option>Select</option>';
-                for(var i=0; i<d.length; i++){
-                   html += '<option data-sub="'+d[i]['_news_src']+'" data-tp="nwssrc">'+d[i]['_news_src']+'</option>'
-            }
-                        html +='</select>';
-                $('#flter_sub_sctn').append(html);
-            }
-            else if(slctd == 'strtp'){
-                $('#flter_sub_sctn').html('');
-                var html = '<select id="'+slctd+'_suboptns">';
-                 html += '<option>Select</option>';
-                for(var i=0; i<d.length; i++){
-                   html += '<option data-sub="'+d[i]['_news_addedby']+'" data-tp="strtp">'+d[i]['_news_addedby']+'</option>'
-            }
-                        html +='</select>';
-                $('#flter_sub_sctn').append(html);
-            }
-            else if(slctd == 'tp'){
-                $('#flter_sub_sctn').html('');
-                var html = '<select id="'+slctd+'_suboptns">';
-                html += '<option>Select</option>';
-                for(var i=0; i<d.length; i++){
-                   html += '<option data-sub="'+d[i]['_news_type']+'" data-tp="nwstype">'+d[i]['_news_type']+'</option>'
-            }
-                        html +='</select>';
-                $('#flter_sub_sctn').append(html);
-            }
-            
+        source: function (request, response) {
+            $.ajax({
+                url: "index/strtpsrch",
+                method: 'post',
+                data: {
+                    kwd: request.term
+                },
+                success: function (data) {
+                    var data = JSON.parse(data);
+                    if (data.length == 0) {
+                        $('.no-strtp').css({'display': 'block', 'color': 'red'});
+                    } else {
+                        $('.no-strtp').css({'display': 'none', 'color': 'red'});
+                    }
+                    $(".ui-autocomplete").addClass('srch');
+                    response($.map(data, function (item, i) {
+                        return{
+                            label: item._name_,
+                            id: item.id
+                        }
+                    }));
+
+                }
+            });
         }
-     });
-  });
-  
-  $('#flter_sub_sctn').on('change, click', 'select, #tme-fltr-btn', function(e){
-      
-      if($(this).attr('id') == 'tme-fltr-btn'){
-          var slctd = $('#flter_sub_sctn').find('.date-sclet').val();
-          var tp = $('#flter_sub_sctn .date-sclet' ).data('tp');
-      }else{
-          var slctd = $('#flter_sub_sctn option:selected' ).data('sub');
-          var tp = $('#flter_sub_sctn option:selected' ).data('tp');
-      }
-          
-      
-      $.ajax({
-          url: 'index/fltrnws',
-          method: 'post',
-          data: {'tp': tp, 'cnt': slctd},
-          success: function(data){
-              var d = JSON.parse(data);
-             if(d.length < 20){
-                 $('#back-btn').show();
-                 $('#nws-ldmre-btn').hide();
-             }
-             if(d.length != 0){
-             $('#nws-lst').html('');
-             var c = 0;
-             for (var i=0; i<d.length; i++){
-                 var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
-                 if(c >= 4){
-                     c = 0;
-                 }
-                var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:"+colours[c]+"'>";
-                    html += "<h1><a href='#' data-cnt="+d[i]._news_addedby+" data-tp='strtp' class='nws-strp'>"+d[i]._news_addedby+"</a></h1><p class='athr'><i>In: <a href='#' data-cnt='"+d[i]._news_type+"' data-tp='nwstype' class='nws-strp'>"+d[i]._news_type+"</a></i></p>";
-                    var x = new Date(d[i]._news_pubtime*1000) + "";
-                    html += "</div><h2 class='s-h'><a href='"+d[i]._news_link+"' target='_blank'>"+d[i]._news_hdlne+"</a></h2>";
-                    html += "<p class='dsc'>"+d[i]._news_smry+"</p>";
-                    html += "<a href='"+d[i]._news_link+"' target='_blank' class='rd-mre'>Read more..</a>";
-                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='"+d[i]._news_src+"' data-tp='nwssrc' class='nws-strp'>"+d[i]._news_src+"<a/> on "+x.substr(4,12)+"</i></p>";
+    });
+
+
+
+    $('.ad-nws-navg').click(function () {
+
+        if ($('.ad-nws').hasClass('ad-nww-clps')) {
+            $('.ad-nws').removeClass('ad-nww-clps');
+            $(this).find('i').removeClass('icon-plus-circle').addClass('icon-remove-circle');
+            $(this).css({'left': '0'});
+        } else {
+            $('.ad-nws').addClass('ad-nww-clps');
+            $(this).find('i').removeClass('icon-remove-circle').addClass('icon-plus-circle');
+            $(this).css({'left': '-38px'});
+        }
+    });
+
+    $('#nws-ldmre-btn').click(function () {
+
+        $.ajax({
+            url: 'index/getnws',
+            'type': 'post',
+            data: {'cnt': $('#nws-lst li').length},
+            success: function (data) {
+                var d = JSON.parse(data);
+                if (d == 0) {
+                    $('#nws-ldmre-btn').fadeOut('slow');
+                }
+                var c = 0;
+                for (var i = 0; i < d.length; i++) {
+                    var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
+                    if (c >= 4) {
+                        c = 0;
+                    }
+                    var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:" + colours[c] + "'>";
+                    html += "<h1><a href='#' data-cnt=" + d[i]._news_addedby + " data-tp='strtp' class='nws-strp'>" + d[i]._news_addedby + "</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='" + d[i]._news_type + "' data-tp='nwstype' class='nws-strp'>" + d[i]._news_type + "</a></i></p>";
+                    var x = new Date(d[i]._news_pubtime * 1000) + "";
+                    html += "</div><h2 class='s-h'><a href='" + d[i]._news_link + "' target='_blank'>" + d[i]._news_hdlne + "</a></h2>";
+                    html += "<p class='dsc'>" + d[i]._news_smry + "</p>";
+                    html += "<a href='" + d[i]._news_link + "' target='_blank' class='rd-mre'>Read more..</a>";
+                    html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='" + d[i]._news_src + "' data-tp='nwssrc' class='nws-strp'>" + d[i]._news_src + "<a/> on " + x.substr(4, 12) + "</i></p>";
                     html += "</div><div class='clearfix'></div></li>";
                     $('#nws-lst').append(html);
                     c++;
+                }
+
             }
-           }else{
-               $('#nws-lst').html("<h2>We coudnt find any stroies</h2>");
-           }
-          }
-      })
-  });
-
-
-  $("#flter_sub_sctn" ).on('focus', '.date-sclet', function(){
-    $(this).datepicker({dateFormat: 'dd-mm-yy', minDate: new Date(1999, 10 - 1, 25)});
-  });
- 
-    $('body').on('click', '#contact-fab', function(){
-        $('#contact-fab').floatingAction();
+        })
     });
-    
-    $('.pg').on('click', '.nws-clps', function(){
-        if($(this).height() < 40){
-        if($(this).index() == 0){
-            var hght = '440px';
-        }else{
-            var hght = '640px';
-        };
-        $(this).find('h2').addClass('clps-actv');
-        $(this).find('h2').children('i').removeClass('icon-chevron-down').addClass('icon-chevron-up');
-        $(this).children().css({'opacity': '1'});
-        $(this).css({'height': hght, 'border-top-left-radius': '4px', 'border-top-right-radius': '4px'});
-        $(this).siblings('.nws-clps').css({'height': '39px', 'overflow': 'hidden', 'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
-        $(this).siblings('.nws-clps').find('h2').removeClass('clps-actv');
-        $(this).siblings('.nws-clps').find('h2').children('i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
-        $(this).siblings('.nws-clps').find('h2').css({'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
-    }else{
-//        $(this).find('h2').removeClass('clps-actv').css({'padding-bottom': '0px'});
-//        $(this).find('h2').children('i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
-//        $(this).children().css({'opacity': '1'});
-//        $(this).css({'height': 38, 'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
-    }
-      });
-      
-       $('body').on('click', 'button, .media', function (e) {
+
+    $('#add-strp-btn').click(function (e) {
+        e.preventDefault();
+        var nme = $('#strp-nme').val().trim();
+        var site = $('#strp-site').val().trim();
+        var fundrs = $('#strp-fundrs').val().trim();
+        var poccnt = $('#strp-poccnt').val().trim();
+        var pocphne = $('#strp-pocphne').val().trim();
+        var poceml = $('#strp-poceml').val().trim();
+        var ofceadrs = $('#strp-ofcadrs').val().trim();
+        var desc = $('#strp-desc').val().trim();
+        var emRegx = /^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/;
+        var regx = new RegExp(emRegx);
+        if (nme == '') {
+            $('.nws-err').text('Startup name cannot be empty');
+            return;
+        }
+        else if (site == '') {
+            $('.nws-err').text('Startup Website cannot be empty');
+            return;
+        }
+        else if (fundrs == '') {
+            $('.nws-err').text('Startup founders name cannot be empty');
+            return;
+        }
+        else if (poccnt == '') {
+            $('.nws-err').text('Startup contact name cannot be empty');
+            return;
+        }
+        else if (pocphne == '') {
+            $('.nws-err').text('Startup phone no cannot be empty');
+            return;
+        }
+        else if (poceml == '') {
+            $('.nws-err').text('Startup contact email cannot be empty');
+            return;
+        }
+        else if (!emRegx.test(poceml)) {
+            $('.nws-err').text('Please enter valid email');
+            return;
+        }
+        else if (ofceadrs == '') {
+            $('.nws-err').text('Startup address cannot be empty');
+            return;
+        }
+
+        $.ajax({
+            url: 'index/addstrp',
+            method: 'post',
+            data: {
+                'name': nme,
+                'site': site,
+                'fundrs': fundrs,
+                'poccnt': poccnt,
+                'pocphne': pocphne,
+                'poceml': poceml,
+                'ofceadrs': ofceadrs,
+                'desc': desc,
+            },
+            success: function (d) {
+                alert(d);
+                document.getElementById('strp_ad_fm').reset();
+                $('.nws-err').text('');
+            },
+        });
+
+    });
+
+    $('#nws-lst').on('click', '.nws-strp', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: 'index/fltrnws',
+            method: 'post',
+            'data': {'cnt': $(this).data('cnt'),
+                'tp': $(this).data('tp')},
+            success: function (data) {
+                var d = JSON.parse(data);
+                if (d.length < 20) {
+                    $('#back-btn').show();
+                    $('#nws-ldmre-btn').hide();
+                }
+                if (d.length != 0) {
+                    $('#nws-lst').html('');
+                    var c = 0;
+                    for (var i = 0; i < d.length; i++) {
+                        var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
+                        if (c >= 4) {
+                            c = 0;
+                        }
+                        var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:" + colours[c] + "'>";
+                        html += "<h1><a href='#' data-cnt=" + d[i]._news_addedby + " data-tp='strtp' class='nws-strp'>" + d[i]._news_addedby + "</a></h1><p class='athr'><i>Type: <a href='#' data-cnt='" + d[i]._news_type + "' data-tp='nwstype' class='nws-strp'>" + d[i]._news_type + "</a></i></p>";
+                        var x = new Date(d[i]._news_pubtime * 1000) + "";
+                        html += "</div><h2 class='s-h'><a href='" + d[i]._news_link + "' target='_blank'>" + d[i]._news_hdlne + "</a></h2>";
+                        html += "<p class='dsc'>" + d[i]._news_smry + "</p>";
+                        html += "<a href='" + d[i]._news_link + "' target='_blank' class='rd-mre'>Read more..</a>";
+                        html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='" + d[i]._news_src + "' data-tp='nwssrc' class='nws-strp'>" + d[i]._news_src + "<a/> on " + x.substr(4, 12) + "</i></p>";
+                        html += "</div><div class='clearfix'></div></li>";
+                        $('#nws-lst').append(html);
+                        c++;
+                    }
+                }
+            }
+        })
+
+    });
+
+    $('#nws-fltr-optn').change(function () {
+        var slctd = $('#nws-fltr-optn option:selected').data('slct');
+        if (slctd == 'date') {
+            $('#flter_sub_sctn').html('');
+            var html = '<input type="text" placeholder="Select date" class="date-sclet" data-tp="nwsdate"><button class="butn btn-primary" id="tme-fltr-btn" style="margin-top: -1px; margin-left: 8px;">Go</button>';
+            $('#flter_sub_sctn').append(html);
+            return;
+        }
+        $.ajax({
+            url: 'index/fltroptns',
+            method: 'post',
+            data: {'slctd': slctd},
+            success: function (data) {
+                var d = JSON.parse(data);
+                if (slctd == 'src') {
+                    $('#flter_sub_sctn').html('');
+                    var html = '<select id="' + slctd + '_suboptns">';
+                    html += '<option>Select</option>';
+                    for (var i = 0; i < d.length; i++) {
+                        html += '<option data-sub="' + d[i]['_news_src'] + '" data-tp="nwssrc">' + d[i]['_news_src'] + '</option>'
+                    }
+                    html += '</select>';
+                    $('#flter_sub_sctn').append(html);
+                }
+                else if (slctd == 'strtp') {
+                    $('#flter_sub_sctn').html('');
+                    var html = '<select id="' + slctd + '_suboptns">';
+                    html += '<option>Select</option>';
+                    for (var i = 0; i < d.length; i++) {
+                        html += '<option data-sub="' + d[i]['_news_addedby'] + '" data-tp="strtp">' + d[i]['_news_addedby'] + '</option>'
+                    }
+                    html += '</select>';
+                    $('#flter_sub_sctn').append(html);
+                }
+                else if (slctd == 'tp') {
+                    $('#flter_sub_sctn').html('');
+                    var html = '<select id="' + slctd + '_suboptns">';
+                    html += '<option>Select</option>';
+                    for (var i = 0; i < d.length; i++) {
+                        html += '<option data-sub="' + d[i]['_news_type'] + '" data-tp="nwstype">' + d[i]['_news_type'] + '</option>'
+                    }
+                    html += '</select>';
+                    $('#flter_sub_sctn').append(html);
+                }
+
+            }
+        });
+    });
+
+    $('#flter_sub_sctn').on('change, click', 'select, #tme-fltr-btn', function (e) {
+
+        if ($(this).attr('id') == 'tme-fltr-btn') {
+            var slctd = $('#flter_sub_sctn').find('.date-sclet').val();
+            var tp = $('#flter_sub_sctn .date-sclet').data('tp');
+        } else {
+            var slctd = $('#flter_sub_sctn option:selected').data('sub');
+            var tp = $('#flter_sub_sctn option:selected').data('tp');
+        }
+
+
+        $.ajax({
+            url: 'index/fltrnws',
+            method: 'post',
+            data: {'tp': tp, 'cnt': slctd},
+            success: function (data) {
+                var d = JSON.parse(data);
+                if (d.length < 20) {
+                    $('#back-btn').show();
+                    $('#nws-ldmre-btn').hide();
+                }
+                if (d.length != 0) {
+                    $('#nws-lst').html('');
+                    var c = 0;
+                    for (var i = 0; i < d.length; i++) {
+                        var colours = ['darkseagreen', 'bisque', 'tomato', 'slategrey'];
+                        if (c >= 4) {
+                            c = 0;
+                        }
+                        var html = "<li><div class='nws-dsc bx'><div class='tl-dt' style='background-color:" + colours[c] + "'>";
+                        html += "<h1><a href='#' data-cnt=" + d[i]._news_addedby + " data-tp='strtp' class='nws-strp'>" + d[i]._news_addedby + "</a></h1><p class='athr'><i>In: <a href='#' data-cnt='" + d[i]._news_type + "' data-tp='nwstype' class='nws-strp'>" + d[i]._news_type + "</a></i></p>";
+                        var x = new Date(d[i]._news_pubtime * 1000) + "";
+                        html += "</div><h2 class='s-h'><a href='" + d[i]._news_link + "' target='_blank'>" + d[i]._news_hdlne + "</a></h2>";
+                        html += "<p class='dsc'>" + d[i]._news_smry + "</p>";
+                        html += "<a href='" + d[i]._news_link + "' target='_blank' class='rd-mre'>Read more..</a>";
+                        html += "<p class='dsc' style='display: inline-block'><i>Published by <a href='#' data-cnt='" + d[i]._news_src + "' data-tp='nwssrc' class='nws-strp'>" + d[i]._news_src + "<a/> on " + x.substr(4, 12) + "</i></p>";
+                        html += "</div><div class='clearfix'></div></li>";
+                        $('#nws-lst').append(html);
+                        c++;
+                    }
+                } else {
+                    $('#nws-lst').html("<h2>We coudnt find any stroies</h2>");
+                }
+            }
+        })
+    });
+
+
+    $("#flter_sub_sctn").on('focus', '.date-sclet', function () {
+        $(this).datepicker({dateFormat: 'dd-mm-yy', minDate: new Date(1999, 10 - 1, 25)});
+    });
+
+    $(".nws-clps").on('focus', '.date-sclet', function () {
+        $(this).datepicker({dateFormat: 'dd-mm-yy', minDate: new Date(1999, 10 - 1, 25)});
+    });
+    $('body').on('click', '#contact-fab', function () {
+        $('body').addClass("floated");
+    });
+
+    $('#btn-fill-cancel').click(function(){
+        $('body').addClass("defloat").delay(400).queue(function(next){
+            $('body').removeClass("defloat").removeClass("floated");
+            next();
+          });
+    });
+    $('.pg').on('click', '.nws-clps', function (e) {
+        if ($(this).height() < 40) {
+            if ($(this).index() == 0) {
+                var hght = '440px';
+            } else {
+                var hght = '640px';
+            }
+            ;
+            $(this).find('h2').addClass('clps-actv');
+            $(this).find('h2').children('i').removeClass('icon-chevron-down').addClass('icon-chevron-up');
+            $(this).children().css({'opacity': '1'});
+            $(this).css({'height': hght, 'border-top-left-radius': '4px', 'border-top-right-radius': '4px'});
+            $(this).siblings('.nws-clps').css({'height': '40px', 'overflow': 'hidden', 'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
+            $(this).siblings('.nws-clps').find('h2').removeClass('clps-actv');
+            $(this).siblings('.nws-clps').find('h2').children('i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
+            $(this).siblings('.nws-clps').find('h2').css({'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
+        } else {
+            if ($(event.target).prop("class") == 'clps-actv') {
+                $(this).find('h2').removeClass('clps-actv').css({'padding-bottom': '0px'});
+                $(this).find('h2').children('i').removeClass('icon-chevron-up').addClass('icon-chevron-down');
+                $(this).children().css({'opacity': '1'});
+                $(this).css({'height': '40px', 'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
+            }
+        }
+    });
+
+    $('body').on('click', 'button, .media', function (e) {
         var $this = $(this);
-        var parent = $this.parent()
+        var parent = $this.parent();
         var color = $this.css('color');
         if ($this.find(".rippl").length == 0) {
             $this.append("<span class='rippl'></span>");
@@ -755,9 +775,9 @@ $(document).ready(function () {
         var y = e.pageY - $this.offset().top - rpl.height() / 2;
         rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
     });
-    
-    
-      $('body').on('focus', 'input, textarea', function (e) {
+
+
+    $('body').on('focus', 'input, textarea', function (e) {
         var $this = $(this);
         var parent = $this.parent('.inpt-prnt');
         var color = "#009587";
@@ -771,82 +791,110 @@ $(document).ready(function () {
         if (!rpl.height() && !rpl.width())
         {
             var d = Math.max($this.outerWidth(), $this.outerHeight());
-           rpl.css({height: "2.2px", width: d});
+            rpl.css({height: "2.2px", width: d});
         }
-        
-        var x =  $this.width() / 1;
-        var y =  parent.height()-10;
+
+        var x = $this.width() / 1;
+        var y = parent.height() - 10;
         rpl.css({'background-color': color, 'opacity': '1'}).addClass("animate");
-        if($this.prop("tagName") == "TEXTAREA"){
+        if ($this.prop("tagName") == "TEXTAREA") {
             rpl.css({'margin-top': '    -4px'})
         }
-                setTimeout(function () {
-                  rpl.css({'-webkit-transform': 'scale(1)'});
-                }, 500);
+        setTimeout(function () {
+            rpl.css({'-webkit-transform': 'scale(1)'});
+        }, 500);
     });
-    
+
     $('body').on('focusout', 'input, textarea', function (e) {
         $('.inpt-prnt').find('span').remove();
 //        alert();
     });
-      
-      // @selected menu background changing
-      var p = location.pathname.split("/")[1];
-        var mn = $('.media[data-pg="'+p+'"]');
-            mn.addClass('mnu-activ');
-      
-      // @input box metaril effect
-        $('textarea').wrap('<div class="inpt-prnt">');
-        $('body').find('input').wrap('<div class="inpt-prnt">');
-        
-    $('#contact-form').on('click', '#cnt-send', function(){
+
+    // @selected menu background changing
+    var p = location.pathname.split("/")[1];
+    var mn = $('.media[data-pg="' + p + '"]');
+    mn.addClass('mnu-activ');
+
+    // @input box metaril effect
+    $('textarea').wrap('<div class="inpt-prnt">');
+    $('body').find('input').wrap('<div class="inpt-prnt">');
+
+    $('#contact-form').on('click', '#cnt-send', function () {
         var eml = $('#contact-email');
         var nme = $('#contact-name');
         var sub = $('#contact-subject');
         var msg = $('#contact-message');
         var emlRegx = /^[a-z0-9_\+-]+(\.[a-z0-9_\+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,4})$/;
 
-      if(eml.val().trim() == ''){
-          $('#contact-form').find('.nws-err').text('Email cannot be empty');
-          eml.focus();
-          eml.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
-          return;
-      }
-      else if(!emlRegx.test(eml.val().trim())){
-          $('#contact-form').find('.nws-err').text('Please enter valid email');
-          eml.focus();
-          eml.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
-          return;
-      }
-      else if(nme.val().trim() == ''){
-          $('#contact-form').find('.nws-err').text('Name cannot be empty');
-          nme.focus();
-          nme.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
-          return;
-      }
-      else if(msg.val().trim() == ''){
-          $('#contact-form').find('.nws-err').text('Need a message to respond');
-          msg.focus();
-          msg.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red',});
-          return;
-      }
-      
-      $.ajax({
-           url: 'index/cntsbmt',
-           method: 'post',
-           data: {'eml': eml.val(), 'nme': nme.val(), 'sub': sub.val(), 'msg': msg.val()},
-           success: function(d){
-               if(d == '-1'){
-                   alert('Email requred for submit a form');
-               }else{
-               alert(d);
-               setTimeout(function () {
-                  window.location.reload();
-                }, 500);
+        if (eml.val().trim() == '') {
+            $('#contact-form').find('.nws-err').text('Email cannot be empty');
+            eml.focus();
+            eml.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red', });
+            return;
+        }
+        else if (!emlRegx.test(eml.val().trim())) {
+            $('#contact-form').find('.nws-err').text('Please enter valid email');
+            eml.focus();
+            eml.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red', });
+            return;
+        }
+        else if (nme.val().trim() == '') {
+            $('#contact-form').find('.nws-err').text('Name cannot be empty');
+            nme.focus();
+            nme.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red', });
+            return;
+        }
+        else if (msg.val().trim() == '') {
+            $('#contact-form').find('.nws-err').text('Need a message to respond');
+            msg.focus();
+            msg.parent('.inpt-prnt').find('.input-ripple').css({'background-color': 'red', });
+            return;
+        }
+
+        $.ajax({
+            url: 'index/cntsbmt',
+            method: 'post',
+            data: {'eml': eml.val(), 'nme': nme.val(), 'sub': sub.val(), 'msg': msg.val()},
+            success: function (d) {
+                if (d == '-1') {
+                    alert('Email requred for submit a form');
+                } else {
+                    alert(d);
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                }
             }
-           }
         });
-    
+
     });
-        
+
+    (function ($) {
+
+        $.fn.floatingAction = function (options) {
+    var defaults = {
+      hover: true
+    }
+    options = $.extend(defaults, options);
+    this.each(function(){
+      var origin = $(this);
+//      var body = $("body");
+      var activates = $("#"+ origin.attr('data-activates'));
+      var cancel = activates.find(".cancel");
+      origin.click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+          body.addClass("floated");
+        cancel.click(function(){
+          body.addClass("defloat").delay(400).queue(function(next){
+            $(this).removeClass("defloat").removeClass("floated");
+            next();
+          });
+        });
+      });
+    });
+  };
+    }(jQuery));
+    ;
 });
+
